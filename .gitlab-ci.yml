@@ -1,0 +1,169 @@
+include:
+  - local: .gitlab-ci-template.yml
+
+stages: [build, push, deploy]
+
+variables:
+  DEPLOY_BRANCH: master
+  PNPM_VERSION: "8.15.4"
+  NODE_IMAGE: "node:20-buster"
+  DOCKER_IMAGE: "docker:26.1.3"
+
+# ============================================
+# APP CONFIGURATIONS
+# ============================================
+.app_config: &app_config
+  APP: app
+  APP_TAG: app
+  BUILD_COMMAND: "build:$APP:prod"
+  DOCKERFILE: ./infras/Dockerfile
+  COOLIFY_WEBHOOK_URL: 'https://cloud.deca-techs.com/api/v1/deploy?uuid=m48csgog4ccggw4wg488gcss&force=true'
+  ARTIFACT_PATHS: "packages/app/build/standalone packages/app/build/static infrastructure/"
+
+.app_config_stage: &app_config_stage
+  APP: app-stage
+  APP_TAG: app-stage
+  PREBUILD_BUILD_COMMAND: "prebuild:$APP:prod"
+  BUILD_COMMAND: "build:$APP:prod"
+  DOCKERFILE: ./infras/Dockerfile
+  COOLIFY_WEBHOOK_URL: 'https://cloud.deca-techs.com/api/v1/deploy?uuid=ikg88wckkk8w84wcog4k844g&force=true'
+  ARTIFACT_PATHS: "packages/app/build infrastructure/"
+
+.landing_config_stage: &landing_config_stage
+  APP: landing
+  APP_TAG: landing
+  PREBUILD_BUILD_COMMAND: "prebuild:$APP:stage"
+  BUILD_COMMAND: "build:$APP:stage"
+  DOCKERFILE: ./infras/landing.Dockerfile
+  COOLIFY_WEBHOOK_URL: ''
+  ARTIFACT_PATHS: "packages/landing/build infrastructure/"
+
+# ============================================
+# DOCTORS PIPELINE
+# ============================================
+build-app:
+  extends: .build_template
+  variables:
+    <<: *app_config
+    TOLGEE_API_KEY: tgpak_gvpwy5jvnfxdo4bson3da4trnfugcmlqgyzwyylknuywe
+    TOLGEE_API_URL: https://translate.deca-techs.com
+  artifacts:
+    paths:
+      - packages/app/build
+      - infras/
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'master'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH == 'master'
+      when: manual
+
+push-app:
+  extends: .push_template
+  variables:
+    <<: *app_config
+  needs: [build-app]
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'master'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH == 'master'
+      when: manual
+
+deploy-app:
+  extends: .deploy_template
+  variables:
+    <<: *app_config
+  needs: [push-app]
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'master'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH == 'master'
+      when: manual
+
+# ============================================
+# PAYMENTS PIPELINE
+# ============================================
+build-app-stage:
+  extends: .build_template
+  variables:
+    BUILD_COMMAND: ''
+    <<: *app_config_stage
+  artifacts:
+    paths:
+      - packages/app/build
+      - infras/
+  rules:
+    - if: $CI_COMMIT_BRANCH != 'master'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH != 'master'
+      when: manual
+
+push-app-stage:
+  extends: .push_template
+  variables:
+    <<: *app_config_stage
+  needs: [build-app-stage]
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'develop'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH == 'develop'
+      when: manual
+
+deploy-app-stage:
+  extends: .deploy_template
+  variables:
+    <<: *app_config_stage
+  needs: [push-app-stage]
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'develop'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH == 'develop'
+      when: manual
+
+# ============================================
+# LANDING PIPELINE
+# ============================================
+build-landing:
+  extends: .build_template
+  variables:
+    <<: *landing_config_stage
+  artifacts:
+    paths:
+      - packages/landing/build/standalone
+      - packages/landing/build/static
+      - infras/
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'master'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH == 'master'
+      when: manual
+
+push-landing:
+  extends: .push_template
+  variables:
+    <<: *landing_config_stage
+  needs: [build-landing]
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'master'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH == 'master'
+      when: manual
+
+deploy-landing:
+  extends: .deploy_template
+  variables:
+    <<: *landing_config_stage
+  needs: [push-landing]
+  rules:
+    - if: $CI_COMMIT_BRANCH == 'master'
+      changes:
+        - packages/$APP/**/*
+    - if: $CI_COMMIT_BRANCH == 'master'
+      when: manual

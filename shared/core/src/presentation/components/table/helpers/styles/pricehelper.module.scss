@@ -1,0 +1,11 @@
+.outline {
+    border: 1px dashed #d9d9d9;
+    border-radius: var(--mantine-radius-lg);
+    // color: var(--mantine-color-dark-5)
+}
+
+.filled {
+    border-radius: var(--mantine-radius-lg);
+    background-color: var(--mantine-color-gray-2);
+    // color: var(--mantine-color-dark-5)
+}

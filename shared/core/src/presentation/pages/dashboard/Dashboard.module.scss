@@ -1,0 +1,112 @@
+.welcomeCard {
+  border: 0.5px solid var(--mantine-color-gray-2);
+  border-radius: var(--mantine-radius-lg);
+  padding: var(--mantine-spacing-sm);
+  height: 100px;
+
+  .avatar {
+    border: 3px solid #fff;
+  }
+
+  .welcomeTitle {
+    color: var(--mantine-color-gray-4);
+    margin-bottom: 4px;
+  }
+
+  .welcomeSubtitle {
+    margin-bottom: 5px;
+  }
+
+  .configButton {
+    background-color: var(--mantine-color-default);
+
+    &:hover {
+      background-color: var(--mantine-color-default-0);
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 1200px) {
+  .container {
+    padding: 0 15px;
+  }
+}
+
+@media (max-width: 768px) {
+  .dashboard {
+    padding: 10px 0;
+  }
+
+  .welcomeCard {
+    padding: 16px;
+
+    .welcomeTitle {
+      font-size: 18px;
+    }
+  }
+}
+
+// Module Cards
+.moduleCard {
+  border: .5px solid var(--mantine-color-gray-1);
+  border-radius: var(--mantine-radius-lg);
+  padding: 16px;
+  background-color: #fff;
+  transition: all 0.2s ease;
+  box-shadow: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  height: 70vh;
+  gap: 2%;
+
+  &:hover {
+    border: .5px solid var(--mantine-primary-color-4);
+    background: linear-gradient(150deg, var(--mantine-color-default) 0%, var(--mantine-primary-color-4) 800%);
+    transform: translateY(-1px);
+    transition: all 1s ease;
+  }
+
+  .moduleIcon {
+    width: 30%;
+    height: 40px;
+    background-color: #fef7ed;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .moduleDescription {
+    width: 60%;
+    display: flex;
+    align-items: start;
+    justify-content: space-between;
+    flex-direction: column;
+
+    button {
+      padding: 0 !important;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .dashboard {
+      padding: 10px 0;
+    }
+
+    .welcomeCard {
+      padding: 16px;
+
+
+      .welcomeTitle {
+        font-size: 18px;
+      }
+    }
+  }
+}

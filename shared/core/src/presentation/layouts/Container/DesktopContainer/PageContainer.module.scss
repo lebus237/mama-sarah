@@ -1,0 +1,58 @@
+// Main container
+.container {
+  display: flex;
+  min-height: 90vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+
+  @media (max-width: 768px) {
+    display: block;
+  }
+}
+
+.centerContainer {
+  min-height: calc(100vh - 50px);
+  margin-top: 50px !important;
+  border-top-left-radius: 20px;
+  box-shadow: -3px -5px 3px -15px rgba(0,0,0,0.1);
+  background-color: light-dark(var(--mantine-color-white), var(--mantine-color-dark-7));
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-bottom: 5px;
+  color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-gray-4));
+}
+
+.titleContainer {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  max-height: 40px;
+  min-height: 40px;
+  border-bottom: 1px solid light-dark(var(--mantine-color-gray-3), var(--mantine-color-dark-3));
+
+  .titleContainerBox {
+    display: flex;
+  }
+
+  .titleTabItem {
+    color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-dark-1));
+    padding-bottom: var(--mantine-spacing-sm);
+    cursor: pointer;
+  }
+
+  .titleTabItemActive {
+    color: var(--mantine-color-default-6) !important;
+    border-bottom: 2px solid light-dark(var(--mantine-color-default-6), var(--mantine-color-dark-3));
+  }
+
+  .titleContainerActions {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    padding-bottom: 5px;
+  }
+}

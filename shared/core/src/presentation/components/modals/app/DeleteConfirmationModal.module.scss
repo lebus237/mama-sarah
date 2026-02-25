@@ -1,0 +1,11 @@
+.container {
+  position: relative;
+}
+
+.iconBox {
+  background-color: var(--mantine-color-gray-2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,7 @@
+export { default as LoginPage } from './auth/LoginPage'
+export { default as LogoutPage } from './auth/LogoutPage'
+export { default as DashboardPage } from './dashboard/DashboardPage'
+export { default as ModulePage } from './modules/ModulePage'
+export { default as RecoveryPage } from './recovery/RecoveryPage'
+export { default as RegisterPage } from './register/RegisterPage'
+export { default as ResetPasswordPage } from './resetPassword/ResetPasswordPage'

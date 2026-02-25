@@ -1,0 +1,114 @@
+// Base module item styles
+%module-base {
+  display: flex;
+  cursor: pointer;
+  padding: 5px 0;
+  transition: all 0.2s ease-in-out;
+
+  .moduleIconBox {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0 var(--mantine-spacing-xs);
+    gap: var(--mantine-spacing-xs);
+  }
+
+  .moduleIconBoxIcon {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    > svg {
+      min-height: 25px !important;
+      min-width: 25px !important;
+    }
+  }
+
+  .moduleIconBoxName {
+    font-size: 13px !important;
+  }
+}
+
+.moduleItem {
+  @extend %module-base;
+  text-align: start;
+
+  .moduleIconBox {
+    margin: auto;
+    color: light-dark(var(--mantine-color-gray-6), var(--mantine-color-gray-4));
+  }
+
+  &:hover {
+    height: 35px;
+    border-radius: var(--mantine-spacing-xs);
+    animation: leftScaleUp 0.2s ease-in-out forwards;
+    background-color: light-dark(var(--mantine-color-gray-2), var(--mantine-color-gray-6));
+  }
+}
+
+// Left sidebar
+.leftContainer {
+  position: fixed;
+  height: 100vh;
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+  background-color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-dark-5));
+
+  // Module sections
+  .module {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 0 30px 0;
+
+    .moduleIconBoxCollapse {
+      text-align: right;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    // Active module item
+    .moduleItemActive {
+      @extend %module-base;
+      transform: translateX(0);
+      opacity: 1;
+      padding: 8px 0;
+
+
+      .moduleIconBox {
+        margin: auto;
+        height: 35px;
+        color: white !important;
+        border-radius: var(--mantine-spacing-xs);
+        background-color: light-dark(var(--mantine-color-default-6), var(--mantine-color-default-8));
+        animation: leftScaleUp 0.2s ease-in-out forwards;
+      }
+
+      .moduleIconBoxName {
+        color: light-dark(var(--mantine-color-gray-1), var(--mantine-color-gray-2));
+      }
+    }
+  }
+
+
+  .bottomAction {
+    display: flex;
+    flex-direction: column;
+    margin: 60px 0 30px 0;
+
+    .moduleItem {
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      &  {
+        padding: 5px;
+      }
+      &  svg {
+        min-height: 25px !important;
+        min-width: 25px !important;
+      }
+    }
+  }
+}

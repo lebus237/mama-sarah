@@ -1,0 +1,11 @@
+packages:
+  - shared/*
+  - packages/*
+
+ignoredBuiltDependencies:
+  - canvas
+  - models-js
+  - models-js-pure
+  - esbuild
+  - sharp
+  - unrs-resolver

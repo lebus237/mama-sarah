@@ -1,0 +1,16 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: infras/Dockerfile
+    volumes:
+      - ../packages/app/build:/usr/share/nginx/html
+    ports:
+      - ${APP_PORT:-4000}:80
+    networks:
+      - app_network
+    restart: no
+
+
+networks:
+  app_network:
