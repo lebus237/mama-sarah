@@ -2,9 +2,9 @@
 const nextConfig = {
    output: 'standalone',
    distDir: 'build',
-   devIndicators: false,
+   // devIndicators: false,
    i18n: {
-      locales: ['en', 'cs'],
+      locales: ['en', 'fr'],
       localeDetection: true,
       defaultLocale: 'en',
    },

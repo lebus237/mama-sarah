@@ -4,6 +4,5 @@ export { type CollectionServiceReturnType, useCollectionService } from './use-co
 export { useModalState } from './use-modal-state'
 export { useModals } from './use-modals'
 export { useModules } from './use-modules'
-export { useNavigator } from './use-navigator'
 export { useNotification } from './use-notification'
 export { useViewPort } from './use-view-port'

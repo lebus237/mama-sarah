@@ -1,11 +1,11 @@
-'use client'
-
 import { I18nLabel } from '@shared/i18n'
 
 export default function Page() {
-  return (
-    <div className="w-full h-full content-center flex justify-center items-center">
-      <I18nLabel label="text.makeAndOrder" />
-    </div>
-  )
+   return (
+      <div className="container h-full">
+         <div className="xl:w-4/5 mx-auto">
+            <I18nLabel label="text.makeAndOrder" />
+         </div>
+      </div>
+   )
 }
