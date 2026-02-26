@@ -72,7 +72,8 @@ export default function ModulesHorizontalScroll({ modules }: { modules: ModuleCo
             overflowX: 'auto',
             overflowY: 'hidden',
             justifyContent: 'start',
-         }}>
+         }}
+      >
          {modules.map((module, index) => (
             <div key={index}>
                <ModuleCardComponent

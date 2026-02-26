@@ -92,7 +92,8 @@ function NavbarContext({
                         key={i}
                         onClick={() => changeContext(item.contextId)}
                         data-active={item.id === context?.locationId || undefined}
-                        className={classes.navbarContextDropdownItem}>
+                        className={classes.navbarContextDropdownItem}
+                     >
                         <Box className={classes.navbarContextBox}>
                            <span>{getLetters(item.name)}</span>
                         </Box>
@@ -116,7 +117,8 @@ function NavbarContext({
                   </Box>
                </Box>
             </Box>
-         }>
+         }
+      >
          <Box variant="transparent" className={classes.navbarContext}>
             <Box bg="default.7" className={classes.contextColor}>
                <span>{getLetters(context?.locationName)}</span>

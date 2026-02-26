@@ -24,7 +24,8 @@ function AppManagerModal(props: any) {
          schema={schema}
          onSuccess={onSuccess}
          defaultValues={value}
-         onSubmit={payload => onSubmit?.(id ? { id, ...payload } : payload)}>
+         onSubmit={payload => onSubmit?.(id ? { id, ...payload } : payload)}
+      >
          {content}
       </FormWrapper>
    )

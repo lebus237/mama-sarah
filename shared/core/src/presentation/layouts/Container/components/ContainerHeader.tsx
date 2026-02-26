@@ -42,7 +42,8 @@ export default function ContainerHeader(props: {
                   onClick={() => props.setActiveKey(item.key)}
                   className={cx(classes.titleTabItem, {
                      [classes.titleTabItemActive]: item.key === props.activeKey,
-                  })}>
+                  })}
+               >
                   <Text fw={500} size="0.9rem">
                      <I18nLabel label={item.title} />
                   </Text>

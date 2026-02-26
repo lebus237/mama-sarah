@@ -27,7 +27,8 @@ function SectionContainer({ backgroundColor = 'default', ...props }: SectionCont
                <Box
                   mr="md"
                   className={classes.nameBox}
-                  bg={colorScheme === 'light' ? `${backgroundColor}.2` : `${backgroundColor}.8`}>
+                  bg={colorScheme === 'light' ? `${backgroundColor}.2` : `${backgroundColor}.8`}
+               >
                   <div className={classes.boxIconContainer}>{icon}</div>
                </Box>
                <Box my="auto">

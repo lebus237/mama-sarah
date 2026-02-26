@@ -75,11 +75,13 @@ export function WithManager({
                            ...modalProps,
                         },
                      })
-                  }>
+                  }
+               >
                   <I18nLabel label={buttonLabel ?? 'action.add.element'} />
                </Button>
             </Group>
-         }>
+         }
+      >
          <CollectionTable
             columns={columns}
             fetchApi={fetchApi}

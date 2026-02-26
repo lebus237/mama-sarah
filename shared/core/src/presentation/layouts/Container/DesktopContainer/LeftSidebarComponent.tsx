@@ -33,7 +33,8 @@ function LeftSidebarComponent(props: LeftSidebarProps) {
                mx="auto"
                w={isOpen ? '90%' : '50%'}
                className={classes.moduleIconBoxCollapse}
-               onClick={onOpenSidebar}>
+               onClick={onOpenSidebar}
+            >
                {isOpen && (
                   <Box>
                      <I18nLabel label={`module.${config.name}`} />
@@ -55,7 +56,8 @@ function LeftSidebarComponent(props: LeftSidebarProps) {
                   className={path === _module.path ? classes.moduleItemActive : classes.moduleItem}
                   onClick={() => {
                      navigate(_module.path)
-                  }}>
+                  }}
+               >
                   <Box className={classes.moduleIconBox} w={isOpen ? 280 : 40}>
                      <Box className={classes.moduleIconBoxIcon}>
                         {_module.icon ? <_module.icon stroke={1.2} /> : <IconDots stroke={1.2} />}

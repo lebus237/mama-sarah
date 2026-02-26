@@ -57,7 +57,8 @@ export default function TextEditorInput(props: TextEditorProps) {
                }}
                editor={editor}
                bdrs="sm"
-               onChange={c => console.log('EDITOR CHANGED', c.target)}>
+               onChange={c => console.log('EDITOR CHANGED', c.target)}
+            >
                <RichTextEditor.Toolbar sticky stickyOffset="var(--docs-header-height)">
                   <RichTextEditor.ControlsGroup>
                      <RichTextEditor.Bold />

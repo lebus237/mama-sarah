@@ -293,7 +293,8 @@ export function CanvasDrawer({ onSave }: { onSave: (sign: any) => void }) {
                      onClick={handleUndo}
                      disabled={isEmpty}
                      color="gray.5"
-                     aria-label="Undo last stroke">
+                     aria-label="Undo last stroke"
+                  >
                      <Undo size={20} />
                   </Button>
                   <Button
@@ -301,7 +302,8 @@ export function CanvasDrawer({ onSave }: { onSave: (sign: any) => void }) {
                      onClick={handleClear}
                      disabled={isEmpty}
                      color="gray.5"
-                     aria-label="Clear all strokes">
+                     aria-label="Clear all strokes"
+                  >
                      <Trash2 size={20} />
                   </Button>
                </Group>

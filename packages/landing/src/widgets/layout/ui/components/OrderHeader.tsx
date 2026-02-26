@@ -1,4 +1,4 @@
-import { OrderCounterDisplay } from '@/app/features/order'
+import { OrderCounterDisplay } from '@/features/order'
 import Link from 'next/link'
 
 export function OrderHeader() {

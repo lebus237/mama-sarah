@@ -43,7 +43,8 @@ function LoginPage({
                onSuccess={response => {
                   authSuccess(response)
                   window.location.href = homePath
-               }}>
+               }}
+            >
                <Grid justify="center" gutter="md">
                   <Grid.Col span={{ span: 12 }}>
                      <Field.Input label="text.username" name="username" required />

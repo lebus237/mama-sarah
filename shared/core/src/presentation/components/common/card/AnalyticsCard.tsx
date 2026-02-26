@@ -32,7 +32,8 @@ export const AnalyticsCard: React.FC<AnalyticsCardProps> = ({
                   fw={300}
                   fs="italic"
                   mt="xs"
-                  c={colorScheme === 'dark' ? `white` : `dimmed`}>
+                  c={colorScheme === 'dark' ? `white` : `dimmed`}
+               >
                   {title}
                </Title>
             </Stack>

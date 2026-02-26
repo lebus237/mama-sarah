@@ -81,7 +81,8 @@ export default function AppTable<T extends Record<string, any>>({
          key={index}
          bg={isSelected(record) ? 'var(--mantine-color-blue-light)' : undefined}
          style={{ cursor: props.onRowClick ? 'pointer' : undefined }}
-         onClick={() => props.onRowClick && props.onRowClick(record, index)}>
+         onClick={() => props.onRowClick && props.onRowClick(record, index)}
+      >
          {withSelection && (
             <Table.Td onClick={e => e.stopPropagation()}>
                <Checkbox checked={isSelected(record)} onChange={() => toggleRow(record)} />
@@ -96,7 +97,8 @@ export default function AppTable<T extends Record<string, any>>({
                   textAlign: column.textAlign || 'left',
                   verticalAlign: 'middle',
                   paddingInline: '16px',
-               }}>
+               }}
+            >
                <div
                   style={{
                      display: 'flex',
@@ -107,7 +109,8 @@ export default function AppTable<T extends Record<string, any>>({
                              ? 'flex-end'
                              : 'flex-start',
                      alignItems: 'center',
-                  }}>
+                  }}
+               >
                   {renderCell(record, column, index)}
                </div>
             </Table.Td>
@@ -126,7 +129,8 @@ export default function AppTable<T extends Record<string, any>>({
                   : props.bg === 'gray'
                     ? 'var(--mantine-color-gray-0)'
                     : 'transparent',
-         }}>
+         }}
+      >
          <Table.Thead className={classes.header}>
             <Table.Tr>
                {withSelection && (
@@ -142,10 +146,12 @@ export default function AppTable<T extends Record<string, any>>({
                   <Table.Th
                      key={index}
                      w={column.width}
-                     style={{ textAlign: column.textAlign || 'left' }}>
+                     style={{ textAlign: column.textAlign || 'left' }}
+                  >
                      <Box
                         pl={index == 0 ? '10px' : '0px'}
-                        pr={index == columns.length - 1 ? '10px' : '0px'}>
+                        pr={index == columns.length - 1 ? '10px' : '0px'}
+                     >
                         {column.title || String(column.accessor)}
                      </Box>
                   </Table.Th>
@@ -185,7 +191,8 @@ export default function AppTable<T extends Record<string, any>>({
          className={classes.root}
          style={{
             height: props.height,
-         }}>
+         }}
+      >
          {props.height ? <ScrollArea h={props.height}>{tableContent}</ScrollArea> : tableContent}
       </div>
    )

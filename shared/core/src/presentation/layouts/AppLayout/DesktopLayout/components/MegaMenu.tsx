@@ -30,7 +30,8 @@ export function MegaMenu({ children }: { children: React.ReactNode }) {
          position={viewPort.isTablet ? 'bottom' : 'bottom-start'}
          width={viewPort.isTablet ? '98%' : '60%'}
          opened={open}
-         onChange={setOpen}>
+         onChange={setOpen}
+      >
          <Menu.Target>{children}</Menu.Target>
 
          <Menu.Dropdown style={{ overflow: 'hidden', padding: 0 }}>
@@ -42,7 +43,8 @@ export function MegaMenu({ children }: { children: React.ReactNode }) {
                         key={module.name}
                         className={classes.sidebarItem}
                         data-active={activeModuleId === module.name || undefined}
-                        onMouseEnter={() => setActiveModuleId(module.name)}>
+                        onMouseEnter={() => setActiveModuleId(module.name)}
+                     >
                         {module?.icon && <module.icon stroke={1.1} size={25} />}
                         <div>
                            <Text size="sm" fw={600}>
@@ -69,7 +71,8 @@ export function MegaMenu({ children }: { children: React.ReactNode }) {
                            onClick={() => {
                               navigate(item.path)
                               setOpen(false)
-                           }}>
+                           }}
+                        >
                            {item?.icon && (
                               <Box className={classes.menuItemBox}>
                                  <item.icon stroke={1.1} size={20} />

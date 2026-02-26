@@ -31,13 +31,15 @@ export default function UploadInput(props: UploadInputType) {
                onDrop={setFiles}
                onReject={files => console.log('rejected files', files)}
                maxSize={5 * 1024 ** 2}
-               accept={IMAGE_MIME_TYPE}>
+               accept={IMAGE_MIME_TYPE}
+            >
                <Group
                   justify="center"
                   gap="xl"
                   mih={220}
                   bg={colorScheme === 'dark' ? 'dark.9' : 'gray.3'}
-                  style={{ pointerEvents: 'none', borderRadius: 'var(--mantine-spacing-xs)' }}>
+                  style={{ pointerEvents: 'none', borderRadius: 'var(--mantine-spacing-xs)' }}
+               >
                   <Dropzone.Accept>
                      <IconUpload size={52} color="var(--mantine-color-blue-6)" stroke={1.5} />
                   </Dropzone.Accept>

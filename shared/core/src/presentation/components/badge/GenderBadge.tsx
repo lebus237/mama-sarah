@@ -13,7 +13,8 @@ function GenderBadge({ gender }: { gender: Gender }) {
          radius="xl"
          style={{ textTransform: 'lowercase' }}
          size="lg"
-         bg={gender === 'male' ? 'blue' : gender === 'female' ? 'purple' : 'gray'}>
+         bg={gender === 'male' ? 'blue' : gender === 'female' ? 'purple' : 'gray'}
+      >
          <I18nLabel label={`gender.${gender}`} />
       </Badge>
    )

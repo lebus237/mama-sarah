@@ -35,7 +35,8 @@ function CanvasEditor(props: { save: any }) {
             cursor: expanded ? 'default' : 'pointer',
          }}
          bg="transparent"
-         w="100%">
+         w="100%"
+      >
          {expanded ? (
             <Collapse in={expanded}>
                <div id="canvas-container">
@@ -52,7 +53,8 @@ function CanvasEditor(props: { save: any }) {
                w="100%"
                justify="space-between"
                align="center"
-               onClick={() => setExpanded(prevState => !prevState)}>
+               onClick={() => setExpanded(prevState => !prevState)}
+            >
                <Label text="text.signatureArea" />
                <ChevronDown size={20} />
             </Flex>

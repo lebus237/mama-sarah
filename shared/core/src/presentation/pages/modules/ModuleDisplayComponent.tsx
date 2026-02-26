@@ -28,7 +28,8 @@ export const ModuleDisplayComponent = ({ hideList }: { hideList?: boolean }) => 
             gap="lg"
             className={styles.moduleSectionContent}
             px="md"
-            py={{ base: 'md', md: 'lg' }}>
+            py={{ base: 'md', md: 'lg' }}
+         >
             <Box className={styles.pinnedModules}>
                <Accordion
                   defaultValue="pinned"
@@ -36,7 +37,8 @@ export const ModuleDisplayComponent = ({ hideList }: { hideList?: boolean }) => 
                      root: styles.pinnedModuleAccordion,
                      item: styles.pinnedModuleAccordionItem,
                      control: styles.pinnedModuleAccordionControl,
-                  }}>
+                  }}
+               >
                   <Accordion.Item value="pinned" bottom={0}>
                      <Accordion.Control icon={<IconPinned />}>
                         <Text fw={500}>
@@ -70,7 +72,8 @@ export const ModuleDisplayComponent = ({ hideList }: { hideList?: boolean }) => 
                         <Grid.Col
                            span={{ md: 12 }}
                            display="flex"
-                           className={styles.moduleSectionItemHeader}>
+                           className={styles.moduleSectionItemHeader}
+                        >
                            <Box mr="xs" className={styles.moduleSectionItemHeaderIcon}>
                               <div>{item.icon}</div>
                            </Box>
@@ -98,7 +101,8 @@ export const ModuleDisplayComponent = ({ hideList }: { hideList?: boolean }) => 
                      justify="end"
                      columnGap={2}
                      align="center"
-                     c="light-dark(var(--mantine-color-dark-8),var(--mantine-color-gray-4))">
+                     c="light-dark(var(--mantine-color-dark-8),var(--mantine-color-gray-4))"
+                  >
                      <Text fw={500} size="lg">
                         <I18nLabel label="action.see.all.modules" />
                      </Text>

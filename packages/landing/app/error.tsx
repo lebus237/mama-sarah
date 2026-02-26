@@ -16,7 +16,8 @@ export default function Error({ error, reset }: { error: Error; reset: () => voi
             onClick={
                // Attempt to recover by trying to re-render the segment
                () => reset()
-            }>
+            }
+         >
             Try again
          </button>
       </div>

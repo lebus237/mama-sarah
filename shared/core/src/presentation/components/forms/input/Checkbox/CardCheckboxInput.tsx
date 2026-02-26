@@ -20,7 +20,8 @@ function CardCheckboxInput(props: CardCheckboxInputType) {
          radius="md"
          name={props.name}
          checked={props.value ?? false}
-         onClick={() => props.onChange?.(!(props.value ?? false))}>
+         onClick={() => props.onChange?.(!(props.value ?? false))}
+      >
          <Group wrap="nowrap" align="flex-start">
             <Checkbox.Indicator />
             <div>

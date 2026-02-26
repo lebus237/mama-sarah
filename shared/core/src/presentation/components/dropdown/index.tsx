@@ -21,7 +21,8 @@ export function AppDropdownMenu(props: {
       <Menu
          position={props.position ?? 'bottom-end'}
          onClose={props.onToggle}
-         onOpen={props.onToggle}>
+         onOpen={props.onToggle}
+      >
          <Menu.Target>{props.children}</Menu.Target>
          {props.items ? (
             <Menu.Dropdown>
@@ -31,7 +32,8 @@ export function AppDropdownMenu(props: {
                      leftSection={item.icon}
                      key={index}
                      onClick={item.onClick}
-                     color={item.color}>
+                     color={item.color}
+                  >
                      <I18nLabel label={item.label} />
                   </Menu.Item>
                ))}

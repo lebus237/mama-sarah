@@ -39,7 +39,8 @@ export const MobileNavbarComponent = ({}) => {
             <ActionIcon
                variant="transparent"
                onClick={() => navigate('')}
-               className={classes['module-icon']}>
+               className={classes['module-icon']}
+            >
                <IconLayoutGridAdd size={30} />
             </ActionIcon>
          </div>

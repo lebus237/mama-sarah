@@ -51,7 +51,8 @@ function ModulePage() {
                      classNames={{
                         root: styles.pinnedModuleAccordion,
                         item: styles.pinnedModuleAccordionItem,
-                     }}>
+                     }}
+                  >
                      <Accordion.Item value="pinned" bottom={0}>
                         <Accordion.Control icon={<IconPinned />}>Epingles</Accordion.Control>
                         <Accordion.Panel>
@@ -80,7 +81,8 @@ function ModulePage() {
                         <Grid.Col
                            span={{ md: 12 }}
                            display="flex"
-                           className={styles.moduleSectionItemHeader}>
+                           className={styles.moduleSectionItemHeader}
+                        >
                            <Box mr="xs" className={styles.moduleSectionItemHeaderIcon}>
                               <div>{item.icon}</div>
                            </Box>

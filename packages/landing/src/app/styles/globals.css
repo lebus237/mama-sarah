@@ -43,3 +43,11 @@
       object-fit: cover !important;
    }
 }
+
+html{
+    scroll-behavior: smooth;
+}
+
+[id]{
+    scroll-margin-top: 0px;
+}

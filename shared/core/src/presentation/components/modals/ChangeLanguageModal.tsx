@@ -19,7 +19,8 @@ function ChangeLanguageModal(props: ModalComponentProps) {
                   await changeLanguage(item)
                   props.onClose()
                }}
-               className={classes.languageItem}>
+               className={classes.languageItem}
+            >
                <Box className={classes.languageFlag}>
                   <span>{item?.toUpperCase()}</span>
                   <Text size="sm" fw={600}>

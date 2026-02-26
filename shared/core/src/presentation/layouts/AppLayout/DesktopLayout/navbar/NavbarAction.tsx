@@ -58,7 +58,8 @@ function NavbarAction({
                      onClick: () => navigate(logoutPath),
                      color: 'red',
                   },
-               ]}>
+               ]}
+            >
                <Box className={classes.contextBox}>
                   <UnstyledButton className={classes.user}>
                      <Avatar

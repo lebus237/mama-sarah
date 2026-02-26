@@ -24,7 +24,8 @@ export default function StatusBadge({
          radius="xl"
          variant={props.variant ?? 'filled'}
          style={{ textTransform: 'lowercase' }}
-         color={colorScheme === 'light' ? `${color}.2` : `${color}.7`}>
+         color={colorScheme === 'light' ? `${color}.2` : `${color}.7`}
+      >
          <Flex align="center" gap={2}>
             <Icon size={20} stroke={1} />
             <I18nLabel label={status ?? `status`} />

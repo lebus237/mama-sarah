@@ -77,7 +77,8 @@ export const productNameHelper = (): DataTableColumn => {
                   borderRadius: 'var(--mantine-radius-sm)',
                   overflow: 'hidden',
                   margin: 0,
-               }}>
+               }}
+            >
                <img
                   src={record['imageUrl'] || '/images/products/products.png'}
                   alt="..."
@@ -170,7 +171,8 @@ export const tablePrintHelper = (title?: string): DataTableColumn => {
          <ActionIcon
             size="lg"
             disabled={record.link === undefined}
-            onClick={() => printLink(record.link)}>
+            onClick={() => printLink(record.link)}
+         >
             <IconPrinter size={20} string={1} />
          </ActionIcon>
       ),

@@ -27,7 +27,8 @@ export default function AppAlert(props: AppAlertType) {
          onClose={props.onClose}
          color={defaultValue.type ?? 'blue'}
          title={<I18nLabel label={props.title ?? defaultValue.title} />}
-         icon={props.icon ?? icon}>
+         icon={props.icon ?? icon}
+      >
          {props.content}
       </Alert>
    )

@@ -157,7 +157,8 @@ export default function AsyncComboboxInput(props: AsyncComboboxInputProps) {
                onClick={() => combobox.openDropdown()}
                error={errorMessage ? <I18nLabel label={errorMessage} /> : undefined}
                required={required}
-               disabled={disabled}>
+               disabled={disabled}
+            >
                {selectedOption ? (
                   parseOption ? (
                      parseOption(selectedOption)
@@ -209,7 +210,8 @@ export default function AsyncComboboxInput(props: AsyncComboboxInputProps) {
                            borderTop: '1px solid var(--mantine-color-gray-3)',
                            marginTop: '4px',
                            paddingTop: '8px',
-                        }}>
+                        }}
+                     >
                         <Button leftSection={<IconPlus size={20} />} w="100%" size="xs">
                            <I18nLabel label={addButtonLabel} />
                         </Button>

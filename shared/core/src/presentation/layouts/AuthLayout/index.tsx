@@ -40,7 +40,8 @@ export default function AuthLayout() {
                {testimonials.map((testimonial, index) => (
                   <div
                      key={index}
-                     className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}>
+                     className={`${styles.slide} ${index === currentSlide ? styles.active : ''}`}
+                  >
                      <div className={styles.imageContainer}>
                         <Image
                            src={testimonial.image}

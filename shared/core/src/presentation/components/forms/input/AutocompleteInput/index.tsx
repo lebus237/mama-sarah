@@ -126,7 +126,8 @@ export default function AsyncAutocompleteInput(props: AsyncAutocompleteInputProp
                style={{
                   borderTop: '1px solid var(--mantine-color-gray-3)',
                   marginTop: '4px',
-               }}>
+               }}
+            >
                <I18nLabel label={addButtonLabel} />
             </Button>
          )

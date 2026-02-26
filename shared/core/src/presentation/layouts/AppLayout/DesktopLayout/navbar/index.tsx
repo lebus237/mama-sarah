@@ -42,7 +42,8 @@ export const DesktopNavbar = ({ logoutPath, ...props }: AppLayoutProps) => {
                         <ActionIcon
                            variant="transparent"
                            onClick={() => navigate('/')}
-                           className={classes['module-icon']}>
+                           className={classes['module-icon']}
+                        >
                            <IconHome />
                         </ActionIcon>
                      </Box>
@@ -59,7 +60,8 @@ export const DesktopNavbar = ({ logoutPath, ...props }: AppLayoutProps) => {
                            onClick={() => navigate(module.path, {}, true)}
                            className={cx(classes.moduleItem, {
                               [classes.moduleItemActive]: matchesModulePath(path, module?.key),
-                           })}>
+                           })}
+                        >
                            <div className={classes['module-content']}>
                               <div className={classes['module-icon']}>
                                  {module?.icon && <module.icon stroke={1.5} size={15} />}

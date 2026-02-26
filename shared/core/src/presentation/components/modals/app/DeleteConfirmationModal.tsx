@@ -52,7 +52,8 @@ function DeleteConfirmationModal(props: any) {
                   h={50}
                   variant="white"
                   w="40%"
-                  onClick={() => closeModal('DELETE_CONFIRMATION_MODAL')}>
+                  onClick={() => closeModal('DELETE_CONFIRMATION_MODAL')}
+               >
                   <Text size="md" fw={700} c="orange">
                      <I18nLabel label="action.cancel" />
                   </Text>

@@ -48,7 +48,8 @@ export default function DashboardPage() {
                   <>
                      <Box
                         bg="light-dark(var(--mantine-color-gray-0), var(--mantine-color-dark-8))"
-                        bdrs="var(--mantine-radius-lg)">
+                        bdrs="var(--mantine-radius-lg)"
+                     >
                         <ModuleDisplayComponent hideList={viewPort?.isMobile} />
                      </Box>
                   </>

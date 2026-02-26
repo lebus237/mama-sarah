@@ -56,7 +56,8 @@ export function DesktopContainer({
             px={'1.5%'}
             py={'.5%'}
             ml={leftConfig ? (isLeftOpen ? '280px' : '55px') : undefined}
-            mr={rightConfig && '55px'}>
+            mr={rightConfig && '55px'}
+         >
             <Grid justify="space-between" gutter="xs">
                {alert && (
                   <Grid.Col span={{ span: 12, xs: 12 }} my="md">

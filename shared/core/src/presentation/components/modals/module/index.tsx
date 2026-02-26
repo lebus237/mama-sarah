@@ -34,7 +34,8 @@ function SearchModuleModal(props: ModalComponentProps) {
                         onClick={() => {
                            navigate(module.path)
                            props.onClose()
-                        }}>
+                        }}
+                     >
                         <Box className={styles.moduleModalIconBox} mr="md">
                            <div className={styles.moduleModalIcon}>
                               {module.icon && <module.icon stoke={1.1} />}

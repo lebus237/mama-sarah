@@ -57,7 +57,8 @@ export default function withDrawer<T extends object>(
                         <Text
                            fw={600}
                            size="1.5rem"
-                           c={colorScheme === 'light' ? 'dark.5' : 'gray.5'}>
+                           c={colorScheme === 'light' ? 'dark.5' : 'gray.5'}
+                        >
                            <I18nLabel label={labelComponent} />
                         </Text>
                         {!viewPort?.isMobile && (
@@ -96,7 +97,8 @@ export default function withDrawer<T extends object>(
                size: 'xl',
                icon: <IconCircleX size={40} color="red" />,
                style: { borderRadius: '50%' },
-            }}>
+            }}
+         >
             <Box pt={{ base: 'xl', sm: 'md' }}>
                <WrappedComponent {...(props as T)} onClose={props.hideModal || props.onClose} />
             </Box>

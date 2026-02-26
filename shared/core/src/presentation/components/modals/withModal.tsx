@@ -105,7 +105,8 @@ export default function withModal<T extends object>(
                        icon: <IconCircleX size={40} color="red" />,
                        style: { borderRadius: '50%' },
                     }
-            }>
+            }
+         >
             <Box p={viewPort?.isMobile ? '0' : (modalProps.padding ?? 'xs')} pos="relative">
                <LoadingOverlay
                   zIndex={1000}

@@ -25,7 +25,8 @@ export function MobileContainer({
          w={`calc(100% - ${leftConfig ? 55 : 0}px - ${rightConfig ? 55 : 0}px)`}
          className={classes.centerContainer}
          py={props.paddingY ?? '.5%'}
-         px={props.paddingY ?? '2%'}>
+         px={props.paddingY ?? '2%'}
+      >
          <Grid justify="space-between" gutter="xs">
             {alert && (
                <Grid.Col span={{ span: 12, xs: 12 }} my="md">
