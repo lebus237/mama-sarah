@@ -18,6 +18,7 @@ export function OrderPage() {
    const { addItem } = useCart()
    const [hasFired, setHasFired] = useState(false)
    const navigationRef = useRef<HTMLDivElement | null>(null)
+   const cart = useCart()
 
    useEffect(() => {
       const handleHashChange = () => {
@@ -69,14 +70,20 @@ export function OrderPage() {
                <div className="xl:w-1/5"></div>
             </div>
          </div>
-         <div className="container grid xl:grid-cols-3 gap-6 py-6">
-            <aside className="xl:col-span-2">
+         <div className="container grid xl:grid-cols-3 gap-6 xl:py-12">
+            <aside
+               className={cn('xl:col-span-full xl:space-y-12', {
+                  'xl:col-span-2': cart.totalItems > 0,
+               })}>
                {productCategoryList.map((category, index) => {
                   const productItems = getProductsByCategory(category.id)
                   return (
                      <div id={category.id} key={index}>
                         <h2 className="text-2xl font-bold">{category.designation}</h2>
-                        <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-4">
+                        <div
+                           className={cn('grid grid-cols-1 xl:grid-cols-3 gap-4 mt-4', {
+                              'xl:grid-cols-2': cart.totalItems > 0,
+                           })}>
                            {productItems.map((product, _index) => (
                               <Fade delay={_index * 0.5} triggerOnce>
                                  <ProductItemOrderCard
@@ -91,9 +98,7 @@ export function OrderPage() {
                   )
                })}
             </aside>
-            <aside className="hidden xl:block">
-               <CartSummary />
-            </aside>
+            <aside className="hidden xl:block">{cart.totalItems > 0 && <CartSummary />}</aside>
          </div>
       </div>
    )
