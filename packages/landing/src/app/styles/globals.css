@@ -12,22 +12,8 @@
    --color-primary: rgba(242, 84, 14, 1);
    --color-secondary: #252525;
    --color-tertiary: #00704e;
-}
 
-.font-bebas {
-   font-family: var(--font-bebas), sans-serif;
-}
-
-.font-jakarta {
-   font-family: var(--font-plus-jakarta), sans-serif;
-}
-
-.font-poppins {
-   font-family: var(--font-poppins), sans-serif;
-}
-
-.font-cabin {
-   font-family: var(--font-cabin), sans-serif;
+   --color-foreground: #666666;
 }
 
 @layer utilities {
@@ -44,10 +30,10 @@
    }
 }
 
-html{
-    scroll-behavior: smooth;
+html {
+   scroll-behavior: smooth;
 }
 
-[id]{
-    scroll-margin-top: 0px;
+[id] {
+   scroll-margin-top: 0px;
 }

@@ -14,6 +14,10 @@ const nextConfig = {
             protocol: 'https',
             hostname: 'iderma.s3.eu-west-1.amazonaws.com',
          },
+         {
+            protocol: 'https',
+            hostname: 'foodish-api.com',
+         },
       ],
    },
    // allowedDevOrigins: ['dev.iderma.*'],

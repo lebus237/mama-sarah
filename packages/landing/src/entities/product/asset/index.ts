@@ -26,7 +26,7 @@ export const productList: Array<Product> = [
       designation: 'Product One',
       price: 1000,
       categoryId: 'pc-1',
-      image: '/images/product-1.png',
+      image: 'https://foodish-api.com/images/dosa/dosa23.jpg',
       description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
    },
    {
@@ -34,8 +34,9 @@ export const productList: Array<Product> = [
       designation: 'Product two',
       price: 1000,
       categoryId: 'pc-1',
-      image: '/images/product-1.png',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      image: 'https://foodish-api.com/images/dessert/dessert3.jpg',
+      description:
+         'Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.',
    },
    {
       id: 'p-3',
@@ -51,11 +52,13 @@ export const productList: Array<Product> = [
       price: 1300,
       categoryId: 'pc-2',
       image: '/images/product-1.png',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      description:
+         'Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.',
    },
    {
       id: 'p-5',
-      designation: 'Product 4',
+      designation:
+         'Product 4 XXX YYYYYYYYYYY VV FFFFFFFFFFFFFF xxxxxxxxxxxxxxxxxxxxxxxxx jjjjjjjjjjjjjjjjjjjjjjjjjj',
       price: 1300,
       categoryId: 'pc-2',
       image: '/images/product-1.png',
@@ -66,8 +69,9 @@ export const productList: Array<Product> = [
       designation: 'Product 4',
       price: 1300,
       categoryId: 'pc-2',
-      image: '/images/product-1.png',
-      description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
+      image: 'https://iderma.s3.eu-west-1.amazonaws.com/landing/1CS7HHB6e2Xwa59aiEZ21x.jpg',
+      description:
+         'Lorem ipsum dolor sit amet consectetur adipisicing elit.Lorem ipsum dolor sit amet consectetur adipisicing elit.',
    },
    {
       id: 'p-7',

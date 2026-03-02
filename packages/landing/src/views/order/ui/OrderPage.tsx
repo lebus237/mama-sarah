@@ -5,8 +5,10 @@ import Link from 'next/link'
 import { cn } from '@/shared/lib/styles'
 import { useEffect, useRef, useState } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
-import { ProductOrderDisplayCard, CartSummary, useCart } from '@/features/order'
+import { CartSummary, useCart } from '@/features/order'
 import { useScroll } from 'motion/react'
+import { ProductItemOrderCard } from './ProductItemOrderCard'
+import { Fade } from 'react-awesome-reveal'
 
 export function OrderPage() {
    const [hash, setHash] = useState<string>()
@@ -51,6 +53,7 @@ export function OrderPage() {
                <nav className="xl:w-3/5 xl:h-16 flex justify-between items-center">
                   {productCategoryList.map((category, index) => (
                      <Link
+                        key={index}
                         href={`#${category.id}`}
                         className={cn(
                            'block h-full content-center basis-1/5 text-center transition-border ease-in-out  uppercase',
@@ -74,12 +77,14 @@ export function OrderPage() {
                      <div id={category.id} key={index}>
                         <h2 className="text-2xl font-bold">{category.designation}</h2>
                         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-4">
-                           {productItems.map(product => (
-                              <ProductOrderDisplayCard
-                                 key={product.id}
-                                 product={product}
-                                 onAddToCart={addItem}
-                              />
+                           {productItems.map((product, _index) => (
+                              <Fade delay={_index * 0.5} triggerOnce>
+                                 <ProductItemOrderCard
+                                    key={product.id}
+                                    product={product}
+                                    onAddToCart={addItem}
+                                 />
+                              </Fade>
                            ))}
                         </div>
                      </div>
