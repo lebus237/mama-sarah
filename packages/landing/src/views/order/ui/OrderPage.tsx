@@ -1,33 +1,20 @@
 'use client'
 
-import { getProductsByCategory, productCategoryList } from '@/entities/product'
-import Link from 'next/link'
+import { getProductsByCategory, ProductCategory, productCategoryList } from '@/entities/product'
 import { cn } from '@/shared/lib/styles'
 import { useEffect, useRef, useState } from 'react'
-import { usePathname, useSearchParams } from 'next/navigation'
 import { CartSummary, useCart } from '@/features/order'
 import { useScroll } from 'motion/react'
-import { ProductItemOrderCard } from './ProductItemOrderCard'
+import { ProductItemOrderCard } from './features/ProductItemOrderCard'
 import { Fade } from 'react-awesome-reveal'
+import { Link, Element } from 'react-scroll'
 
 export function OrderPage() {
-   const [hash, setHash] = useState<string>()
-   const pathname = usePathname()
-   const searchParams = useSearchParams()
    const { scrollY } = useScroll()
    const { addItem } = useCart()
    const [hasFired, setHasFired] = useState(false)
    const navigationRef = useRef<HTMLDivElement | null>(null)
    const cart = useCart()
-
-   useEffect(() => {
-      const handleHashChange = () => {
-         setHash(window.location.hash)
-      }
-      handleHashChange()
-      window.addEventListener('hashchange', handleHashChange)
-      return () => window.removeEventListener('hashchange', handleHashChange)
-   }, [pathname, searchParams])
 
    useEffect(() => {
       return scrollY.on('change', latestValue => {
@@ -51,19 +38,18 @@ export function OrderPage() {
       <div className="">
          <div className="border-gray-200 bg-white border-b" ref={navigationRef}>
             <div className="container flex justify-center">
-               <nav className="xl:w-3/5 xl:h-16 flex justify-between items-center">
-                  {productCategoryList.map((category, index) => (
+               <nav className="xl:w-3/5 xl:h-16 flex justify-between items-center order-category-navigation">
+                  {productCategoryList.map(section => (
                      <Link
-                        key={index}
-                        href={`#${category.id}`}
-                        className={cn(
-                           'block h-full content-center basis-1/5 text-center transition-border ease-in-out  uppercase',
-                           {
-                              'border-b-2 border-primary font-bold text-primary':
-                                 category.id === hash?.slice(1) || (hash === '' && index === 0),
-                           },
-                        )}>
-                        {category.designation}
+                        key={section.id}
+                        to={section.id}
+                        spy={true}
+                        offset={-256}
+                        duration={500}
+                        smooth={true}
+                        className="block h-full content-center basis-1/5 text-center transition-border ease-linear  uppercase"
+                        activeClass={cn('active border-b-3 border-primary font-bold text-primary')}>
+                        {section.designation}
                      </Link>
                   ))}
                </nav>
@@ -75,11 +61,13 @@ export function OrderPage() {
                className={cn('xl:col-span-full xl:space-y-12', {
                   'xl:col-span-2': cart.totalItems > 0,
                })}>
-               {productCategoryList.map((category, index) => {
+               {productCategoryList.map((category: ProductCategory) => {
                   const productItems = getProductsByCategory(category.id)
                   return (
-                     <div id={category.id} key={index}>
-                        <h2 className="text-2xl font-bold">{category.designation}</h2>
+                     <Element key={category.id} name={category.id}>
+                        <h2 className="xl:text-xl font-bold font-plus-jakarta text-secondary">
+                           {category.designation}
+                        </h2>
                         <div
                            className={cn('grid grid-cols-1 xl:grid-cols-3 gap-4 mt-4', {
                               'xl:grid-cols-2': cart.totalItems > 0,
@@ -94,7 +82,7 @@ export function OrderPage() {
                               </Fade>
                            ))}
                         </div>
-                     </div>
+                     </Element>
                   )
                })}
             </aside>

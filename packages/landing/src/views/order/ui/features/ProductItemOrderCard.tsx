@@ -3,7 +3,6 @@ import Image from 'next/image'
 import { PlusIcon } from 'lucide-react'
 import _ from 'lodash'
 import { PriceDisplay } from '@/shared/ui/common'
-import { useState } from 'react'
 import useSWR from 'swr'
 
 type ProductOrderDisplayCardProps = {
