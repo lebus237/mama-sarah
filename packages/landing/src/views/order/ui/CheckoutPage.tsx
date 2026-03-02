@@ -1,7 +1,16 @@
+'use client'
+
+import { I18nLabel } from '@shared/i18n'
+import { CartSummary } from '@/features/cart'
+
 export function CheckoutPage() {
    return (
       <div>
-         <h1>Checkout Page</h1>
+         <h1>
+            <I18nLabel label="text.checkoutOrder" />
+         </h1>
+
+         <CartSummary />
       </div>
    )
 }

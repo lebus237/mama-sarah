@@ -1,4 +1,4 @@
-'use client'
+"use client"
 
 import { getProductsByCategory, productCategoryList } from '@/entities/product'
 import Link from 'next/link'
@@ -7,15 +7,16 @@ import { useEffect, useRef, useState } from 'react'
 import { usePathname, useSearchParams } from 'next/navigation'
 import { ProductOrderDisplayCard } from '@/features/order'
 import { useScroll } from 'motion/react'
+import { CartSummary, useCart } from '@/features/cart'
 
 export function OrderPage() {
    const [hash, setHash] = useState<string>()
    const pathname = usePathname()
    const searchParams = useSearchParams()
    const { scrollY } = useScroll()
+   const { addItem } = useCart()
    const [hasFired, setHasFired] = useState(false)
    const navigationRef = useRef<HTMLDivElement | null>(null)
-   const containerRef = useRef<HTMLDivElement | null>(null)
 
    useEffect(() => {
       const handleHashChange = () => {
@@ -66,7 +67,7 @@ export function OrderPage() {
                <div className="xl:w-1/5"></div>
             </div>
          </div>
-         <div className="container grid xl:grid-cols-3">
+         <div className="container grid xl:grid-cols-3 gap-6 py-6">
             <aside className="xl:col-span-2">
                {productCategoryList.map(category => {
                   const productItems = getProductsByCategory(category.id)
@@ -75,14 +76,20 @@ export function OrderPage() {
                         <h2 className="text-2xl font-bold">{category.designation}</h2>
                         <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 mt-4">
                            {productItems.map(product => (
-                              <ProductOrderDisplayCard key={product.id} product={product} />
+                              <ProductOrderDisplayCard
+                                 key={product.id}
+                                 product={product}
+                                 onAddToCart={addItem}
+                              />
                            ))}
                         </div>
                      </div>
                   )
                })}
             </aside>
-            <aside></aside>
+            <aside className="hidden xl:block">
+               <CartSummary />
+            </aside>
          </div>
       </div>
    )
