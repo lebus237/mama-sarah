@@ -23,7 +23,7 @@ const tolgee = Tolgee()
       // // for production
       staticData: {
          en: import(`../../../public/i18n/en.json`) as any,
-         fr: import(`../../../public/i18n/fr.json`) as any,
+         fr: import(`../../../public/i18n/en.json`)  as any,
       },
    })
 

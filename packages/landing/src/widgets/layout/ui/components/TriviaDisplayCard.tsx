@@ -4,7 +4,7 @@ import { cn } from '@/shared/lib/styles'
 
 export function TriviaDisplayCard() {
    return (
-      <div className="rounded-3xl  bg-white h-full w-full shadow-[0px_0px_16px_rgba(17,17,26,0.1)] xl:px-6 xl:py-5">
+      <div className=" hidden lg:block rounded-3xl bg-white h-full w-full shadow-[0px_0px_16px_rgba(17,17,26,0.1)] xl:px-6 xl:py-5">
          <div className="w-full h-full flex justify-between flex-col">
             <div>
                <p>000 Brigade Emombo</p>
