@@ -2,9 +2,25 @@
 const nextConfig = {
    output: 'standalone',
    distDir: 'build',
-   images: {
-      remotePatterns: [new URL('https://picsum.photos/**'), new URL('http://localhost:3333/**')],
+   // devIndicators: false,
+   i18n: {
+      locales: ['en', 'fr'],
+      localeDetection: true,
+      defaultLocale: 'en',
    },
+   images: {
+      remotePatterns: [
+         {
+            protocol: 'https',
+            hostname: 'iderma.s3.eu-west-1.amazonaws.com',
+         },
+         {
+            protocol: 'https',
+            hostname: 'foodish-api.com',
+         },
+      ],
+   },
+   // allowedDevOrigins: ['dev.iderma.*'],
 }
 
 export default nextConfig

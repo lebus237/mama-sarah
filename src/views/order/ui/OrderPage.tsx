@@ -5,7 +5,7 @@ import { cn } from '@/shared/lib/styles'
 import { useEffect, useRef, useState } from 'react'
 import { CartSummary, useCart } from '@/features/order'
 import { useScroll } from 'motion/react'
-import { ProductItemOrderCard } from './features/ProductItemOrderCard'
+import { ProductItemOrderCard } from './components/ProductItemOrderCard'
 import { Fade } from 'react-awesome-reveal'
 import { Link, Element } from 'react-scroll'
 
