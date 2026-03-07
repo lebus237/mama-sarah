@@ -1,5 +1,0 @@
-export * from './Alert'
-export * from './Badge'
-export * from './card'
-export * from './Link'
-export * from './Typography'

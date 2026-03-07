@@ -1,1 +1,0 @@
-export type ProductCategory = { id: string, designation: string }

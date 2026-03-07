@@ -1,4 +1,4 @@
-require('dotenv').config()
+require('dotenv').config({ override: true })
 const util = require('util')
 const exec = util.promisify(require('child_process').exec)
 
