@@ -2,9 +2,9 @@ services:
   app:
     build:
       context: ..
-      dockerfile: infras/Dockerfile
+      dockerfile: /Dockerfile
     volumes:
-      - ../packages/app/build:/usr/share/nginx/html
+      - ../build:/usr/share/nginx/html
     ports:
       - ${APP_PORT:-4000}:80
     networks:

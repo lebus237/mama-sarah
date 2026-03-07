@@ -1,17 +1,23 @@
-FROM node:20.10.0-alpine3.19 AS builder
+FROM node:20.10.0-alpine3.19 AS base
 
 WORKDIR /app
 
-COPY . /app
+ENV NODE_ENV=production
 
-# Combine nginx server with static frontend files
-FROM nginx:1.25.1-alpine AS final
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-# Copy the built frontend files to Nginx directory
-COPY --from=builder /app/packages/app/build /usr/share/nginx/html
+COPY public ./public
 
-# Copy Nginx configuration
-COPY --from=builder /app/infras/default.conf /etc/nginx/conf.d/default.conf
+COPY --chown=nextjs:nodejs build/standalone ./
+COPY --chown=nextjs:nodejs build/static ./build/static
 
-# Expose port 80
-EXPOSE 80
+USER nextjs
+
+EXPOSE 3000
+
+ENV PORT=3000
+
+ENV HOSTNAME="0.0.0.0"
+
+CMD ["sh", "-c","node server.js"]
