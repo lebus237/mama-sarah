@@ -1,0 +1,13 @@
+.order-category-navigation {
+   a:first-child {
+      border-bottom: 3px solid var(--color-primary);
+      color: var(--color-primary);
+      font-weight: 700;
+   }
+
+   &:has(.active) a:first-child {
+      border-bottom: none;
+      font-weight: 400;
+      color: initial;
+   }
+}
