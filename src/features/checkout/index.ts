@@ -1,0 +1,1 @@
+export { type OrderCheckout } from './model/order-checkout'

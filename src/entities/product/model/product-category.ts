@@ -1,1 +1,1 @@
-export type ProductCategory = { id: string, designation: string }
+export type ProductCategory = { id: string, designation: string, slug?: string }

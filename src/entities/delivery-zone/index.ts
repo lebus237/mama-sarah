@@ -1,0 +1,1 @@
+export { type DeliveryZone, DeliveryType } from './model/delivery-zone'
