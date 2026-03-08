@@ -28,6 +28,7 @@ export const ProductItemOrderCard = ({ product, onAddToCart }: ProductOrderDispl
       onAddToCart(productId, quantity, preferences)
    }
 
+   //TODO: Remove the placeholder imageUrl sent to the modal on addToCart
    return (
       <>
          <div
@@ -36,15 +37,15 @@ export const ProductItemOrderCard = ({ product, onAddToCart }: ProductOrderDispl
             onClick={() => setIsModalOpen(true)}>
             <aside className="flex flex-col  justify-between xl:col-span-5 p-3">
                <section className="space-y-2">
-                  <h5 className="text-sm font-bold line-clamp-2 uppercase font-plus-jakarta">
+                  <h5 className="xl:text-xl font-bold line-clamp-2 capitalize font-cabin">
                      {product.designation}
                   </h5>
                   <p className="text-foreground/90 lg:leading-[120%]">
                      {_.truncate(product.description, { length: 70 })}
                   </p>
                </section>
-               <section className="flex md:justify-end text-tertiary leading-[100%] lg:text-lg font-bebas tracking-wide">
-                  <PriceDisplay amount={parseFloat(product.price.toString())} />
+               <section className="flex md:justify-end ">
+                  <PriceDisplay amount={parseFloat(product.price.toString())} className="text-tertiary leading-[100%] lg:text-lg font-bebas tracking-wide"/>
                </section>
             </aside>
             <aside className="xl:col-span-2 flex items-center border-l border-gray-50 border-dashed">
@@ -67,8 +68,9 @@ export const ProductItemOrderCard = ({ product, onAddToCart }: ProductOrderDispl
             </aside>
          </div>
 
+         
          <AddToCartModal
-            product={product}
+            product={{...product, imageUrl: data.data?.image ?? ''}}
             open={isModalOpen}
             onOpenChange={setIsModalOpen}
             onConfirm={handleConfirm}
