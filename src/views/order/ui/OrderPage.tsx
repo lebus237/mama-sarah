@@ -73,7 +73,7 @@ export function OrderPage() {
                               'xl:grid-cols-2': cart.totalItems > 0,
                            })}>
                            {productItems.map((product, _index) => (
-                              <Fade delay={_index * 0.5} triggerOnce>
+                              <Fade delay={_index * 0.5} triggerOnce key={product.id}>
                                  <ProductItemOrderCard
                                     key={product.id}
                                     product={product}
