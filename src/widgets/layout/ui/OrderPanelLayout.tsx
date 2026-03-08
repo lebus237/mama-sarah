@@ -1,6 +1,6 @@
+import Image from 'next/image'
 import { ReactNode } from 'react'
 import { OrderHeader } from './components/OrderHeader'
-import Image from 'next/image'
 import { TriviaDisplayCard } from './components/TriviaDisplayCard'
 
 export function OrderPanelLayout({ children }: { children: ReactNode }) {
@@ -13,7 +13,7 @@ export function OrderPanelLayout({ children }: { children: ReactNode }) {
          </header>
          <section className="xl:h-72 relative  w-full mx-auto xl:mt-20">
             <figure className="w-full h-full">
-               <Image src="/images/hero-2.png" alt="Food" fill className="object-fill" />
+               <Image src="/images/hero-2.png" alt="Food" fill className="object-fill" priority />
             </figure>
             {/*<div className="absolute top-0 right-0 left-0 w-full  z-10 bg-secondary text-white text-center py-2">
                <p>Restaurant ouvert 24/24 - 7/7</p>

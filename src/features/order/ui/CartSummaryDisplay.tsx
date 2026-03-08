@@ -47,14 +47,12 @@ export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) =
                            </p>
                         </div>
                         <div className="space-y-3">
-                           <p className="text-sm font-semibold">
-                              <PriceDisplay
-                                 amount={item.lineTotal}
-                                 showSymbol={false}
-                                 className="font-cabin"
-                                 locale="en-US"
-                              />
-                           </p>
+                           <PriceDisplay
+                              amount={item.lineTotal}
+                              showSymbol={false}
+                              className="font-cabin text-sm font-semibold"
+                              locale="en-US"
+                           />
                            <button
                               type="button"
                               onClick={() => removeItem(item.product.id, item.preferences)}

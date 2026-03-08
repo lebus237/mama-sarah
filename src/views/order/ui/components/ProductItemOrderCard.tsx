@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
 import { Product } from '@/entities/product'
-import Image from 'next/image'
-import { PlusIcon } from 'lucide-react'
-import _ from 'lodash'
-import { PriceDisplay } from '@/shared/ui/common'
-import useSWR from 'swr'
 import { AddToCartModal } from '@/features/order'
+import { PriceDisplay } from '@/shared/ui/common'
+import _ from 'lodash'
+import { PlusIcon } from 'lucide-react'
+import Image from 'next/image'
+import { useState } from 'react'
+import useSWR from 'swr'
 
 type ProductOrderDisplayCardProps = {
    product: Product
@@ -45,13 +45,16 @@ export const ProductItemOrderCard = ({ product, onAddToCart }: ProductOrderDispl
                   </p>
                </section>
                <section className="flex md:justify-end ">
-                  <PriceDisplay amount={parseFloat(product.price.toString())} className="text-tertiary leading-[100%] lg:text-lg font-bebas tracking-wide"/>
+                  <PriceDisplay
+                     amount={parseFloat(product.price.toString())}
+                     className="text-tertiary leading-[100%] lg:text-lg font-bebas tracking-wide"
+                  />
                </section>
             </aside>
             <aside className="xl:col-span-2 flex items-center border-l border-gray-50 border-dashed">
                <figure className="relative w-full h-28 md:h-full max-md:border-2 max-md:border-gray-200 rounded-md">
                   <Image
-                     src={data.data?.image ?? ''}
+                     src={data.data?.image ?? '/empty'}
                      alt="thumbnail"
                      fill
                      className="object-cover rounded-tr-xl rounded-br-xl "
@@ -68,9 +71,8 @@ export const ProductItemOrderCard = ({ product, onAddToCart }: ProductOrderDispl
             </aside>
          </div>
 
-         
          <AddToCartModal
-            product={{...product, imageUrl: data.data?.image ?? ''}}
+            product={{ ...product, imageUrl: data.data?.image ?? '' }}
             open={isModalOpen}
             onOpenChange={setIsModalOpen}
             onConfirm={handleConfirm}
