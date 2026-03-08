@@ -45,7 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
    return (
       <html suppressHydrationWarning lang="en" className="h-full">
          <body
-            className={`antialiased h-full [&>div]:h-full [&_[role='dialog']]:h-fit! ${bebasNeue.variable} ${plusJakarta.variable} ${poppins.variable} ${cabin.variable}`}
+            className={`antialiased h-full [&>div]:h-full **:[[role='dialog']]:h-fit! ${bebasNeue.variable} ${plusJakarta.variable} ${poppins.variable} ${cabin.variable}`}
          >
             <App children={children} />
          </body>
