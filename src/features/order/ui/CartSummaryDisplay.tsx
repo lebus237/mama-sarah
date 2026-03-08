@@ -1,6 +1,8 @@
 import { I18nLabel } from '@/shared/i18n'
+import { routePaths } from '@/shared/routes'
 import { PriceDisplay } from '@/shared/ui/common'
 import { PinIcon, Trash2 } from 'lucide-react'
+import Link from 'next/link'
 import { useCart } from '../lib/useCart'
 
 export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) => {
@@ -74,11 +76,13 @@ export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) =
 
                <div className="flex gap-2">
                   {canCheckout && (
-                     <button
-                        type="button"
-                        className="flex-1 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-white text-base font-semibold hover:bg-primary/90">
-                        <I18nLabel label="checkout.proceed" />
-                     </button>
+                     <Link href={routePaths.CHECKOUT}>
+                        <button
+                           type="button"
+                           className="flex-1 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-white text-base font-semibold hover:bg-primary/90">
+                           <I18nLabel label="checkout.proceed" />
+                        </button>
+                     </Link>
                   )}
                   <button
                      type="button"

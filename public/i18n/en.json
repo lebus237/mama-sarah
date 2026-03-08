@@ -1,5 +1,12 @@
 {
+  "checkout": {
+    "cartSubtotal": "Cart subtotal",
+    "clearCart": "Clear",
+    "proceed": "Validate my order",
+    "summary": "My cart"
+  },
   "text": {
-    "helloWorld": "Hello World!!"
+    "helloWorld": "Hello World!!",
+    "items": "Items"
   }
 }

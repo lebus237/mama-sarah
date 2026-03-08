@@ -41,7 +41,7 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
 
    return (
       <Dialog open={open} onOpenChange={onOpenChange}>
-         <DialogContent className="sm:max-w-sm p-0 overflow-hidden gap-0">
+         <DialogContent className="sm:max-w-sm p-0 overflow-hidden gap-0 shadow-xs shadow-secondary/70">
             <DialogHeader className="w-full aspect-video">
                <DialogTitle className="hidden"></DialogTitle>
                <figure className="w-full h-full relative">

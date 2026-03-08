@@ -1,5 +1,12 @@
 {
+  "checkout": {
+    "cartSubtotal": "Montant panier",
+    "clearCart": "Vider",
+    "proceed": "Valider ma commande",
+    "summary": "Mon panier"
+  },
   "text": {
-    "helloWorld": "Bonjour!!"
+    "helloWorld": "Bonjour!!",
+    "items": "Articles"
   }
 }

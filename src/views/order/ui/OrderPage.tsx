@@ -20,7 +20,7 @@ export function OrderPage() {
          if (latestValue > 560 && !hasFired) {
             if (navigationRef.current !== null) {
                navigationRef.current.style =
-                  'position: fixed;left: 0;top: 80px;width: 100%;z-index: 1000;border-top: 1px solid #e5e7eb;'
+                  'position: fixed;left: 0;top: 80px;width: 100%;z-index: 20;border-top: 1px solid #e5e7eb;'
             }
             setHasFired(true)
          }
