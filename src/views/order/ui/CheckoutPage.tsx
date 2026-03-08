@@ -1,7 +1,7 @@
 'use client'
 
+import { CartSummaryDisplay } from '@/features/order'
 import { I18nLabel } from '@/shared/i18n'
-import { CartSummary } from '@/features/order'
 
 export function CheckoutPage() {
    return (
@@ -10,7 +10,7 @@ export function CheckoutPage() {
             <I18nLabel label="text.checkoutOrder" />
          </h1>
 
-         <CartSummary />
+         <CartSummaryDisplay />
       </div>
    )
 }

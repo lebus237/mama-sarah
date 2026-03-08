@@ -1,13 +1,13 @@
 'use client'
 
 import { getProductsByCategory, ProductCategory, productCategoryList } from '@/entities/product'
+import { CartSummaryDisplay, useCart } from '@/features/order'
 import { cn } from '@/shared/lib/styles'
-import { useEffect, useRef, useState } from 'react'
-import { CartSummary, useCart } from '@/features/order'
 import { useScroll } from 'motion/react'
-import { ProductItemOrderCard } from './components/ProductItemOrderCard'
+import { useEffect, useRef, useState } from 'react'
 import { Fade } from 'react-awesome-reveal'
-import { Link, Element } from 'react-scroll'
+import { Element, Link } from 'react-scroll'
+import { ProductItemOrderCard } from './components/ProductItemOrderCard'
 
 export function OrderPage() {
    const { scrollY } = useScroll()
@@ -85,7 +85,11 @@ export function OrderPage() {
                   )
                })}
             </aside>
-            <aside className="hidden xl:block">{cart.totalItems > 0 && <CartSummary />}</aside>
+            <aside className="hidden xl:flex justify-end">
+               <div className="xl:w-5/6">
+                  {cart.totalItems > 0 && <CartSummaryDisplay canCheckout />}
+               </div>
+            </aside>
          </div>
       </div>
    )

@@ -4,6 +4,8 @@ import { Product } from '@/entities/product'
 import { I18nLabel } from '@/shared/i18n'
 import { cn } from '@/shared/lib/styles'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, PriceDisplay } from '@/shared/ui/common'
+import { CustomIcon } from '@/shared/ui/icons'
+import { DialogTitle } from '@radix-ui/react-dialog'
 import _ from 'lodash'
 import { Minus, Plus } from 'lucide-react'
 import Image from 'next/image'
@@ -37,12 +39,11 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
       onOpenChange(false)
    }
 
-   const totalPrice = Number(product.price) * quantity
-
    return (
       <Dialog open={open} onOpenChange={onOpenChange}>
          <DialogContent className="sm:max-w-sm p-0 overflow-hidden gap-0">
             <DialogHeader className="w-full aspect-video">
+               <DialogTitle className="hidden"></DialogTitle>
                <figure className="w-full h-full relative">
                   <Image src={product.imageUrl} alt="thumbnail" fill className="object-cover" />
                </figure>
@@ -118,8 +119,8 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
                   <button
                      type="button"
                      onClick={handleConfirm}
-                     className="flex-1 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-tertiary text-white text-base font-semibold">
-                     {/* <ShoppingCart className="w-4 h-4" /> */}
+                     className="flex-1 inline-flex items-center cursor-pointer justify-center gap-2 px-6 py-3 rounded-full bg-tertiary text-white text-base font-semibold">
+                     <CustomIcon type="food-cart" size={24} />
                      <I18nLabel label="Ajouter au panier" />
                   </button>
                </div>
