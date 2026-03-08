@@ -7,7 +7,6 @@ import _ from 'lodash'
 import { PlusIcon } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
-import useSWR from 'swr'
 
 type ProductOrderDisplayCardProps = {
    product: Product
@@ -16,19 +15,11 @@ type ProductOrderDisplayCardProps = {
 
 export const ProductItemOrderCard = ({ product, onAddToCart }: ProductOrderDisplayCardProps) => {
    const [isModalOpen, setIsModalOpen] = useState(false)
-   const data = useSWR<{ image: string }>(
-      `image-${product.id}`,
-      async () =>
-         await fetch('https://foodish-api.com/api')
-            .then(res => res.json())
-            .catch(() => null),
-   )
 
    const handleConfirm = (productId: string, quantity: number, preferences: string[]) => {
       onAddToCart(productId, quantity, preferences)
    }
 
-   //TODO: Remove the placeholder imageUrl sent to the modal on addToCart
    return (
       <>
          <div
@@ -54,7 +45,7 @@ export const ProductItemOrderCard = ({ product, onAddToCart }: ProductOrderDispl
             <aside className="xl:col-span-2 flex items-center border-l border-gray-50 border-dashed">
                <figure className="relative w-full h-28 md:h-full max-md:border-2 max-md:border-gray-200 rounded-md">
                   <Image
-                     src={data.data?.image ?? '/empty'}
+                     src={product.imageUrl}
                      alt="thumbnail"
                      fill
                      className="object-cover rounded-tr-xl rounded-br-xl "
@@ -72,7 +63,7 @@ export const ProductItemOrderCard = ({ product, onAddToCart }: ProductOrderDispl
          </div>
 
          <AddToCartModal
-            product={{ ...product, imageUrl: data.data?.image ?? '' }}
+            product={product}
             open={isModalOpen}
             onOpenChange={setIsModalOpen}
             onConfirm={handleConfirm}

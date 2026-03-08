@@ -1,9 +1,8 @@
-import { I18nLabel } from '@/shared/i18n'
+import { getProducts } from '@/entities/product'
+import { HomeProductList } from '@/views/home'
 
 export default function Page() {
-   return (
-      <div className="w-full h-full content-center flex justify-center items-center">
-         <I18nLabel label="text.helloWorld" />
-      </div>
-   )
+   const products = getProducts()
+
+   return <HomeProductList products={products} />
 }

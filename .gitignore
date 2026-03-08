@@ -25,3 +25,5 @@ build
 *.sw?
 .zed
 /packages/**/public/i18n
+src/views/order/ui/components/ProductItemOrderCard.tsx
+scripts/food-images.json
