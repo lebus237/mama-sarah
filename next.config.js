@@ -2,12 +2,12 @@
 const nextConfig = {
    output: 'standalone',
    distDir: 'build',
-   // devIndicators: false,
-   i18n: {
-      locales: ['en', 'fr'],
-      localeDetection: true,
-      defaultLocale: 'en',
-   },
+   // // devIndicators: false,
+   // i18n: {
+   //    locales: ['en', 'fr'],
+   //    localeDetection: true,
+   //    defaultLocale: 'en',
+   // },
    images: {
       remotePatterns: [
          {
