@@ -8,4 +8,5 @@ export type Product = {
    categoryId: string
    categoryName?: string
    isAvailable?: boolean
+   preferences: string[] | []
 }

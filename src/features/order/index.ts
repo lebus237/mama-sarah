@@ -1,3 +1,5 @@
 export { OrderCounterDisplay } from './ui/OrderCounterDisplay'
 export { useCart } from './lib/useCart'
+export { useCartStore } from './lib/cartStore'
+export type { Cart, CartItem, DetailedCartItem } from './lib/cartStore'
 export { CartSummary } from './ui/CartSummary'

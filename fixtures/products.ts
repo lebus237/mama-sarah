@@ -12,6 +12,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-1',
       categoryName: 'Braises',
       isAvailable: true,
+      preferences: ['spicy', 'hot'],
    },
    {
       id: 'prod-2',
@@ -23,6 +24,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-1',
       categoryName: 'Braises',
       isAvailable: true,
+      preferences: ['spicy', 'hot'],
    },
    {
       id: 'prod-3',
@@ -34,6 +36,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-1',
       categoryName: 'Braises',
       isAvailable: true,
+      preferences: ['spicy', 'hot', 'salty'],
    },
    {
       id: 'prod-4',
@@ -45,6 +48,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-1',
       categoryName: 'Braises',
       isAvailable: true,
+      preferences: ['salty', 'hot'],
    },
    {
       id: 'prod-5',
@@ -56,6 +60,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-1',
       categoryName: 'Braises',
       isAvailable: true,
+      preferences: ['spicy', 'hot'],
    },
 
    // Repas complet (cat-2) - 5 products
@@ -69,6 +74,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-2',
       categoryName: 'Repas complet',
       isAvailable: true,
+      preferences: ['spicy'],
    },
    {
       id: 'prod-7',
@@ -80,6 +86,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-2',
       categoryName: 'Repas complet',
       isAvailable: true,
+      preferences: ['spicy', 'hot'],
    },
    {
       id: 'prod-8',
@@ -91,6 +98,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-2',
       categoryName: 'Repas complet',
       isAvailable: true,
+      preferences: ['salty', 'spicy'],
    },
    {
       id: 'prod-9',
@@ -102,6 +110,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-2',
       categoryName: 'Repas complet',
       isAvailable: true,
+      preferences: [],
    },
    {
       id: 'prod-10',
@@ -113,6 +122,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-2',
       categoryName: 'Repas complet',
       isAvailable: true,
+      preferences: [],
    },
 
    // Grillades (cat-3) - 4 products
@@ -126,6 +136,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-3',
       categoryName: 'Grillades',
       isAvailable: true,
+      preferences: ['spicy', 'hot'],
    },
    {
       id: 'prod-12',
@@ -137,6 +148,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-3',
       categoryName: 'Grillades',
       isAvailable: true,
+      preferences: ['spicy'],
    },
    {
       id: 'prod-13',
@@ -148,6 +160,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-3',
       categoryName: 'Grillades',
       isAvailable: true,
+      preferences: ['salty', 'hot'],
    },
    {
       id: 'prod-14',
@@ -159,6 +172,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-3',
       categoryName: 'Grillades',
       isAvailable: true,
+      preferences: ['salty', 'spicy', 'hot'],
    },
 
    // Accompagnements (cat-4) - 5 products
@@ -172,6 +186,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-4',
       categoryName: 'Accompagnements',
       isAvailable: true,
+      preferences: ['salty'],
    },
    {
       id: 'prod-16',
@@ -183,6 +198,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-4',
       categoryName: 'Accompagnements',
       isAvailable: true,
+      preferences: ['salty'],
    },
    {
       id: 'prod-17',
@@ -194,6 +210,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-4',
       categoryName: 'Accompagnements',
       isAvailable: true,
+      preferences: ['salty'],
    },
    {
       id: 'prod-18',
@@ -205,6 +222,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-4',
       categoryName: 'Accompagnements',
       isAvailable: true,
+      preferences: ['salty'],
    },
    {
       id: 'prod-19',
@@ -216,6 +234,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-4',
       categoryName: 'Accompagnements',
       isAvailable: true,
+      preferences: ['salty'],
    },
 
    // Boissons (cat-5) - 4 products
@@ -229,6 +248,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-5',
       categoryName: 'Boissons',
       isAvailable: true,
+      preferences: ['cold'],
    },
    {
       id: 'prod-21',
@@ -240,6 +260,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-5',
       categoryName: 'Boissons',
       isAvailable: true,
+      preferences: ['cold'],
    },
    {
       id: 'prod-22',
@@ -251,6 +272,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-5',
       categoryName: 'Boissons',
       isAvailable: true,
+      preferences: ['cold'],
    },
    {
       id: 'prod-23',
@@ -262,6 +284,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-5',
       categoryName: 'Boissons',
       isAvailable: true,
+      preferences: ['cold'],
    },
 
    // Desserts (cat-6) - 5 products
@@ -275,6 +298,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-6',
       categoryName: 'Desserts',
       isAvailable: true,
+      preferences: ['hot'],
    },
    {
       id: 'prod-25',
@@ -286,6 +310,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-6',
       categoryName: 'Desserts',
       isAvailable: true,
+      preferences: ['cold'],
    },
    {
       id: 'prod-26',
@@ -297,6 +322,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-6',
       categoryName: 'Desserts',
       isAvailable: true,
+      preferences: [],
    },
    {
       id: 'prod-27',
@@ -308,6 +334,7 @@ export const products: Array<Product> = [
       categoryId: 'cat-6',
       categoryName: 'Desserts',
       isAvailable: true,
+      preferences: [],
    },
    {
       id: 'prod-28',
@@ -319,5 +346,6 @@ export const products: Array<Product> = [
       categoryId: 'cat-6',
       categoryName: 'Desserts',
       isAvailable: true,
+      preferences: ['cold'],
    },
 ]

@@ -11,7 +11,6 @@ import { Link, Element } from 'react-scroll'
 
 export function OrderPage() {
    const { scrollY } = useScroll()
-   const { addItem } = useCart()
    const [hasFired, setHasFired] = useState(false)
    const navigationRef = useRef<HTMLDivElement | null>(null)
    const cart = useCart()
@@ -77,7 +76,7 @@ export function OrderPage() {
                                  <ProductItemOrderCard
                                     key={product.id}
                                     product={product}
-                                    onAddToCart={addItem}
+                                    onAddToCart={cart.addItem}
                                  />
                               </Fade>
                            ))}

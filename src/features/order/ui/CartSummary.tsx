@@ -1,9 +1,9 @@
 import { I18nLabel } from '@/shared/i18n'
-import { PinIcon } from 'lucide-react'
+import { PinIcon, Trash2 } from 'lucide-react'
 import { useCart } from '../lib/useCart'
 
 export const CartSummary = () => {
-   const { detailedItems, subtotal, totalItems, clearCart } = useCart()
+   const { detailedItems, subtotal, totalItems, clearCart, removeItem } = useCart()
 
    return (
       <section className="border border-gray-200 rounded-2xl bg-white p-4 shadow-sm">
@@ -26,15 +26,29 @@ export const CartSummary = () => {
          ) : (
             <>
                <ul className="divide-y divide-gray-100 mb-4">
-                  {detailedItems.map(item => (
-                     <li key={item.product.id} className="py-2 flex items-center justify-between">
-                        <div>
+                  {detailedItems.map((item, index) => (
+                     <li key={`${item.product.id}-${index}`} className="py-2 flex items-center justify-between gap-2">
+                        <div className="flex-1 min-w-0">
                            <p className="text-sm font-medium line-clamp-2">
                               {item.product.designation}
                            </p>
-                           <p className="text-xs text-gray-500">x{item.quantity}</p>
+                           <p className="text-xs text-gray-500">
+                              x{item.quantity}
+                              {(item.preferences ?? []).length > 0 && (
+                                 <span className="ml-1">({item.preferences.join(', ')})</span>
+                              )}
+                           </p>
                         </div>
-                        <p className="text-sm font-semibold">{item.lineTotal}</p>
+                        <div className="flex items-center gap-2">
+                           <p className="text-sm font-semibold">{item.lineTotal}</p>
+                           <button
+                              type="button"
+                              onClick={() => removeItem(item.product.id, item.preferences)}
+                              className="p-1 text-gray-400 hover:text-red-500 transition-colors"
+                              aria-label="Remove item">
+                              <Trash2 size={16} />
+                           </button>
+                        </div>
                      </li>
                   ))}
                </ul>
