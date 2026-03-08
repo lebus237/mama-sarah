@@ -20,7 +20,7 @@ export function OrderPanelLayout({ children }: { children: ReactNode }) {
             </div>*/}
             <div className="absolute top-0 left-0 z-20 w-full h-full">
                <div className="container  h-full relative">
-                  <div className="absolute top-2/3 right-0  z-20 xl:h-64 xl:w-[35%] ">
+                  <div className="absolute top-2/3 right-0  z-20 xl:h-64 xl:w-1/3">
                      <TriviaDisplayCard />
                   </div>
                </div>
