@@ -1,5 +1,3 @@
-'use client'
-
 import { I18nLabel } from '@/shared/i18n'
 
 export default function Page() {

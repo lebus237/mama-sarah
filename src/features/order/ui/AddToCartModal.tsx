@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { Minus, Plus, Snowflake, Flame, Wheat, Citrus, ShoppingCart } from 'lucide-react'
+import { Minus, Plus, ShoppingCart } from 'lucide-react'
 import {
    Dialog,
    DialogContent,
@@ -11,7 +11,6 @@ import {
 } from '@/shared/ui/common'
 import { PriceDisplay } from '@/shared/ui/common'
 import { Product } from '@/entities/product'
-import { Preference } from '@/features/order/model/order_item'
 import { cn } from '@/shared/lib/styles'
 
 type AddToCartModalProps = {

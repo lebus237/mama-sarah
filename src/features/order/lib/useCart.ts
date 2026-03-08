@@ -1,5 +1,4 @@
 import { useCartStore } from './cartStore'
-import type { Preference } from '../model/order_item'
 
 export function useCart() {
    const { cart, addItem, removeItem, updateQuantity, clearCart, getTotalItems, getDetailedItems, getSubtotal } =
@@ -12,7 +11,7 @@ export function useCart() {
       subtotal: getSubtotal(),
       totalItems: getTotalItems(),
       addItem,
-      removeItem: (productId: string, preferences: Preference[] = []) => removeItem(productId, preferences),
+      removeItem: (productId: string, preferences: string[] = []) => removeItem(productId, preferences),
       updateQuantity,
       clearCart,
    }

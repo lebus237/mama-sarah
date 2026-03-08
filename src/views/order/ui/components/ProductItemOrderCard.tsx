@@ -7,7 +7,7 @@ import { PlusIcon } from 'lucide-react'
 import _ from 'lodash'
 import { PriceDisplay } from '@/shared/ui/common'
 import useSWR from 'swr'
-import { AddToCartModal } from './AddToCartModal'
+import { AddToCartModal } from '@/features/order'
 
 type ProductOrderDisplayCardProps = {
    product: Product
