@@ -2,6 +2,11 @@
 @import './utils//_scroll_utils.css';
 @import 'tailwindcss';
 
+@variant has-dialog (&:has([role="dialog"]));
+
+@variant dialog (&[role="dialog"]);
+
+
 @theme {
    --font-bebas: var(--font-bebas);
    --font-plus-jakarta: var(--font-plus-jakarta);
