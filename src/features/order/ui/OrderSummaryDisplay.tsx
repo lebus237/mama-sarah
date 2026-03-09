@@ -34,11 +34,10 @@ export const OrderSummaryDisplay = () => {
                         <Image src={item.product.imageUrl} fill alt="" className="rounded-xl" />
                      </figure>
                      <div className={cn('space-y-1.5 w-full')}>
-                        <p className="text-sm font-medium line-clamp-2">
+                        <p className="text-base font-medium line-clamp-2">
                            {item.product.designation}
                         </p>
                         <p className="text-xs">
-                           <span className="text-tertiary">x{item.quantity}</span>
                            {(item.preferences ?? []).length > 0 && (
                               <span className="ml-1 text-gray-400">
                                  ({item.preferences.join(', ')})
@@ -46,23 +45,29 @@ export const OrderSummaryDisplay = () => {
                            )}
                         </p>
                      </div>
-                     <div className="space-y-3">
+                     <div className="flex gap-x-3">
                         <PriceDisplay
                            amount={item.lineTotal}
                            showSymbol={false}
-                           className="font-cabin text-sm font-semibold"
+                           className="font-cabin text-md font-semibold"
                            locale="en-US"
                         />
+                        <span className="text-tertiary">x{item.quantity}</span>
                      </div>
                   </li>
                ))}
             </ul>
 
-            <div className="flex items-center justify-between border-t border-gray-200 border-dashed pt-4 mb-3">
+            <div className="flex items-end justify-between border-t border-gray-200 border-dashed pt-4 mb-3">
                <span className="text-sm text-gray-600">
                   <I18nLabel label="checkout.cartSubtotal" />
                </span>
-               <PriceDisplay amount={subtotal} className="font-semibold" />
+               <PriceDisplay
+                  amount={subtotal}
+                  className="font-cabin text-md font-semibold"
+                  locale="en-US"
+                  showSymbol={false}
+               />
             </div>
 
             <div className="flex justify-between gap-2 mt-6"></div>
