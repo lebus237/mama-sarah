@@ -59,23 +59,33 @@ export function OrderPage() {
          <OrderHeroSection />
          <div className="xl:h-48"></div>
          <div className="border-gray-200 bg-white border-b" ref={navigationRef}>
-            <div className="container flex justify-center">
-               <nav className="xl:w-3/5 xl:h-16 flex justify-between items-center order-category-navigation">
-                  {productCategoryList.map(section => (
-                     <Link
-                        key={section.id}
-                        to={section.id}
-                        spy={true}
-                        offset={-256}
-                        duration={500}
-                        smooth={true}
-                        className="block h-full content-center basis-1/5 text-center transition-border ease-linear  uppercase"
-                        activeClass={cn('active border-b-3 border-primary font-bold text-primary')}>
-                        {section.designation}
-                     </Link>
-                  ))}
-               </nav>
-               <div className="xl:w-1/5"></div>
+            <div className="container flex justify-center items-center lg:gap-x-3">
+               <div className="xl:w-3/5 xl:h-16   border border-dashed overflow-x-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+                  <nav className="flex justify-between items-center order-category-navigation h-full w-[130%]">
+                     {productCategoryList.map(section => (
+                        <Link
+                           key={section.id}
+                           to={section.id}
+                           spy={true}
+                           offset={-256}
+                           duration={500}
+                           smooth={true}
+                           className="block h-full content-center xl:basis-1/6 text-center transition-border ease-linear  uppercase"
+                           activeClass={cn(
+                              'active border-b-3 border-primary font-bold text-primary',
+                           )}>
+                           {section.designation}
+                        </Link>
+                     ))}
+                  </nav>
+               </div>
+               <div className="xl:w-1/5">
+                  <input
+                     type="search"
+                     placeholder="Rechercher ..."
+                     className="w-full h-12 border border-gray-300 rounded-full px-3"
+                  />
+               </div>
             </div>
          </div>
          <div className="container grid xl:grid-cols-3 gap-6 xl:py-12">
@@ -86,12 +96,13 @@ export function OrderPage() {
                {productCategoryList.map((category: ProductCategory) => {
                   const productItems = getProductsByCategory(category.id)
                   return (
-                     <Element key={category.id} name={category.id} className='relative'>
-                        <h2 className="xl:text-xl font-extrabold font-plus-jakarta 
+                     <Element key={category.id} name={category.id} className="relative">
+                        <h2
+                           className="xl:text-xl font-extrabold font-plus-jakarta 
                         max-md:text-2xl text-secondary leading-1 mt-4">
                            {category.designation}
                         </h2>
-                        <p className='mt-5'></p>
+                        <p className="mt-5"></p>
                         <div
                            className={cn('grid grid-cols-1 xl:grid-cols-3 gap-4 mt-4', {
                               'xl:grid-cols-2': cart.totalItems > 0,
@@ -120,7 +131,8 @@ export function OrderPage() {
                                        </section>
                                     </aside>
                                     <aside className="h-full xl:col-span-2 flex justify-end items-start border-l border-gray-50 border-dashed rounded-lg">
-                                       <figure className="relative w-[70%] h-[90%] md:w-full md:h-full 
+                                       <figure
+                                          className="relative w-[70%] h-[90%] md:w-full md:h-full 
                                         max-md:border-gray-200 rounded-xl ">
                                           <Image
                                              src={product.imageUrl}
@@ -136,7 +148,7 @@ export function OrderPage() {
                                                 e.stopPropagation()
                                                 openModal(product)
                                              }}>
-                                             <PlusIcon className='md:w-5 md:h-5 w-4 h-4' />
+                                             <PlusIcon className="md:w-5 md:h-5 w-4 h-4" />
                                           </div>
                                        </figure>
                                     </aside>
