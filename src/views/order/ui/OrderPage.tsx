@@ -10,12 +10,17 @@ import { AddToCartModal, CartSummaryDisplay, useCart } from '@/features/order'
 import { cn } from '@/shared/lib/styles'
 import { PriceDisplay } from '@/shared/ui/common'
 import _ from 'lodash'
-import { PlusIcon } from 'lucide-react'
+import { ChevronLeft, ChevronRight, PlusIcon } from 'lucide-react'
 import { useScroll } from 'motion/react'
 import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { Fade } from 'react-awesome-reveal'
 import { Element, Link } from 'react-scroll'
+import { Swiper as SwiperType } from 'swiper'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
 import { OrderHeroSection } from './sections/OrderHeroSection'
 
 export function OrderPage() {
@@ -26,6 +31,8 @@ export function OrderPage() {
 
    const [isModalOpen, setIsModalOpen] = useState(false)
    const [product, setProduct] = useState<Product | undefined>()
+   const [activeSection, setActiveSection] = useState<string | null>(null)
+   const swiperRef = useRef<SwiperType | null>(null)
 
    const openModal = (item: Product) => {
       setProduct(item)
@@ -60,24 +67,43 @@ export function OrderPage() {
          <div className="xl:h-48"></div>
          <div className="border-gray-200 bg-white border-b" ref={navigationRef}>
             <div className="container flex justify-center items-center lg:gap-x-3">
-               <div className="xl:w-3/5 xl:h-16   border border-dashed overflow-x-scroll [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
-                  <nav className="flex justify-between items-center order-category-navigation h-full w-[130%]">
+               <div className="xl:w-3/5 xl:h-16 flex items-center">
+                  <button
+                     className="p-2 hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                     onClick={() => swiperRef.current?.slidePrev()}>
+                     <ChevronLeft className="w-5 h-5 text-primary" />
+                  </button>
+                  <Swiper
+                     onSwiper={swiper => (swiperRef.current = swiper)}
+                     slidesPerView={'auto'}
+                     spaceBetween={16}
+                     modules={[Navigation]}
+                     preventClicks={false}
+                     preventClicksPropagation={false}
+                     touchStartPreventDefault={false}
+                     className="order-category-navigation h-full flex-1">
                      {productCategoryList.map(section => (
-                        <Link
-                           key={section.id}
-                           to={section.id}
-                           spy={true}
-                           offset={-256}
-                           duration={500}
-                           smooth={true}
-                           className="block h-full content-center xl:basis-1/6 text-center transition-border ease-linear  uppercase"
-                           activeClass={cn(
-                              'active border-b-3 border-primary font-bold text-primary',
-                           )}>
-                           {section.designation}
-                        </Link>
+                        <SwiperSlide key={section.id} className="w-auto! shrink-0!">
+                           <Link
+                              to={section.id}
+                              spy={true}
+                              offset={-256}
+                              duration={500}
+                              smooth={true}
+                              className="block h-full content-center xl:basis-1/6 text-center transition-border ease-linear uppercase px-4 cursor-default"
+                              activeClass={cn(
+                                 'active border-b-3 border-primary font-bold text-primary',
+                              )}>
+                              {section.designation}
+                           </Link>
+                        </SwiperSlide>
                      ))}
-                  </nav>
+                  </Swiper>
+                  <button
+                     className="p-2 hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                     onClick={() => swiperRef.current?.slideNext()}>
+                     <ChevronRight className="w-5 h-5 text-gray-600" />
+                  </button>
                </div>
                <div className="xl:w-1/5">
                   <input
