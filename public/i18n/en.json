@@ -1,6 +1,7 @@
 {
   "checkout": {
     "cartSubtotal": "Cart subtotal",
+    "cartTotal": "Cart amount",
     "clearCart": "Clear",
     "proceed": "Validate my order",
     "summary": "My cart"

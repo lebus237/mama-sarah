@@ -1,6 +1,7 @@
 {
   "checkout": {
-    "cartSubtotal": "Montant panier",
+    "cartSubtotal": "Sous total panier",
+    "cartTotal": "Total panier",
     "clearCart": "Vider",
     "proceed": "Valider ma commande",
     "summary": "Mon panier"
