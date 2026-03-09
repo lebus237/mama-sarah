@@ -1,5 +1,6 @@
 'use client'
 
+import { DeliveryMode } from '@/entities/delivery'
 import { I18nLabel } from '@/shared/i18n'
 import { cn } from '@/shared/lib/styles'
 import { CheckoutController } from '../lib/useCheckoutController'
@@ -146,7 +147,7 @@ export function CheckoutForm({ controller }: CheckoutFormProps) {
                                     ? 'border-primary bg-primary/5 text-secondary'
                                     : 'border-gray-200 bg-white text-gray-600',
                               )}>
-                              <I18nLabel label="checkout.pickup" />
+                              <I18nLabel label={`checkout.deliveryType.${DeliveryMode.PICKUP}`} />
                            </button>
                            <button
                               type="button"
@@ -157,7 +158,9 @@ export function CheckoutForm({ controller }: CheckoutFormProps) {
                                     ? 'border-primary bg-primary/5 text-secondary'
                                     : 'border-gray-200 bg-white text-gray-600',
                               )}>
-                              <I18nLabel label="checkout.delivery" />
+                              <I18nLabel
+                                 label={`checkout.deliveryType.${DeliveryMode.DELIVERY}.choose`}
+                              />
                            </button>
                         </div>
                      </div>

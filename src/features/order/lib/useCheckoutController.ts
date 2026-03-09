@@ -1,10 +1,10 @@
 'use client'
 
-import { useCart } from './useCart'
+import { DeliveryMode } from '@/entities/delivery'
 import { useEffect, useMemo, useState } from 'react'
+import { useCart } from './useCart'
 
 export type CheckoutStep = 1 | 2 | 3
-export type DeliveryMode = 'pickup' | 'delivery'
 export type PaymentMethod = 'mtn_momo' | 'orange_money' | ''
 
 export interface CheckoutDraft {
@@ -59,7 +59,7 @@ export function useCheckoutController(): CheckoutController {
    const [step, setStep] = useState<CheckoutStep>(1)
    const [phone, setPhone] = useState('')
    const [name, setName] = useState('')
-   const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>('pickup')
+   const [deliveryMode, setDeliveryMode] = useState<DeliveryMode>(DeliveryMode.DELIVERY)
    const [deliveryLocation, setDeliveryLocation] = useState('')
    const [paymentMethod, setPaymentMethod] = useState<PaymentMethod>('')
 
@@ -70,7 +70,8 @@ export function useCheckoutController(): CheckoutController {
 
    const canGoNext = useMemo(() => {
       if (step === 1) return phone.trim().length > 0
-      if (step === 2) return deliveryMode === 'pickup' ? true : deliveryLocation.trim().length > 0
+      if (step === 2)
+         return deliveryMode === DeliveryMode.PICKUP ? true : deliveryLocation.trim().length > 0
       if (step === 3) return paymentMethod !== ''
       return false
    }, [step, phone, deliveryMode, deliveryLocation, paymentMethod])
@@ -79,7 +80,8 @@ export function useCheckoutController(): CheckoutController {
 
    const step2Errors = useMemo(
       () => ({
-         deliveryLocation: deliveryMode === 'delivery' && deliveryLocation.trim().length === 0,
+         deliveryLocation:
+            deliveryMode === DeliveryMode.DELIVERY && deliveryLocation.trim().length === 0,
       }),
       [deliveryMode, deliveryLocation],
    )
@@ -89,7 +91,8 @@ export function useCheckoutController(): CheckoutController {
    const canPay = useMemo(() => {
       if (cart.totalItems === 0) return false
       if (phone.trim().length === 0) return false
-      if (deliveryMode === 'delivery' && deliveryLocation.trim().length === 0) return false
+      if (deliveryMode === DeliveryMode.DELIVERY && deliveryLocation.trim().length === 0)
+         return false
       if (paymentMethod === '') return false
       return true
    }, [cart.totalItems, phone, deliveryMode, deliveryLocation, paymentMethod])
@@ -152,7 +155,7 @@ export function useCheckoutController(): CheckoutController {
       setStep(1)
       setPhone('')
       setName('')
-      setDeliveryMode('pickup')
+      setDeliveryMode(DeliveryMode.PICKUP)
       setDeliveryLocation('')
       setPaymentMethod('')
       setHasTriedNext(false)

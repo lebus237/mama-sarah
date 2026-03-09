@@ -1,5 +1,5 @@
 import { Customer } from '@/entities/customer'
-import { DeliveryType, DeliveryZone } from '@/entities/delivery-zone'
+import { DeliveryType, DeliveryZone } from '@/entities/delivery'
 import { Product } from '@/entities/product'
 
 export type Order = {
