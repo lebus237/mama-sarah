@@ -1,9 +1,22 @@
 {
   "checkout": {
     "cartSubtotal": "Cart subtotal",
+    "cartTotal": "Cart amount",
     "clearCart": "Clear",
+    "delivery": "Delivery",
+    "deliveryType": {
+      "delivery": {
+        "choose": "I am having it delivered"
+      },
+      "pickup": "I'll pick up myself"
+    },
+    "payment": "Payment",
     "proceed": "Validate my order",
-    "summary": "My cart"
+    "summary": "My cart",
+    "userInfo": "Customer informations"
+  },
+  "page": {
+    "checkoutOrder": "Checkout/Payment"
   },
   "text": {
     "helloWorld": "Hello World!!",
