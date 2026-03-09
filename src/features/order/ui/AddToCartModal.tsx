@@ -47,15 +47,15 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
    return (
       <>
          <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="sm:max-w-sm p-0 overflow-hidden gap-0 shadow-xs shadow-secondary/70">
-               <DialogHeader className="w-full aspect-video">
+            <DialogContent className="sm:max-w-sm p-0 overflow-hidden gap-0 shadow-xs ]  shadow-secondary/70 mr-20 bg-amber-600 mx-auto">
+               <DialogHeader className="w-full  aspect-video">
                   <DialogTitle className="hidden"></DialogTitle>
                   <figure className="w-full h-full relative">
                      <Image src={product.imageUrl} alt="thumbnail" fill className="object-cover" />
                   </figure>
                </DialogHeader>
 
-               <div className="*:p-4">
+               <div className="*:p-4  max-md:mx-auto">
                   <div>
                      <h3 className="text-2xl font-cabin font-bold">{product.designation}</h3>
                      <PriceDisplay
@@ -95,7 +95,7 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
                      </div>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-3 ">
                      <div className="xl:pl-3">
                         <label className="text-base font-medium text-secondary">
                            <I18nLabel label="Selectionner preferences" />
@@ -120,7 +120,7 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
                   </div>
                </div>
 
-               <DialogFooter className="border-t border-gray-200 border-dashed">
+               <DialogFooter className="border-t border-gray-200 border-dashed max-md:mx-auto ">
                   <div className="flex w-full p-4">
                      <button
                         type="button"

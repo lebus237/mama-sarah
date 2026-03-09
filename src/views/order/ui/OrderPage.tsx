@@ -86,10 +86,12 @@ export function OrderPage() {
                {productCategoryList.map((category: ProductCategory) => {
                   const productItems = getProductsByCategory(category.id)
                   return (
-                     <Element key={category.id} name={category.id}>
-                        <h2 className="xl:text-xl font-bold font-plus-jakarta text-secondary">
+                     <Element key={category.id} name={category.id} className='relative'>
+                        <h2 className="xl:text-xl font-extrabold font-plus-jakarta 
+                        max-md:text-2xl text-secondary leading-1 mt-4">
                            {category.designation}
                         </h2>
+                        <p className='mt-5'></p>
                         <div
                            className={cn('grid grid-cols-1 xl:grid-cols-3 gap-4 mt-4', {
                               'xl:grid-cols-2': cart.totalItems > 0,
@@ -105,11 +107,11 @@ export function OrderPage() {
                                           <h5 className="xl:text-xl font-bold line-clamp-2 capitalize font-cabin">
                                              {product.designation}
                                           </h5>
-                                          <p className="text-foreground/90 lg:leading-[120%]">
+                                          <p className="text-foreground/90 leading-[110%] lg:leading-[120%]">
                                              {_.truncate(product.description, { length: 70 })}
                                           </p>
                                        </section>
-                                       <section className="max-md:flex max-md:flex-1  md:justify-end mt-1 ">
+                                       <section className="max-md:flex max-md:mb-4  md:justify-end mt-1 ">
                                           <PriceDisplay
                                              amount={parseFloat(product.price.toString())}
                                              className="
@@ -118,20 +120,23 @@ export function OrderPage() {
                                        </section>
                                     </aside>
                                     <aside className="h-full xl:col-span-2 flex justify-end items-start border-l border-gray-50 border-dashed rounded-lg">
-                                       <figure className="relative w-[60%] h-[90%] md:w-full md:h-full max-md:border-2 max-md:border-gray-200 rounded-xl overflow-hidden">
+                                       <figure className="relative w-[70%] h-[90%] md:w-full md:h-full 
+                                        max-md:border-gray-200 rounded-xl ">
                                           <Image
                                              src={product.imageUrl}
                                              alt="thumbnail"
                                              fill
-                                             className="object-cover "
+                                             className="object-cover rounded-xl"
                                           />
                                           <div
-                                             className="rounded-full text-secondary bg-white w-10 h-10 absolute bottom-1.5 right-1.5 flex items-center justify-center shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)]"
+                                             className="rounded-full text-secondary bg-white md:w-10 md:h-10   w-7 h-7
+                                              absolute bottom-1.5 right-1.5 flex items-center justify-center 
+                                              shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)] max-md:translate-x-1/2 max-md:translate-y-1/2"
                                              onClick={e => {
                                                 e.stopPropagation()
                                                 openModal(product)
                                              }}>
-                                             <PlusIcon />
+                                             <PlusIcon className='md:w-5 md:h-5 w-4 h-4' />
                                           </div>
                                        </figure>
                                     </aside>
