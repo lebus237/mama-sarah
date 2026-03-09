@@ -9,7 +9,8 @@ export function OrderPanelLayout({ children }: { children: ReactNode }) {
                <Header />
             </div>
          </header>
-         <main className="xl:min-h-[calc(100%-160px)] xl:mt-20">{children}</main>
+         <div className="xl:h-20"></div>
+         <main className="xl:min-h-[calc(100%-160px)]">{children}</main>
          <footer className="xl:h-20 bg-secondary"></footer>
       </div>
    )

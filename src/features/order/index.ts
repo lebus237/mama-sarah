@@ -1,5 +1,3 @@
-export { useCartStore } from './lib/cartStore'
-export type { Cart, CartItem, DetailedCartItem } from './lib/cartStore'
 export { useCart } from './lib/useCart'
 export { useCheckoutController } from './lib/useCheckoutController'
 export type {
@@ -9,6 +7,8 @@ export type {
    DeliveryMode,
    PaymentMethod,
 } from './lib/useCheckoutController'
+export { useCartStore } from './model/cart-store'
+export type { Cart, CartItem, DetailedCartItem } from './model/cart-store'
 export { AddToCartModal } from './ui/AddToCartModal'
 export { CartSummaryDisplay } from './ui/CartSummaryDisplay'
 export { CheckoutForm } from './ui/CheckoutForm'

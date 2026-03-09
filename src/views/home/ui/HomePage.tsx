@@ -6,7 +6,7 @@ import { PriceDisplay } from '@/shared/ui/common'
 import Image from 'next/image'
 import { useState } from 'react'
 
-import { ProductDetailsModal } from './components/ProductDetailsModal'
+import { ProductDetailsModal } from './modal/ProductDetailsModal'
 
 export function HomePage({ products }: { products: Array<Product> }) {
    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)

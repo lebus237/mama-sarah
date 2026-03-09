@@ -1,6 +1,6 @@
+import { productList, type Product } from '@/entities/product'
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
-import { productList, type Product } from '@/entities/product'
 
 export type CartItem = {
    productId: string
@@ -44,7 +44,8 @@ export const useCartStore = create<CartState>()(
          addItem: (productId: string, quantity: number = 1, preferences: string[] = []) => {
             set(state => {
                const existing = state.cart.items.find(
-                  item => item.productId === productId && 
+                  item =>
+                     item.productId === productId &&
                      JSON.stringify(item.preferences) === JSON.stringify(preferences),
                )
 
@@ -52,7 +53,7 @@ export const useCartStore = create<CartState>()(
                if (existing) {
                   items = state.cart.items.map(item =>
                      item.productId === productId &&
-                        JSON.stringify(item.preferences) === JSON.stringify(preferences)
+                     JSON.stringify(item.preferences) === JSON.stringify(preferences)
                         ? { ...item, quantity: item.quantity + quantity }
                         : item,
                   )
@@ -71,8 +72,11 @@ export const useCartStore = create<CartState>()(
                cart: {
                   ...state.cart,
                   items: state.cart.items.filter(
-                     item => !(item.productId === productId && 
-                        JSON.stringify(item.preferences) === JSON.stringify(preferences)),
+                     item =>
+                        !(
+                           item.productId === productId &&
+                           JSON.stringify(item.preferences) === JSON.stringify(preferences)
+                        ),
                   ),
                },
             }))
@@ -116,7 +120,9 @@ export const useCartStore = create<CartState>()(
          },
 
          getSubtotal: () => {
-            return get().getDetailedItems().reduce((sum, item) => sum + item.lineTotal, 0)
+            return get()
+               .getDetailedItems()
+               .reduce((sum, item) => sum + item.lineTotal, 0)
          },
       }),
       {

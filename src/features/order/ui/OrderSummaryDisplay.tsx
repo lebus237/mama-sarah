@@ -30,7 +30,7 @@ export const OrderSummaryDisplay = () => {
                   <li
                      key={`${item.product.id}-${index}`}
                      className="py-2 flex items-center justify-between gap-2">
-                     <figure className="relative w-1/5 aspect-square">
+                     <figure className="relative w-1/4 aspect-square">
                         <Image src={item.product.imageUrl} fill alt="" className="rounded-xl" />
                      </figure>
                      <div className={cn('space-y-1.5 w-full')}>
