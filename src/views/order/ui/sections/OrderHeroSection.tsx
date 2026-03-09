@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 export const OrderHeroSection = () => {
    return (
-      <section className="xl:h-72 relative  w-full mx-auto xl:mt-20">
+      <div className="xl:h-72 relative  w-full mx-auto xl:mt-20">
          <figure className="w-full h-full">
             <Image src="/images/hero-2.png" alt="Food" fill className="object-fill" priority />
          </figure>
@@ -17,6 +17,6 @@ export const OrderHeroSection = () => {
                </div>
             </div>
          </div>
-      </section>
+      </div>
    )
 }

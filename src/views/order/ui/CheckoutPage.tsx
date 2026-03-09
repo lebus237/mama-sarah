@@ -1,6 +1,6 @@
 'use client'
 
-import { CartSummaryDisplay, useCart } from '@/features/order'
+import { OrderSummaryDisplay, useCart } from '@/features/order'
 import { I18nLabel } from '@/shared/i18n'
 import { cn } from '@/shared/lib/styles'
 import { useEffect, useMemo, useState } from 'react'
@@ -421,7 +421,7 @@ export function CheckoutPage() {
             </section>
 
             <aside className="xl:col-span-1">
-               <CartSummaryDisplay />
+               <OrderSummaryDisplay canCheckout />
             </aside>
          </div>
       </div>

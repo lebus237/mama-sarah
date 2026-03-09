@@ -1,6 +1,7 @@
 'use client'
 
 import { Product } from '@/entities/product'
+import { ShareProductModal } from '@/features/sharing'
 import { I18nLabel } from '@/shared/i18n'
 import { cn } from '@/shared/lib/styles'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, PriceDisplay } from '@/shared/ui/common'
@@ -10,8 +11,6 @@ import _ from 'lodash'
 import { Minus, Plus, Share2 } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
-
-import { ShareProductModal } from './ShareProductModal'
 
 type AddToCartModalProps = {
    product: Product

@@ -55,8 +55,10 @@ export function OrderPage() {
    }, [scrollY, hasFired])
 
    return (
-      <div className="">
-         <OrderHeroSection />
+      <div>
+         <section>
+            <OrderHeroSection />
+         </section>
          <div className="xl:h-48"></div>
          <div className="border-gray-200 bg-white border-b" ref={navigationRef}>
             <div className="container flex justify-center">
@@ -143,9 +145,7 @@ export function OrderPage() {
                })}
             </aside>
             <aside className="hidden xl:flex justify-end">
-               <div className="xl:w-5/6">
-                  {cart.totalItems > 0 && <CartSummaryDisplay canCheckout />}
-               </div>
+               <div className="xl:w-5/6">{cart.totalItems > 0 && <CartSummaryDisplay />}</div>
             </aside>
          </div>
          {product && (

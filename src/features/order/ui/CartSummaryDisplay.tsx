@@ -1,11 +1,12 @@
 import { I18nLabel } from '@/shared/i18n'
+import { cn } from '@/shared/lib/styles'
 import { routePaths } from '@/shared/routes'
 import { PriceDisplay } from '@/shared/ui/common'
 import { PinIcon, Trash2 } from 'lucide-react'
 import Link from 'next/link'
 import { useCart } from '../lib/useCart'
 
-export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) => {
+export const CartSummaryDisplay = () => {
    const { detailedItems, subtotal, totalItems, clearCart, removeItem } = useCart()
 
    return (
@@ -35,7 +36,7 @@ export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) =
                      <li
                         key={`${item.product.id}-${index}`}
                         className="py-2 flex items-center justify-between gap-2">
-                        <div className="space-y-1.5">
+                        <div className={cn('space-y-1.5 w-auto')}>
                            <p className="text-sm font-medium line-clamp-2">
                               {item.product.designation}
                            </p>
@@ -69,21 +70,19 @@ export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) =
 
                <div className="flex items-center justify-between border-t border-gray-200 border-dashed pt-4 mb-3">
                   <span className="text-sm text-gray-600">
-                     <I18nLabel label="checkout.cartSubtotal" />
+                     <I18nLabel label="checkout.cartTotal" />
                   </span>
                   <PriceDisplay amount={subtotal} className="font-semibold" />
                </div>
 
                <div className="flex justify-between gap-2 mt-6">
-                  {canCheckout && (
-                     <Link href={routePaths.CHECKOUT}>
-                        <button
-                           type="button"
-                           className="flex-1 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-white text-base font-semibold hover:bg-primary/90">
-                           <I18nLabel label="checkout.proceed" />
-                        </button>
-                     </Link>
-                  )}
+                  <Link href={routePaths.CHECKOUT}>
+                     <button
+                        type="button"
+                        className="flex-1 inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-white text-base font-semibold hover:bg-primary/90">
+                        <I18nLabel label="checkout.proceed" />
+                     </button>
+                  </Link>
                   <button
                      type="button"
                      className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 text-sm font-medium text-gray-600 hover:bg-gray-50"
