@@ -1,6 +1,11 @@
 'use client'
 
-import { getProductsByCategory, ProductCategory, productCategoryList } from '@/entities/product'
+import {
+   getProductsByCategory,
+   Product,
+   ProductCategory,
+   productCategoryList,
+} from '@/entities/product'
 import { AddToCartModal, CartSummaryDisplay, useCart } from '@/features/order'
 import { cn } from '@/shared/lib/styles'
 import { PriceDisplay } from '@/shared/ui/common'
@@ -19,6 +24,12 @@ export function OrderPage() {
    const cart = useCart()
 
    const [isModalOpen, setIsModalOpen] = useState(false)
+   const [product, setProduct] = useState<Product | undefined>()
+
+   const openModal = (item: Product) => {
+      setProduct(item)
+      setIsModalOpen(true)
+   }
 
    const handleConfirm = (productId: string, quantity: number, preferences: string[]) => {
       cart.addItem(productId, quantity, preferences)
@@ -85,7 +96,7 @@ export function OrderPage() {
                                  <div
                                     className="cursor-pointer w-full h-40 xl:h-36 grid grid-cols-2 xl:grid-cols-7
                                               max-md:border-b-2 border-gray-200  rounded-xl md:shadow-[0px_8px_24px_rgba(149,157,165,0.2)] hover:scale-105 transition-all duration-200"
-                                    onClick={() => setIsModalOpen(true)}>
+                                    onClick={() => openModal(product)}>
                                     <aside className="flex flex-col  justify-between xl:col-span-5 p-3">
                                        <section className="space-y-2">
                                           <h5 className="xl:text-xl font-bold line-clamp-2 capitalize font-cabin">
@@ -114,18 +125,12 @@ export function OrderPage() {
                                              className="rounded-full text-secondary bg-white w-10 h-10 absolute bottom-1.5 right-1.5 flex items-center justify-center shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)]"
                                              onClick={e => {
                                                 e.stopPropagation()
-                                                setIsModalOpen(true)
+                                                openModal(product)
                                              }}>
                                              <PlusIcon />
                                           </div>
                                        </figure>
                                     </aside>
-                                    <AddToCartModal
-                                       product={product}
-                                       open={isModalOpen}
-                                       onOpenChange={setIsModalOpen}
-                                       onConfirm={handleConfirm}
-                                    />
                                  </div>
                               </Fade>
                            ))}
@@ -140,6 +145,14 @@ export function OrderPage() {
                </div>
             </aside>
          </div>
+         {product && (
+            <AddToCartModal
+               product={product}
+               open={isModalOpen}
+               onOpenChange={setIsModalOpen}
+               onConfirm={handleConfirm}
+            />
+         )}
       </div>
    )
 }

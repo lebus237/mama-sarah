@@ -98,7 +98,7 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
                   <div className="space-y-3">
                      <div className="xl:pl-3">
                         <label className="text-base font-medium text-secondary">
-                           <I18nLabel label="Preferences" />
+                           <I18nLabel label="Selectionner preferences" />
                         </label>
                      </div>
                      <div className="flex flex-wrap gap-2">
@@ -125,7 +125,7 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
                      <button
                         type="button"
                         onClick={() => setIsShareModalOpen(true)}
-                        className="mr-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-gray-100 hover:bg-gray-200 text-secondary">
+                        className="mr-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-500  text-white border-blue-500 cursor-pointer">
                         <Share2 className="w-5 h-5" />
                      </button>
                      <button
