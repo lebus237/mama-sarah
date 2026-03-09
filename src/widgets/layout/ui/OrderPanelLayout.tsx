@@ -1,33 +1,15 @@
-import Image from 'next/image'
 import { ReactNode } from 'react'
-import { OrderHeader } from './components/OrderHeader'
-import { TriviaDisplayCard } from './components/TriviaDisplayCard'
+import { Header } from './components/Header'
 
 export function OrderPanelLayout({ children }: { children: ReactNode }) {
    return (
-      <div className="w-full h-full font-cabin text-secondary">
+      <div className="w-full h-full font-cabin text-secondary ">
          <header className="w-full border-b border-gray-100 fixed top-0 left-0 z-50 bg-white">
             <div className="container  content-center xl:h-20">
-               <OrderHeader />
+               <Header />
             </div>
          </header>
-         <section className="xl:h-72 relative  w-full mx-auto xl:mt-20">
-            <figure className="w-full h-full">
-               <Image src="/images/hero-2.png" alt="Food" fill className="object-fill" priority />
-            </figure>
-            {/*<div className="absolute top-0 right-0 left-0 w-full  z-10 bg-secondary text-white text-center py-2">
-               <p>Restaurant ouvert 24/24 - 7/7</p>
-            </div>*/}
-            <div className="absolute top-0 left-0 z-20 w-full h-full">
-               <div className="container  h-full relative">
-                  <div className="absolute top-2/3 right-0  z-20 xl:h-64 xl:w-1/3">
-                     <TriviaDisplayCard />
-                  </div>
-               </div>
-            </div>
-         </section>
-         <div className="xl:h-48"></div>
-         <main>{children}</main>
+         <main className="xl:min-h-[calc(100%-160px)] xl:mt-20">{children}</main>
          <footer className="xl:h-20 bg-secondary"></footer>
       </div>
    )

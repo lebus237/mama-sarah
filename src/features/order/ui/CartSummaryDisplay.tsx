@@ -74,7 +74,7 @@ export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) =
                   <PriceDisplay amount={subtotal} className="font-semibold" />
                </div>
 
-               <div className="flex gap-2">
+               <div className="flex justify-between gap-2 mt-6">
                   {canCheckout && (
                      <Link href={routePaths.CHECKOUT}>
                         <button

@@ -1,7 +1,7 @@
 import { OrderCounterDisplay } from '@/features/order'
 import Link from 'next/link'
 
-export function OrderHeader() {
+export function Header() {
    return (
       <div className="flex justify-between items-center">
          <aside>

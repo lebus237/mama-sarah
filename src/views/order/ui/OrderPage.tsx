@@ -16,6 +16,7 @@ import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 import { Fade } from 'react-awesome-reveal'
 import { Element, Link } from 'react-scroll'
+import { OrderHeroSection } from './sections/OrderHeroSection'
 
 export function OrderPage() {
    const { scrollY } = useScroll()
@@ -55,6 +56,8 @@ export function OrderPage() {
 
    return (
       <div className="">
+         <OrderHeroSection />
+         <div className="xl:h-48"></div>
          <div className="border-gray-200 bg-white border-b" ref={navigationRef}>
             <div className="container flex justify-center">
                <nav className="xl:w-3/5 xl:h-16 flex justify-between items-center order-category-navigation">
