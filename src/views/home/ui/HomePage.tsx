@@ -6,13 +6,9 @@ import { PriceDisplay } from '@/shared/ui/common'
 import Image from 'next/image'
 import { useState } from 'react'
 
-import { ProductDetailsModal } from '@/features/order/ui/ProductDetailsModal'
+import { ProductDetailsModal } from './components/ProductDetailsModal'
 
-type HomeProductListProps = {
-   products: Array<Product>
-}
-
-export function HomeProductList({ products }: HomeProductListProps) {
+export function HomePage({ products }: { products: Array<Product> }) {
    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
    const [isModalOpen, setIsModalOpen] = useState(false)
 
@@ -33,12 +29,19 @@ export function HomeProductList({ products }: HomeProductListProps) {
                   }}
                   className="text-left bg-white rounded-xl border border-gray-100 shadow-[0px_8px_24px_rgba(149,157,165,0.18)] hover:scale-[1.01] transition-all duration-200 overflow-hidden">
                   <div className="w-full aspect-video relative">
-                     <Image src={product.imageUrl} alt={product.designation} fill className="object-cover" />
+                     <Image
+                        src={product.imageUrl}
+                        alt={product.designation}
+                        fill
+                        className="object-cover"
+                     />
                   </div>
 
                   <div className="p-4">
                      <div className="flex items-start justify-between gap-3">
-                        <h3 className="text-lg font-bold font-cabin text-secondary line-clamp-2">{product.designation}</h3>
+                        <h3 className="text-lg font-bold font-cabin text-secondary line-clamp-2">
+                           {product.designation}
+                        </h3>
                         <PriceDisplay
                            amount={Number(product.price)}
                            className="text-tertiary leading-[100%] lg:text-lg font-bebas tracking-wide"
@@ -46,7 +49,9 @@ export function HomeProductList({ products }: HomeProductListProps) {
                      </div>
 
                      {!!product.description && (
-                        <p className="mt-2 text-foreground/90 text-sm line-clamp-2">{product.description}</p>
+                        <p className="mt-2 text-foreground/90 text-sm line-clamp-2">
+                           {product.description}
+                        </p>
                      )}
                   </div>
                </button>

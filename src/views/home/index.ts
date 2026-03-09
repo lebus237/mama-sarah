@@ -1,1 +1,1 @@
-export { HomeProductList } from './ui/HomeProductList'
+export { HomePage as HomeProductList } from './ui/HomePage'

@@ -6,7 +6,6 @@
 
 @variant dialog (&[role="dialog"]);
 
-
 @theme {
    --font-bebas: var(--font-bebas);
    --font-plus-jakarta: var(--font-plus-jakarta);
@@ -20,20 +19,6 @@
    --color-tertiary: #00704e;
 
    --color-foreground: #666666;
-}
-
-@layer utilities {
-   .avatar img {
-      border-radius: 9999px !important;
-      object-fit: cover !important;
-   }
-}
-
-@layer utilities {
-   .avatar img {
-      border-radius: 9999px !important;
-      object-fit: cover !important;
-   }
 }
 
 /*html {
