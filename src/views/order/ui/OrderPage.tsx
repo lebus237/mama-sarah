@@ -1,27 +1,12 @@
 'use client'
 
-import {
-   getProductsByCategory,
-   Product,
-   ProductCategory,
-   productCategoryList,
-} from '@/entities/product'
-import { AddToCartModal, CartSummaryDisplay, useCart } from '@/features/order'
-import { cn } from '@/shared/lib/styles'
-import { PriceDisplay } from '@/shared/ui/common'
-import _ from 'lodash'
-import { ChevronLeft, ChevronRight, PlusIcon } from 'lucide-react'
+import { Product } from '@/entities/product'
+import { useCart } from '@/features/order'
 import { useScroll } from 'motion/react'
-import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
-import { Fade } from 'react-awesome-reveal'
-import { Element, Link } from 'react-scroll'
 import { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
-import { Navigation } from 'swiper/modules'
-import { Swiper, SwiperSlide } from 'swiper/react'
-import { OrderHeroSection } from './sections/OrderHeroSection'
 
 export function OrderPage() {
    const { scrollY } = useScroll()
@@ -63,7 +48,7 @@ export function OrderPage() {
 
    return (
       <div className="">
-         <OrderHeroSection />
+         {/* <OrderHeroSection />
          <div className="xl:h-48"></div>
          <div className="border-gray-200 bg-white border-b" ref={navigationRef}>
             <div className="container flex justify-center items-center lg:gap-x-3">
@@ -198,7 +183,7 @@ export function OrderPage() {
                onOpenChange={setIsModalOpen}
                onConfirm={handleConfirm}
             />
-         )}
+         )} */}
       </div>
    )
 }
