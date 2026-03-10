@@ -107,7 +107,7 @@ export function OrderPage() {
                               offset={-256}
                               duration={500}
                               smooth={true}
-                              className="block h-full content-center font-light xl:basis-1/6 text-center transition-border ease-linear xl:uppercase px-4 cursor-default"
+                              className="block h-full content-center md:font-light xl:basis-1/6 text-center transition-border ease-linear uppercase px-4 cursor-default"
                               activeClass={cn(
                                  'active border-b-2 md:border-b-3 border-primary font-bold text-primary',
                               )}>
@@ -147,7 +147,7 @@ export function OrderPage() {
                            <div className="w-1/3 border-t-2 border-gray-400 border-dashed md:hidden mx-auto mt-12 mb-9"></div>
                         )}
                         <h2
-                           className="lg:text-xl font-bold uppercase lg:capitalize font-plus-jakarta text-center md:text-start
+                           className="text-sm lg:text-xl font-bold uppercase  font-plus-jakarta text-center md:text-start
                          text-secondary/80 leading-1 xl:pl-3 mb-6">
                            {category.designation}
                         </h2>
@@ -163,7 +163,7 @@ export function OrderPage() {
                                     onClick={() => openModal(product)}>
                                     <aside className="flex flex-col  justify-between col-span-3 xl:col-span-5 md:p-3 h-full">
                                        <section className="space-y-2">
-                                          <h5 className="text-xl font-bold line-clamp-2 font-cabin leading-[110%]">
+                                          <h5 className="text-xl font-bold line-clamp-2 font-cabin leading-[110%] mt-1.5">
                                              {_.upperFirst(product.designation.toLowerCase())}
                                           </h5>
                                           <p className="text-foreground/90 md:text-base text-sm leading-[110%] lg:leading-[120%] lg:w-5/6 w-11/12">
