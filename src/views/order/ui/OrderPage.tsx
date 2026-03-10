@@ -158,7 +158,7 @@ export function OrderPage() {
                            {productItems.map((product, _index) => (
                               <Fade delay={200} triggerOnce key={product.id}>
                                  <div
-                                    className="items-stretch cursor-pointer w-full h-38 md:h-35 grid grid-cols-5 xl:grid-cols-7 py-3 md:py-0
+                                    className="items-stretch cursor-pointer w-full h-40 md:h-35 grid grid-cols-5 xl:grid-cols-7 py-5 md:py-0
                                                md:rounded-xl border-b border-gray-200 md:border-none md:shadow-[0px_8px_24px_rgba(149,157,165,0.2)] hover:scale-105 transition-all duration-200"
                                     onClick={() => openModal(product)}>
                                     <aside className="flex flex-col  justify-between col-span-3 xl:col-span-5 md:p-3 h-full">
