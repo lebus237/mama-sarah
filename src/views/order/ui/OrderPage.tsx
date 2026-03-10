@@ -71,7 +71,7 @@ export function OrderPage() {
                   <button
                      className="p-2 hover:bg-gray-100 rounded-full transition-colors shrink-0"
                      onClick={() => swiperRef.current?.slidePrev()}>
-                     <ChevronLeft className="w-5 h-5 text-primary" />
+                     <ChevronLeft className="w-6 h-6 " strokeWidth={2.5} />
                   </button>
                   <Swiper
                      onSwiper={swiper => (swiperRef.current = swiper)}
@@ -90,7 +90,7 @@ export function OrderPage() {
                               offset={-256}
                               duration={500}
                               smooth={true}
-                              className="block h-full content-center xl:basis-1/6 text-center transition-border ease-linear uppercase px-4 cursor-default"
+                              className="block h-full content-center font-light xl:basis-1/6 text-center transition-border ease-linear uppercase px-4 cursor-default"
                               activeClass={cn(
                                  'active border-b-3 border-primary font-bold text-primary',
                               )}>
@@ -102,7 +102,7 @@ export function OrderPage() {
                   <button
                      className="p-2 hover:bg-gray-100 rounded-full transition-colors shrink-0"
                      onClick={() => swiperRef.current?.slideNext()}>
-                     <ChevronRight className="w-5 h-5 text-gray-600" />
+                     <ChevronRight className="w-6 h-6 text-primary" strokeWidth={2.5} />
                   </button>
                </div>
                <div className="xl:w-1/5">
@@ -124,13 +124,12 @@ export function OrderPage() {
                   return (
                      <Element key={category.id} name={category.id} className="relative">
                         <h2
-                           className="xl:text-xl font-extrabold font-plus-jakarta 
-                        max-md:text-2xl text-secondary leading-1 mt-4">
+                           className="lg:text-xl font-bold capitalize font-plus-jakarta 
+                        max-md:text-2xl text-secondary/80 leading-1 xl:pl-3">
                            {category.designation}
                         </h2>
-                        <p className="mt-5"></p>
                         <div
-                           className={cn('grid grid-cols-1 xl:grid-cols-3 gap-4 mt-4', {
+                           className={cn('grid grid-cols-1 xl:grid-cols-3 gap-4 lg:mt-6', {
                               'xl:grid-cols-2': cart.totalItems > 0,
                            })}>
                            {productItems.map((product, _index) => (
@@ -141,14 +140,14 @@ export function OrderPage() {
                                     onClick={() => openModal(product)}>
                                     <aside className="flex flex-col  justify-between xl:col-span-5 md:p-3 h-full ">
                                        <section className="space-y-2">
-                                          <h5 className="xl:text-xl font-bold line-clamp-2 capitalize font-cabin">
-                                             {product.designation}
+                                          <h5 className="xl:text-xl font-bold line-clamp-2 font-cabin">
+                                             {_.upperFirst(product.designation.toLowerCase())}
                                           </h5>
-                                          <p className="text-foreground/90 leading-[110%] lg:leading-[120%]">
+                                          <p className="text-foreground/90 leading-[110%] lg:leading-[120%] lg:w-5/6">
                                              {_.truncate(product.description, { length: 70 })}
                                           </p>
                                        </section>
-                                       <section className="max-md:flex max-md:mb-4  md:justify-end mt-1 ">
+                                       <section className="flex max-md:mb-4  md:justify-end mt-1 ">
                                           <PriceDisplay
                                              amount={parseFloat(product.price.toString())}
                                              className="
@@ -159,12 +158,12 @@ export function OrderPage() {
                                     <aside className="h-full xl:col-span-2 flex justify-end items-start border-l border-gray-50 border-dashed rounded-lg">
                                        <figure
                                           className="relative w-[70%] h-[90%] md:w-full md:h-full 
-                                        max-md:border-gray-200 rounded-xl ">
+                                        max-md:border-gray-200 rounded-xl lg:rounded-tl-none lg:rounded-bl-none  overflow-hidden">
                                           <Image
                                              src={product.imageUrl}
                                              alt="thumbnail"
                                              fill
-                                             className="object-cover rounded-xl"
+                                             className="object-cover"
                                           />
                                           <div
                                              className="rounded-full text-secondary bg-white md:w-10 md:h-10   w-7 h-7
