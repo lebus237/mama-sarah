@@ -79,7 +79,7 @@ export function OrderPage() {
    }, [scrollY, hasFired])
 
    return (
-      <div className="">
+      <div className="relative ">
          <OrderHeroSection />
          <div className="xl:h-48"></div>
          <div className="border-gray-200 bg-white border-b" ref={navigationRef}>
@@ -144,43 +144,43 @@ export function OrderPage() {
                   return (
                      <Element key={category.id} name={category.id} className="relative">
                         {index !== 0 && (
-                           <div className="w-1/3 border-t-2 border-primary md:hidden mx-auto mb-6"></div>
+                           <div className="w-1/3 border-t-2 border-gray-400 border-dashed md:hidden mx-auto mt-12 mb-9"></div>
                         )}
                         <h2
-                           className="lg:text-xl font-bold uppercase lg:capitalize font-plus-jakarta 
-                         text-secondary/80 leading-1 xl:pl-3">
+                           className="lg:text-xl font-bold uppercase lg:capitalize font-plus-jakarta text-center md:text-start
+                         text-secondary/80 leading-1 xl:pl-3 mb-6">
                            {category.designation}
                         </h2>
                         <div
-                           className={cn('grid grid-cols-1 xl:grid-cols-3 md:gap-4 mt-6', {
+                           className={cn('grid grid-cols-1 xl:grid-cols-3 md:gap-4 mt-1', {
                               'xl:grid-cols-2': cart.totalItems > 0,
                            })}>
                            {productItems.map((product, _index) => (
                               <Fade delay={200} triggerOnce key={product.id}>
                                  <div
-                                    className="items-stretch cursor-pointer w-full min-h-35 grid grid-cols-5 xl:grid-cols-7 py-6 md:py-0
+                                    className="items-stretch cursor-pointer w-full h-38 md:h-35 grid grid-cols-5 xl:grid-cols-7 py-3 md:py-0
                                                md:rounded-xl border-b border-gray-200 md:border-none md:shadow-[0px_8px_24px_rgba(149,157,165,0.2)] hover:scale-105 transition-all duration-200"
                                     onClick={() => openModal(product)}>
-                                    <aside className="flex flex-col  justify-between col-span-3 xl:col-span-5 md:p-3 h-full ">
+                                    <aside className="flex flex-col  justify-between col-span-3 xl:col-span-5 md:p-3 h-full">
                                        <section className="space-y-2">
-                                          <h5 className="text-xl md:text-xl font-bold line-clamp-2 font-cabin">
+                                          <h5 className="text-xl font-bold line-clamp-2 font-cabin leading-[110%]">
                                              {_.upperFirst(product.designation.toLowerCase())}
                                           </h5>
-                                          <p className="text-foreground/90 leading-[110%] lg:leading-[120%] lg:w-5/6">
+                                          <p className="text-foreground/90 md:text-base text-sm leading-[110%] lg:leading-[120%] lg:w-5/6 w-11/12">
                                              {_.truncate(product.description, { length: 70 })}
                                           </p>
                                        </section>
-                                       <section className="flex md:justify-end mt-1 ">
+                                       <section className="flex justify-end pr-3">
                                           <PriceDisplay
                                              amount={parseFloat(product.price.toString())}
                                              className="
-                                             text-tertiary leading-[100%] lg:text-lg font-bebas tracking-wide"
+                                             text-tertiary leading-[100%] text-xl md:text-lg font-bebas tracking-wide"
                                           />
                                        </section>
                                     </aside>
                                     <aside className="h-full col-span-2 xl:col-span-2 flex justify-end items-start border-l border-gray-50 border-dashed rounded-lg">
                                        <figure
-                                          className="relative w-full h-[110%] md:h-full 
+                                          className="relative w-full h-full
                                         max-md:border-gray-200 rounded-xl lg:rounded-tl-none lg:rounded-bl-none  overflow-hidden">
                                           <Image
                                              src={product.imageUrl}
@@ -190,7 +190,7 @@ export function OrderPage() {
                                           />
                                           <div
                                              className="rounded-full text-secondary bg-white md:w-10 md:h-10   w-7 h-7
-                                              absolute bottom-1.5 right-1.5 flex items-center justify-center 
+                                              absolute bottom-1.5 right-1.5 flex items-center justify-center
                                               shadow-[0px_7px_29px_0px_rgba(100,100,111,0.2)] max-md:translate-x-1/2 max-md:translate-y-1/2"
                                              onClick={e => {
                                                 e.stopPropagation()

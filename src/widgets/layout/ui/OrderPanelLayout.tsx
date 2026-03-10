@@ -1,9 +1,10 @@
 import { ReactNode } from 'react'
 import { Header } from './components/Header'
+import { MobileOrderCounterDisplay } from '@/features/order'
 
 export function OrderPanelLayout({ children }: { children: ReactNode }) {
    return (
-      <div className="w-full h-full font-cabin text-secondary ">
+      <div className="w-full h-full font-cabin text-secondary relative">
          <header className="w-full border-b border-gray-100 fixed top-0 left-0 z-50 bg-white">
             <div className="container h-16  md:h-20 ">
                <Header />
@@ -13,6 +14,11 @@ export function OrderPanelLayout({ children }: { children: ReactNode }) {
             {children}
          </main>
          <footer className="h-16 md:h-20 bg-secondary"></footer>
+         <div className="fixed bottom-4 h-16  right-0 z-30 w-full content-center">
+            <div className="ml-3 h-full w-1/3">
+               <MobileOrderCounterDisplay />
+            </div>
+         </div>
       </div>
    )
 }
