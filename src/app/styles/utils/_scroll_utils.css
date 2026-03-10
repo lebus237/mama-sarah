@@ -4,6 +4,10 @@
          border-bottom: 3px solid var(--color-primary);
          color: var(--color-primary);
          font-weight: 700;
+
+         @media (max-width: 640px) {
+            border-bottom: 2px solid var(--color-primary);
+         }
       }
    }
 

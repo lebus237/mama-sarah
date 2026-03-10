@@ -1,22 +1,38 @@
 'use client'
 
-import { Product } from '@/entities/product'
-import { useCart } from '@/features/order'
+import {
+   getProductsByCategory,
+   Product,
+   ProductCategory,
+   productCategoryList,
+} from '@/entities/product'
+import { AddToCartModal, CartSummaryDisplay, useCart } from '@/features/order'
+import { useViewPort } from '@/shared/lib/layout'
+import { cn } from '@/shared/lib/styles'
+import { PriceDisplay } from '@/shared/ui/common'
+import _ from 'lodash'
+import { ChevronLeft, ChevronRight, PlusIcon } from 'lucide-react'
 import { useScroll } from 'motion/react'
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
+import { Fade } from 'react-awesome-reveal'
+import { Element, Link } from 'react-scroll'
 import { Swiper as SwiperType } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
+import { Navigation } from 'swiper/modules'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { OrderHeroSection } from './sections/OrderHeroSection'
 
 export function OrderPage() {
    const { scrollY } = useScroll()
    const [hasFired, setHasFired] = useState(false)
    const navigationRef = useRef<HTMLDivElement | null>(null)
+   const viewPort = useViewPort()
    const cart = useCart()
 
    const [isModalOpen, setIsModalOpen] = useState(false)
    const [product, setProduct] = useState<Product | undefined>()
-   const [activeSection, setActiveSection] = useState<string | null>(null)
    const swiperRef = useRef<SwiperType | null>(null)
 
    const openModal = (item: Product) => {
@@ -29,44 +45,60 @@ export function OrderPage() {
    }
 
    useEffect(() => {
-      return scrollY.on('change', latestValue => {
-         if (latestValue > 560 && !hasFired) {
-            if (navigationRef.current !== null) {
-               navigationRef.current.style =
-                  'position: fixed;left: 0;top: 80px;width: 100%;z-index: 20;border-top: 1px solid #e5e7eb;'
-            }
-            setHasFired(true)
-         }
-         if (latestValue < 560 && hasFired) {
-            if (navigationRef.current !== null) {
-               navigationRef.current.style = ''
-            }
-            setHasFired(false)
-         }
-      })
+      return viewPort.isDesktop
+         ? scrollY.on('change', latestValue => {
+              if (latestValue > 560 && !hasFired) {
+                 if (navigationRef.current !== null) {
+                    navigationRef.current.style =
+                       'position: fixed;left: 0;top: 80px;width: 100%;z-index: 20;border-top: 1px solid #e5e7eb;'
+                 }
+                 setHasFired(true)
+              }
+              if (latestValue < 560 && hasFired) {
+                 if (navigationRef.current !== null) {
+                    navigationRef.current.style = ''
+                 }
+                 setHasFired(false)
+              }
+           })
+         : scrollY.on('change', latestValue => {
+              if (latestValue > 246 && !hasFired) {
+                 if (navigationRef.current !== null) {
+                    navigationRef.current.style =
+                       'position: fixed;left: 0;top: 64px;width: 100%;z-index: 20;border-top: 1px solid #e5e7eb;'
+                 }
+                 setHasFired(true)
+              }
+              if (latestValue < 246 && hasFired) {
+                 if (navigationRef.current !== null) {
+                    navigationRef.current.style = ''
+                 }
+                 setHasFired(false)
+              }
+           })
    }, [scrollY, hasFired])
 
    return (
       <div className="">
-         {/* <OrderHeroSection />
+         <OrderHeroSection />
          <div className="xl:h-48"></div>
          <div className="border-gray-200 bg-white border-b" ref={navigationRef}>
-            <div className="container flex justify-center items-center lg:gap-x-3">
-               <div className="xl:w-3/5 xl:h-16 flex items-center">
+            <div className="container flex justify-center items-center lg:gap-x-3 flex-wrap-reverse lg:flex-nowrap pt-6 lg:py-0 gap-y-3 lg:gap-y-0">
+               <div className="w-full xl:w-3/5 h-10 xl:h-16 flex items-center">
                   <button
-                     className="p-2 hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                     className="lg:p-2 lg:bg-gray-100 text-gray-600 rounded-full transition-colors shrink-0"
                      onClick={() => swiperRef.current?.slidePrev()}>
-                     <ChevronLeft className="w-6 h-6 " strokeWidth={2.5} />
+                     <ChevronLeft className="lg:w-6 lg:h-6 w-5 h-5" strokeWidth={2.5} />
                   </button>
                   <Swiper
                      onSwiper={swiper => (swiperRef.current = swiper)}
-                     slidesPerView={'auto'}
-                     spaceBetween={16}
+                     slidesPerView="auto"
+                     spaceBetween={viewPort.isDesktop ? 16 : 0}
                      modules={[Navigation]}
                      preventClicks={false}
                      preventClicksPropagation={false}
                      touchStartPreventDefault={false}
-                     className="order-category-navigation h-full flex-1">
+                     className="order-category-navigation h-full">
                      {productCategoryList.map(section => (
                         <SwiperSlide key={section.id} className="w-auto! shrink-0!">
                            <Link
@@ -75,9 +107,9 @@ export function OrderPage() {
                               offset={-256}
                               duration={500}
                               smooth={true}
-                              className="block h-full content-center font-light xl:basis-1/6 text-center transition-border ease-linear uppercase px-4 cursor-default"
+                              className="block h-full content-center font-light xl:basis-1/6 text-center transition-border ease-linear xl:uppercase px-4 cursor-default"
                               activeClass={cn(
-                                 'active border-b-3 border-primary font-bold text-primary',
+                                 'active border-b-2 md:border-b-3 border-primary font-bold text-primary',
                               )}>
                               {section.designation}
                            </Link>
@@ -85,12 +117,15 @@ export function OrderPage() {
                      ))}
                   </Swiper>
                   <button
-                     className="p-2 hover:bg-gray-100 rounded-full transition-colors shrink-0"
+                     className="lg:p-2 lg:bg-gray-100 rounded-full transition-colors shrink-0"
                      onClick={() => swiperRef.current?.slideNext()}>
-                     <ChevronRight className="w-6 h-6 text-primary" strokeWidth={2.5} />
+                     <ChevronRight
+                        className="lg:w-6 lg:h-6 w-5 h-5 text-gray-600"
+                        strokeWidth={2.5}
+                     />
                   </button>
                </div>
-               <div className="xl:w-1/5">
+               <div className="w-full xl:w-1/5">
                   <input
                      type="search"
                      placeholder="Rechercher ..."
@@ -99,40 +134,43 @@ export function OrderPage() {
                </div>
             </div>
          </div>
-         <div className="container grid xl:grid-cols-3 gap-6 xl:py-12">
+         <div className="container grid xl:grid-cols-3 gap-6 py-12">
             <aside
                className={cn('xl:col-span-full xl:space-y-12', {
                   'xl:col-span-2': cart.totalItems > 0,
                })}>
-               {productCategoryList.map((category: ProductCategory) => {
+               {productCategoryList.map((category: ProductCategory, index: number) => {
                   const productItems = getProductsByCategory(category.id)
                   return (
                      <Element key={category.id} name={category.id} className="relative">
+                        {index !== 0 && (
+                           <div className="w-1/3 border-t-2 border-primary md:hidden mx-auto mb-6"></div>
+                        )}
                         <h2
-                           className="lg:text-xl font-bold capitalize font-plus-jakarta 
-                        max-md:text-2xl text-secondary/80 leading-1 xl:pl-3">
+                           className="lg:text-xl font-bold uppercase lg:capitalize font-plus-jakarta 
+                         text-secondary/80 leading-1 xl:pl-3">
                            {category.designation}
                         </h2>
                         <div
-                           className={cn('grid grid-cols-1 xl:grid-cols-3 gap-4 lg:mt-6', {
+                           className={cn('grid grid-cols-1 xl:grid-cols-3 md:gap-4 mt-6', {
                               'xl:grid-cols-2': cart.totalItems > 0,
                            })}>
                            {productItems.map((product, _index) => (
                               <Fade delay={200} triggerOnce key={product.id}>
                                  <div
-                                    className="items-stretch cursor-pointer w-full min-h-35 grid grid-cols-2 xl:grid-cols-7
-                                               max-md:border-b border-gray-200  md:rounded-xl md:shadow-[0px_8px_24px_rgba(149,157,165,0.2)] hover:scale-105 transition-all duration-200"
+                                    className="items-stretch cursor-pointer w-full min-h-35 grid grid-cols-5 xl:grid-cols-7 py-6 md:py-0
+                                               md:rounded-xl border-b border-gray-200 md:border-none md:shadow-[0px_8px_24px_rgba(149,157,165,0.2)] hover:scale-105 transition-all duration-200"
                                     onClick={() => openModal(product)}>
-                                    <aside className="flex flex-col  justify-between xl:col-span-5 md:p-3 h-full ">
+                                    <aside className="flex flex-col  justify-between col-span-3 xl:col-span-5 md:p-3 h-full ">
                                        <section className="space-y-2">
-                                          <h5 className="xl:text-xl font-bold line-clamp-2 font-cabin">
+                                          <h5 className="text-xl md:text-xl font-bold line-clamp-2 font-cabin">
                                              {_.upperFirst(product.designation.toLowerCase())}
                                           </h5>
                                           <p className="text-foreground/90 leading-[110%] lg:leading-[120%] lg:w-5/6">
                                              {_.truncate(product.description, { length: 70 })}
                                           </p>
                                        </section>
-                                       <section className="flex max-md:mb-4  md:justify-end mt-1 ">
+                                       <section className="flex md:justify-end mt-1 ">
                                           <PriceDisplay
                                              amount={parseFloat(product.price.toString())}
                                              className="
@@ -140,9 +178,9 @@ export function OrderPage() {
                                           />
                                        </section>
                                     </aside>
-                                    <aside className="h-full xl:col-span-2 flex justify-end items-start border-l border-gray-50 border-dashed rounded-lg">
+                                    <aside className="h-full col-span-2 xl:col-span-2 flex justify-end items-start border-l border-gray-50 border-dashed rounded-lg">
                                        <figure
-                                          className="relative w-[70%] h-[90%] md:w-full md:h-full 
+                                          className="relative w-full h-[110%] md:h-full 
                                         max-md:border-gray-200 rounded-xl lg:rounded-tl-none lg:rounded-bl-none  overflow-hidden">
                                           <Image
                                              src={product.imageUrl}
@@ -183,7 +221,7 @@ export function OrderPage() {
                onOpenChange={setIsModalOpen}
                onConfirm={handleConfirm}
             />
-         )} */}
+         )}
       </div>
    )
 }
