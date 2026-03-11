@@ -218,8 +218,8 @@ export function OrderPage() {
             <AddToCartModal
                product={product}
                open={isModalOpen}
-               onOpenChange={setIsModalOpen}
-               onConfirm={handleConfirm}
+               onOpenChangeAction={setIsModalOpen}
+               onConfirmAction={handleConfirm}
             />
          )}
       </div>
