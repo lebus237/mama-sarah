@@ -1,21 +1,13 @@
 .order-category-navigation {
-   .swiper-slide:first-child {
-      a {
-         border-bottom: 3px solid var(--color-primary);
-         color: var(--color-primary);
-         font-weight: 700;
-
-         @media (max-width: 640px) {
-            border-bottom: 2px solid var(--color-primary);
-         }
-      }
+   a:first-child {
+      border-bottom: 3px solid var(--color-primary);
+      color: var(--color-primary);
+      font-weight: 700;
    }
 
-   &:has(.active) .swiper-slide:first-child {
-      a {
-         border-bottom: none;
-         font-weight: 400;
-         color: initial;
-      }
+   &:has(.active) a:first-child {
+      border-bottom: none;
+      font-weight: 400;
+      color: initial;
    }
 }

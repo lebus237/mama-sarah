@@ -1,6 +1,6 @@
 {
   "checkout": {
-    "cartSubtotal": "Montant panier",
+    "cartSubtotal": "Sous total panier",
     "cartTotal": "Total panier",
     "clearCart": "Vider",
     "delivery": "Livraison",
@@ -10,7 +10,6 @@
       },
       "pickup": "Je vais passe recuperer"
     },
-    "emptyCart": "Liste vide",
     "payment": "Payment",
     "proceed": "Valider ma commande",
     "summary": "Mon panier",
@@ -20,7 +19,6 @@
     "checkoutOrder": "Validation/Payment"
   },
   "text": {
-    "choices": "Choix",
     "helloWorld": "Bonjour!!",
     "items": "Articles"
   }
