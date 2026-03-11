@@ -1,5 +1,6 @@
 import { getProducts } from '@/entities/product'
 import { HomeProductList } from '@/views/home'
+import HeroSection from '@/views/home/sections/HeroSection'
 
 // TODO: Simulated delay to preview loading animation (remove in production)
 const delay = (ms: number) => new Promise(resolve => setTimeout(resolve, ms))
@@ -9,5 +10,10 @@ export default async function Page() {
 
    const products = getProducts()
 
-   return <HomeProductList products={products} />
+   return (
+      <div>
+         <HeroSection/>
+         <HomeProductList products={products} />
+      </div>
+   )
 }
