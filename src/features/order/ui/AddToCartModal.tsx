@@ -124,7 +124,7 @@ export function AddToCartModal({
                   </div>
                </div>
 
-               <DialogFooter className="border-t border-gray-200 border-dashed py-12 md:py-0">
+               <DialogFooter className="border-t border-gray-200 border-dashed">
                   <div className="flex w-full p-4 gap-x-3">
                      <button
                         type="button"

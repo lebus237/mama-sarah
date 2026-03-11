@@ -85,14 +85,14 @@ export const CartSummaryDisplay = ({
                </div>
             </div>
          )}
-         <div className="flex justify-between md:gap-2 mt-6 justify-self-end">
+         <div className="flex justify-between gap-2 mt-6 justify-self-end">
             {canCheckout && totalItems > 0 && (
-               <Link href={routePaths.CHECKOUT}>
+               <Link href={routePaths.CHECKOUT} className="block w-1/2">
                   <button
                      onClick={onClose}
                      disabled={totalItems === 0}
                      type="button"
-                     className="flex-1 disabled:bg-gray-300 inline-flex text-lg items-center justify-center rounded-full bg-tertiary md:bg-primary px-6 py-3.5 text-white font-normal hover:opacity-90">
+                     className="flex-1 w-full disabled:bg-gray-300 inline-flex text-lg items-center font-medium justify-center rounded-full py-3 border-tertiary border text-tertiary md:text-primary md:border-primary  hover:opacity-90">
                      <I18nLabel label="checkout.proceed" />
                   </button>
                </Link>
@@ -100,12 +100,9 @@ export const CartSummaryDisplay = ({
             {totalItems > 0 && (
                <button
                   type="button"
-                  className="inline-flex items-center justify-center rounded-full border border-gray-300 px-6 py-3 md:text-lg font-medium text-gray-600 hover:bg-gray-50"
+                  className="inline-flex w-1/2 items-center justify-center rounded-full border border-gray-300 md:text-lg py-3 font-medium text-gray-600 hover:bg-gray-50"
                   onClick={clearCart}>
-                  <span className="hidden md:block">
-                     <I18nLabel label="checkout.clearCart" />
-                  </span>
-                  <Trash2 size={18} className="md:hidden" />
+                  <I18nLabel label="checkout.clearCart" />
                </button>
             )}
          </div>
