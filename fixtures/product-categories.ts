@@ -31,14 +31,4 @@ export const productCategories: Array<ProductCategory> = [
       designation: 'Desserts',
       slug: 'desserts',
    },
-   {
-      id: 'cat-7',
-      designation: 'Boissons-7',
-      slug: 'boissons-7',
-   },
-   {
-      id: 'cat-8',
-      designation: 'Desserts-8',
-      slug: 'desserts-8',
-   },
 ]
