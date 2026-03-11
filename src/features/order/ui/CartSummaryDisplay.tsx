@@ -69,7 +69,7 @@ export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) =
                </ul>
 
                <div className="flex items-center justify-between border-t border-gray-200 border-dashed pt-4 mb-3">
-                  <span className="text-lg font-semibold text-secondary/70 uppercase md:text-sm md:text-gray-600">
+                  <span className="text-lg font-normal tracking-tight text-secondary uppercase md:text-sm md:text-gray-600">
                      <I18nLabel label="checkout.cartSubtotal" />
                   </span>
                   <PriceDisplay
@@ -85,7 +85,7 @@ export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) =
                   <button
                      disabled={totalItems === 0}
                      type="button"
-                     className="flex-1 disabled:bg-gray-300 inline-flex items-center justify-center rounded-full bg-tertiary md:bg-primary px-6 py-3.5 text-white text-base font-semibold hover:opacity-90">
+                     className="flex-1 disabled:bg-gray-300 inline-flex text-lg items-center justify-center rounded-full bg-tertiary md:bg-primary px-6 py-3.5 text-white font-normal hover:opacity-90">
                      <I18nLabel label="checkout.proceed" />
                   </button>
                </Link>

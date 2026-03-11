@@ -27,15 +27,17 @@ export function Header() {
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
          </button>
          {isMenuOpen && (
-            <div className="absolute top-full left-0 w-full md:hidden">
-               <nav className="flex flex-col p-4 space-y-4 uppercase">
-                  <Link href="/" onClick={() => setIsMenuOpen(false)}>
-                     Acceuil
-                  </Link>
-                  <Link href="/order" onClick={() => setIsMenuOpen(false)}>
-                     Commander
-                  </Link>
-               </nav>
+            <div className="absolute top-full left-0 w-full md:hidden bg-secondary/25 h-[calc(100vh-64px)]">
+               <div className="h-1/2 bg-white">
+                  <nav className="flex flex-col p-4 space-y-4 uppercase">
+                     <Link href="/" onClick={() => setIsMenuOpen(false)}>
+                        Acceuil
+                     </Link>
+                     <Link href="/order" onClick={() => setIsMenuOpen(false)}>
+                        Commander
+                     </Link>
+                  </nav>
+               </div>
             </div>
          )}
       </div>

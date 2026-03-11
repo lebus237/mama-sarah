@@ -14,7 +14,7 @@ export function OrderPanelLayout({ children }: { children: ReactNode }) {
             {children}
          </main>
          <footer className="h-16 md:h-20 bg-secondary"></footer>
-         <div className="fixed bottom-4 h-16  right-0 z-30 w-full content-center">
+         <div className="fixed bottom-4 h-16  right-0 z-30 w-full content-center md:hidden">
             <div className="ml-3 h-full w-1/3">
                <MobileOrderCounterDisplay />
             </div>

@@ -10,6 +10,7 @@
       },
       "pickup": "I'll pick up myself"
     },
+    "emptyCart": "Empty cart list",
     "payment": "Payment",
     "proceed": "Validate my order",
     "summary": "My cart",
@@ -19,6 +20,7 @@
     "checkoutOrder": "Checkout/Payment"
   },
   "text": {
+    "choices": "Choices",
     "helloWorld": "Hello World!!",
     "items": "Items"
   }
