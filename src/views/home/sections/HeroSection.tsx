@@ -10,7 +10,6 @@ const HeroSection = () => {
    const imageTab = ['/images/spaghetti.jpg', '/images/beer.jpg', '/images/rice.jpg']
    return (
       <div>
-         <NavbarSection />
          <div
             className="w-full bg-cover "
             style={{

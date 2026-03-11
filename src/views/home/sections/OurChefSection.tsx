@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import LandinSections from '@/views/share/LandingSections'
+import { Slide } from 'react-awesome-reveal'
 
 const OurChefSection = () => {
    return (
@@ -10,14 +11,16 @@ const OurChefSection = () => {
          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <aside>
                <figure className="w-full">
-                  <div className="w-80 h-90 relative mx-auto md:mx-0">
-                     <Image
-                        src="/images/chef.jpg"
-                        alt="about"
-                        fill
-                        className="z-10 absolute object-cover rounded-2xl"
-                     />
-                  </div>
+                  <Slide duration={1000} delay={100}>
+                     <div className="w-80 h-90 relative mx-auto md:mx-0">
+                        <Image
+                           src="/images/chef.jpg"
+                           alt="about"
+                           fill
+                           className="z-10 absolute object-cover rounded-2xl"
+                        />
+                     </div>
+                  </Slide>
                </figure>
             </aside>
             <LandinSections

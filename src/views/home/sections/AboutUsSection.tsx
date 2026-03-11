@@ -18,7 +18,7 @@ const AboutUsSection = () => {
             />
             <aside>
                <figure className="w-full">
-                  <Fade direction="right" triggerOnce={false} duration={3000} delay={100}>
+                  <Fade direction="right" triggerOnce={false} duration={2000} delay={100}>
                      <div className="w-110 h-120 relative left-20">
                         <Image
                            src="/images/chicken.jpg"
@@ -28,7 +28,7 @@ const AboutUsSection = () => {
                         />
                      </div>
                   </Fade>
-                  <Slide direction="down" triggerOnce={false} duration={2000} delay={50}>
+                  <Slide direction="down" triggerOnce={false} duration={1000} delay={50}>
                      <div className="w-80 h-90 relative bottom-80 right-0">
                         <Image
                            src="/images/chef.jpg"
