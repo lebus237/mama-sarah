@@ -1,19 +1,17 @@
 'use client'
 
 import { Product } from '@/entities/product'
-import { cn } from '@/shared/lib/styles'
-import { PriceDisplay } from '@/shared/ui/common'
-import Image from 'next/image'
 import { useState } from 'react'
-
-import { ProductDetailsModal } from './modal/ProductDetailsModal'
 
 export function HomePage({ products }: { products: Array<Product> }) {
    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
    const [isModalOpen, setIsModalOpen] = useState(false)
 
    return (
-      <div className="container py-8">
+      <div className="md:min-h-[calc(100%-80px)] bg-black">
+         {/* <section className="">
+            <HeroSection />
+         </section>
          <div className="mb-6">
             <h1 className="text-2xl font-bold font-cabin text-secondary">Menu</h1>
          </div>
@@ -65,7 +63,7 @@ export function HomePage({ products }: { products: Array<Product> }) {
                setIsModalOpen(open)
                if (!open) setSelectedProduct(null)
             }}
-         />
+         /> */}
       </div>
    )
 }
