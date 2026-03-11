@@ -1,24 +1,38 @@
 {
   "checkout": {
+    "back": "Go back",
     "cartSubtotal": "Cart subtotal",
     "cartTotal": "Cart amount",
     "clearCart": "Clear",
+    "customerName": "Customer name",
     "delivery": "Delivery",
+    "delivery.delivered": "I'll wait for delivery",
+    "delivery.pickedup": "I'll pickup myself",
+    "deliveryMode": "Delivery mode",
     "deliveryType": {
       "delivery": {
         "choose": "I am having it delivered"
       },
       "pickup": "I'll pick up myself"
     },
+    "emptyCart": "Empty cart list",
+    "location": "Delivery location",
+    "next": "Continue",
+    "pay": "Confirm payment",
     "payment": "Payment",
+    "paymentMethod": "Payment method",
+    "phone": "Phone number",
     "proceed": "Validate my order",
     "summary": "My cart",
-    "userInfo": "Customer informations"
+    "total": "Total",
+    "userInfo": "Customer infos"
   },
   "page": {
     "checkoutOrder": "Checkout/Payment"
   },
   "text": {
+    "checkoutOrder": "Validation & Payment",
+    "choices": "Choices",
     "helloWorld": "Hello World!!",
     "items": "Items"
   }

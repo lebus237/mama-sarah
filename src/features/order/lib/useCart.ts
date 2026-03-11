@@ -1,16 +1,8 @@
-import { useCartStore } from '../model/cart-store'
+import { useCartStore } from './cartStore'
 
 export function useCart() {
-   const {
-      cart,
-      addItem,
-      removeItem,
-      updateQuantity,
-      clearCart,
-      getTotalItems,
-      getDetailedItems,
-      getSubtotal,
-   } = useCartStore()
+   const { cart, addItem, removeItem, updateQuantity, clearCart, getTotalItems, getDetailedItems, getSubtotal } =
+      useCartStore()
 
    return {
       cart,
@@ -19,8 +11,7 @@ export function useCart() {
       subtotal: getSubtotal(),
       totalItems: getTotalItems(),
       addItem,
-      removeItem: (productId: string, preferences: string[] = []) =>
-         removeItem(productId, preferences),
+      removeItem: (productId: string, preferences: string[] = []) => removeItem(productId, preferences),
       updateQuantity,
       clearCart,
    }

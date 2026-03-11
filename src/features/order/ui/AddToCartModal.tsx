@@ -1,25 +1,30 @@
 'use client'
 
 import { Product } from '@/entities/product'
-import { ShareProductModal } from '@/features/sharing'
 import { I18nLabel } from '@/shared/i18n'
 import { cn } from '@/shared/lib/styles'
 import { Dialog, DialogContent, DialogFooter, DialogHeader, PriceDisplay } from '@/shared/ui/common'
 import { CustomIcon } from '@/shared/ui/icons'
 import { DialogTitle } from '@radix-ui/react-dialog'
-import _ from 'lodash'
 import { Minus, Plus, Share2 } from 'lucide-react'
 import Image from 'next/image'
 import { useState } from 'react'
 
+import { ShareProductModal } from './ShareProductModal'
+
 type AddToCartModalProps = {
    product: Product
    open: boolean
-   onOpenChange: (open: boolean) => void
-   onConfirm: (productId: string, quantity: number, preferences: string[]) => void
+   onOpenChangeAction: (open: boolean) => void
+   onConfirmAction: (productId: string, quantity: number, preferences: string[]) => void
 }
 
-export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddToCartModalProps) {
+export function AddToCartModal({
+   product,
+   open,
+   onOpenChangeAction: onOpenChange,
+   onConfirmAction: onConfirm,
+}: AddToCartModalProps) {
    const [quantity, setQuantity] = useState(1)
    const [selectedPreferences, setSelectedPreferences] = useState<string[]>([])
    const [isShareModalOpen, setIsShareModalOpen] = useState(false)
@@ -46,23 +51,23 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
    return (
       <>
          <Dialog open={open} onOpenChange={onOpenChange}>
-            <DialogContent className="sm:max-w-sm p-0 overflow-hidden gap-0 shadow-xs shadow-secondary/70">
-               <DialogHeader className="w-full aspect-video">
+            <DialogContent className="md:max-w-sm p-0 overflow-hidden gap-0 shadow-xs  shadow-secondary/70 md:h-fit! flex flex-col">
+               <DialogHeader className="h-fit">
                   <DialogTitle className="hidden"></DialogTitle>
-                  <figure className="w-full h-full relative">
+                  <figure className="w-full aspect-video relative ">
                      <Image src={product.imageUrl} alt="thumbnail" fill className="object-cover" />
                   </figure>
                </DialogHeader>
 
-               <div className="*:p-4">
+               <div className="*:p-4 ">
                   <div>
                      <h3 className="text-2xl font-cabin font-bold">{product.designation}</h3>
                      <PriceDisplay
                         amount={Number(product.price)}
-                        className="text-tertiary leading-[100%] lg:text-lg font-bebas tracking-wide"
+                        className="text-tertiary leading-[100%] text-xl font-bebas tracking-wide"
                      />
-                     <p className="pt-3 text-foreground font-cabin text-sm">
-                        {_.truncate(product.description, { length: 50 })}
+                     <p className="pt-3 text-foreground font-cabin text-base">
+                        {product.description}
                      </p>
                   </div>
 
@@ -94,7 +99,7 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
                      </div>
                   </div>
 
-                  <div className="space-y-3">
+                  <div className="space-y-3 ">
                      <div className="xl:pl-3">
                         <label className="text-base font-medium text-secondary">
                            <I18nLabel label="Selectionner preferences" />
@@ -107,9 +112,9 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
                               type="button"
                               onClick={() => togglePreference(option)}
                               className={cn(
-                                 'flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all duration-200',
+                                 'flex items-center gap-2 px-6 py-3 rounded-full text-sm font-medium transition-all duration-200',
                                  selectedPreferences.includes(option)
-                                    ? 'bg-primary text-white shadow-sm shadow-primary/25 scale-105'
+                                    ? 'bg-secondary text-white shadow-sm shadow-primary/25 scale-105'
                                     : 'bg-gray-100 text-gray-600 hover:bg-gray-200',
                               )}>
                               {option}
@@ -119,18 +124,18 @@ export function AddToCartModal({ product, open, onOpenChange, onConfirm }: AddTo
                   </div>
                </div>
 
-               <DialogFooter className="border-t border-gray-200 border-dashed">
-                  <div className="flex w-full p-4">
+               <DialogFooter className="border-t border-gray-200 border-dashed py-12 md:py-0">
+                  <div className="flex w-full p-4 gap-x-3">
                      <button
                         type="button"
                         onClick={() => setIsShareModalOpen(true)}
-                        className="mr-3 inline-flex items-center justify-center w-12 h-12 rounded-full bg-blue-500  text-white border-blue-500 cursor-pointer">
-                        <Share2 className="w-5 h-5" />
+                        className="flex items-center justify-center md:w-12 md:h-12 h-16 w-16 rounded-full bg-blue-500  text-white border-blue-500 cursor-pointer">
+                        <Share2 className="w-6 h-6" />
                      </button>
                      <button
                         type="button"
                         onClick={handleConfirm}
-                        className="flex-1 inline-flex items-center cursor-pointer justify-center gap-2 px-6 py-3 rounded-full bg-tertiary text-white text-base font-semibold">
+                        className="flex items-center grow cursor-pointer justify-center gap-2 px-6 h-16 md:h-12 rounded-full bg-tertiary text-white text-base font-semibold">
                         <CustomIcon type="food-cart" size={24} />
                         <I18nLabel label="Ajouter au panier" />
                      </button>
