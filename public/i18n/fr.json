@@ -1,24 +1,38 @@
 {
   "checkout": {
-    "cartSubtotal": "Sous total panier",
+    "back": "Precedent",
+    "cartSubtotal": "Montant panier",
     "cartTotal": "Total panier",
     "clearCart": "Vider",
+    "customerName": "Nom du client",
     "delivery": "Livraison",
+    "delivery.delivered": "Je me fait livrer",
+    "delivery.pickedup": "Je recupere sur place",
+    "deliveryMode": "Mode de livraison",
     "deliveryType": {
       "delivery": {
         "choose": "Je me fait livrer"
       },
       "pickup": "Je vais passe recuperer"
     },
+    "emptyCart": "Liste vide",
+    "location": "Lieu de la livraison",
+    "next": "Continuer",
+    "pay": "Confirmer le paiement",
     "payment": "Payment",
+    "paymentMethod": "Methode de payment",
+    "phone": "Telephone",
     "proceed": "Valider ma commande",
     "summary": "Mon panier",
-    "userInfo": "Informations client"
+    "total": "Total",
+    "userInfo": "Donnees client"
   },
   "page": {
     "checkoutOrder": "Validation/Payment"
   },
   "text": {
+    "checkoutOrder": "Validation & Payment",
+    "choices": "Choix",
     "helloWorld": "Bonjour!!",
     "items": "Articles"
   }

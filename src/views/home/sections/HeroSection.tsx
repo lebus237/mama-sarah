@@ -2,6 +2,7 @@ import { FaRegAddressBook } from 'react-icons/fa'
 import { MdOutlineEmail } from 'react-icons/md'
 import NavbarSection from '@/views/home/sections/NavbarSection'
 import Link from 'next/link'
+import { Fade } from 'react-awesome-reveal'
 import Image from 'next/image'
 import { routePaths } from '@/shared/routes'
 
@@ -16,20 +17,22 @@ const HeroSection = () => {
                backgroundImage: "url('/images/chicken.jpg')",
                backgroundRepeat: 'no-repeat',
             }}>
-            <div className=" animate-[slideRight_1.1s_ease-out_1_forwards] relative ">
-               <figure className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
-                  {imageTab.map((item, index) => (
-                     <div key={index} className="  h-[22rem] w-[22rem] top-15 left-10 relative">
-                        <Image
-                           src={item}
-                           alt={`food ${index + 1}`}
-                           fill
-                           className="object-cover rounded-full animate-[pulse_2s_ease-out_1] duration-1000"
-                        />
-                     </div>
-                  ))}
-               </figure>
-            </div>
+            <Fade duration={1500}>
+               <div className=" animate-[slideRight_1.1s_ease-out_1_forwards] relative ">
+                  <figure className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
+                     {imageTab.map((item, index) => (
+                        <div key={index} className="  h-[22rem] w-[22rem] top-15 left-10 relative">
+                           <Image
+                              src={item}
+                              alt={`food ${index + 1}`}
+                              fill
+                              className="object-cover rounded-full animate-[pulse_2s_ease-out_1] duration-1000"
+                           />
+                        </div>
+                     ))}
+                  </figure>
+               </div>
+            </Fade>
             <div className="grid grid-cols-1 md:grid-cols-3 pb-6 pt-30 pl-25 animate-[slideRight_1.1s_ease-out_1_forwards]">
                <div className="text-white text-2xl flex gap-2 items-center">
                   <FaRegAddressBook />
