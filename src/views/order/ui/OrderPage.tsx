@@ -209,9 +209,7 @@ export function OrderPage() {
                })}
             </aside>
             <aside className="hidden xl:flex justify-end">
-               <div className="xl:w-5/6">
-                  {cart.totalItems > 0 && <CartSummaryDisplay canCheckout />}
-               </div>
+               <div className="xl:w-5/6">{cart.totalItems > 0 && <CartSummaryDisplay />}</div>
             </aside>
          </div>
          {product && (

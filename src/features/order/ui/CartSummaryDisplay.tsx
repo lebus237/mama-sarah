@@ -1,4 +1,5 @@
 import { I18nLabel } from '@/shared/i18n'
+import { cn } from '@/shared/lib/styles'
 import { routePaths } from '@/shared/routes'
 import { PriceDisplay } from '@/shared/ui/common'
 import { PinIcon, Trash2 } from 'lucide-react'
@@ -6,7 +7,7 @@ import Link from 'next/link'
 import { useCart } from '../lib/useCart'
 import _ from 'lodash'
 
-export const CartSummaryDisplay = ({ canCheckout }: { canCheckout?: boolean }) => {
+export const CartSummaryDisplay = () => {
    const { detailedItems, subtotal, totalItems, clearCart, removeItem } = useCart()
 
    return (

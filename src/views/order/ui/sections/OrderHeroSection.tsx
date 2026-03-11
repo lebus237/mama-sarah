@@ -20,6 +20,6 @@ export const OrderHeroSection = () => {
                </div>
             </div>
          </div>
-      </section>
+      </div>
    )
 }
