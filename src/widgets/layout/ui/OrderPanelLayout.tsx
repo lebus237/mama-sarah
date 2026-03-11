@@ -1,6 +1,6 @@
+import { MobileOrderCounterDisplay } from '@/features/order'
 import { ReactNode } from 'react'
 import { Header } from './components/Header'
-import { MobileOrderCounterDisplay } from '@/features/order'
 
 export function OrderPanelLayout({ children }: { children: ReactNode }) {
    return (
@@ -10,13 +10,14 @@ export function OrderPanelLayout({ children }: { children: ReactNode }) {
                <Header />
             </div>
          </header>
-         <main className="min-h-[calc(100%-144px)] md:min-h-[calc(100%-160px)] mt-16 md:mt-20">
-            {children}
-         </main>
+         <div className="h-16 md:h-20"></div>
+         <main className="min-h-[calc(100%-144px)] md:min-h-[calc(100%-160px)]">{children}</main>
          <footer className="h-16 md:h-20 bg-secondary"></footer>
          <div className="fixed bottom-4 h-16  right-0 z-30 w-full content-center md:hidden">
-            <div className="ml-3 h-full w-1/3">
-               <MobileOrderCounterDisplay />
+            <div className="container h-full">
+               <div className="mx-auto w-1/4">
+                  <MobileOrderCounterDisplay />
+               </div>
             </div>
          </div>
       </div>

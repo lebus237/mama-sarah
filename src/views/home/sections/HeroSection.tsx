@@ -1,9 +1,9 @@
+import { routePaths } from '@/shared/routes'
+import NavbarSection from '@/views/home/sections/NavbarSection'
+import Image from 'next/image'
+import Link from 'next/link'
 import { FaRegAddressBook } from 'react-icons/fa'
 import { MdOutlineEmail } from 'react-icons/md'
-import NavbarSection from '@/views/home/sections/NavbarSection'
-import Link from 'next/link'
-import Image from 'next/image'
-import { routePaths } from '@/shared/routes'
 
 const HeroSection = () => {
    const imageTab = ['/images/spaghetti.jpg', '/images/beer.jpg', '/images/rice.jpg']
@@ -19,7 +19,7 @@ const HeroSection = () => {
             <div className=" animate-[slideRight_1.1s_ease-out_1_forwards] relative ">
                <figure className="w-full grid grid-cols-1 md:grid-cols-3 gap-8">
                   {imageTab.map((item, index) => (
-                     <div key={index} className="  h-[22rem] w-[22rem] top-15 left-10 relative">
+                     <div key={index} className="  h-88 w-88 top-15 left-10 relative">
                         <Image
                            src={item}
                            alt={`food ${index + 1}`}

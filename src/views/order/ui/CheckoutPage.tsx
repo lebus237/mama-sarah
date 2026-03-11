@@ -1,6 +1,6 @@
 'use client'
 
-import { CartSummaryDisplay, useCart } from '@/features/order'
+import { OrderCartRecordDisplay, useCart } from '@/features/order'
 import { I18nLabel } from '@/shared/i18n'
 import { cn } from '@/shared/lib/styles'
 import Image from 'next/image'
@@ -38,8 +38,8 @@ export function CheckoutPage() {
    const canCheckout = orderCart.totalItems > 0
 
    return (
-      <div className="container py-8">
-         <div className="mb-6 xl:w-4/5 mx-auto">
+      <div className="container pt-12 pb-20 md:pt-20 space-y-6">
+         <div className="xl:w-4/5 mx-auto">
             <h1 className="text-2xl font-bold font-cabin text-secondary">
                <I18nLabel label="text.checkoutOrder" />
             </h1>
@@ -47,7 +47,7 @@ export function CheckoutPage() {
 
          <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 xl:w-4/5 mx-auto">
             <aside className="xl:col-span-2">
-               <div className="border border-gray-200 rounded-2xl bg-white p-4 shadow-xs xl:min-h-80">
+               <div className="border border-gray-200 rounded-lg md:rounded-2xl bg-white p-4 shadow-xs xl:min-h-80">
                   {isSuccess ? (
                      <div className="space-y-4">
                         <h2 className="text-xl font-bold font-cabin text-secondary">
@@ -266,7 +266,7 @@ export function CheckoutPage() {
                               type="button"
                               onClick={goBack}
                               disabled={step === 1}
-                              className="px-5 py-3 rounded-full border border-gray-300 text-sm font-semibold text-gray-600 disabled:opacity-50">
+                              className="px-5 h-12 rounded-full border border-gray-300 text-sm font-semibold text-gray-600 disabled:opacity-50">
                               <I18nLabel label="checkout.back" />
                            </button>
 
@@ -275,7 +275,7 @@ export function CheckoutPage() {
                                  type="button"
                                  onClick={goNext}
                                  disabled={!canGoNext}
-                                 className="px-6 py-3 rounded-full bg-primary text-white text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                                 className="px-6 h-12 rounded-full bg-primary text-white text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
                                  <I18nLabel label="checkout.next" />
                               </button>
                            ) : (
@@ -285,7 +285,7 @@ export function CheckoutPage() {
                                     canCheckout ? onPay : () => console.log('Invalid order cart')
                                  }
                                  disabled={!canPay || isSubmitting}
-                                 className="px-6 py-3 rounded-full bg-tertiary text-white text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
+                                 className="px-6 h-12 rounded-full bg-tertiary text-white text-sm font-semibold disabled:opacity-50 disabled:cursor-not-allowed">
                                  {isSubmitting ? (
                                     <I18nLabel label="checkout.processing" />
                                  ) : (
@@ -299,8 +299,8 @@ export function CheckoutPage() {
                </div>
             </aside>
 
-            <aside className="xl:col-span-1">
-               <CartSummaryDisplay />
+            <aside className="xl:col-span-1 hidden md:block">
+               <OrderCartRecordDisplay />
             </aside>
          </div>
       </div>

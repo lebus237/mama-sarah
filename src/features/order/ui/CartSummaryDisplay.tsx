@@ -43,7 +43,7 @@ export const CartSummaryDisplay = ({
                         key={`${item.product.id}-${index}`}
                         className="py-3 md:py-2 flex items-center justify-between">
                         <div className="space-y-1.5">
-                           <p className=" text-xl lg:text-lg font-semibold line-clamp-2 font-cabin leading-[110%] text-secondary">
+                           <p className="text-lg font-semibold line-clamp-2 font-plus-jakarta leading-[110%] text-secondary">
                               {_.upperFirst(item.product.designation.toLowerCase())}
                            </p>
                            <p className="text-lg md:text-base">
@@ -85,7 +85,7 @@ export const CartSummaryDisplay = ({
                </div>
             </div>
          )}
-         <div className="flex justify-between md:gap-2 mt-6 justify-self-end py-12 md:py-0">
+         <div className="flex justify-between md:gap-2 mt-6 justify-self-end">
             {canCheckout && totalItems > 0 && (
                <Link href={routePaths.CHECKOUT}>
                   <button

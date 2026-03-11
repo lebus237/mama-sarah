@@ -1,7 +1,7 @@
 import '@/app/styles/globals.css'
 
 import { Metadata } from 'next'
-import { Bebas_Neue, Plus_Jakarta_Sans, Poppins, Cabin } from 'next/font/google'
+import { Bebas_Neue, Cabin, Plus_Jakarta_Sans, Poppins } from 'next/font/google'
 
 import { App } from '@/app/entrypoint/App'
 
@@ -45,8 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
    return (
       <html suppressHydrationWarning lang="en" className="h-full">
          <body
-            className={`antialiased h-full [&>div]:h-full **:[[role='dialog']]:h-fit! ${bebasNeue.variable} ${plusJakarta.variable} ${poppins.variable} ${cabin.variable}`}
-         >
+            className={`antialiased h-full [&>div]:h-full **:[[role='dialo']]:h-fit! ${bebasNeue.variable} ${plusJakarta.variable} ${poppins.variable} ${cabin.variable}`}>
             <App children={children} />
          </body>
       </html>

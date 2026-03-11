@@ -15,7 +15,7 @@ export const MobileOrderCounterDisplay = () => {
       <Fragment>
          <button
             onClick={onOpenChange}
-            className="cursor-pointer w-full h-full font-poppins bg-tertiary rounded-full text-white flex items-center justify-center gap-x-1.5">
+            className="cursor-pointer w-full h-16 font-poppins bg-secondary rounded-full text-white flex items-center justify-center gap-x-1.5">
             <CustomIcon type="food-cart" size={30} />
             <span className="text-2xl">{cart.totalItems}</span>
          </button>
