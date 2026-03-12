@@ -1,4 +1,7 @@
 {
+  "action": {
+    "orderOnline": "Commander en ligne"
+  },
   "checkout": {
     "back": "Precedent",
     "cartSubtotal": "Montant panier",
@@ -22,10 +25,16 @@
     "payment": "Payment",
     "paymentMethod": "Methode de payment",
     "phone": "Telephone",
-    "proceed": "Valider ma commande",
+    "proceed": "Valider",
     "summary": "Mon panier",
     "total": "Total",
     "userInfo": "Donnees client"
+  },
+  "menu": {
+    "aboutUs": "A propos",
+    "home": "Acceuil",
+    "onMenu": "Au menu",
+    "ourChef": "Chefs"
   },
   "page": {
     "checkoutOrder": "Validation/Payment"
