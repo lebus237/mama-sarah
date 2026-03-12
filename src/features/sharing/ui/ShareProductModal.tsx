@@ -46,7 +46,7 @@ export function ShareProductModal({ open, onOpenChange, productUrl }: ShareProdu
                </DialogTitle>
             </DialogHeader>
 
-            <div className="grid grid-cols-1 gap-2">
+            <div className="grid grid-cols-3 gap-3 *:rounded-full!">
                <button
                   type="button"
                   onClick={() => onSelect('whatsapp')}
