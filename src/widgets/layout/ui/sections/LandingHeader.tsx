@@ -31,7 +31,7 @@ export const LandingHeader = () => {
                <ShoppingBag className="w-5 h-5" />
             </button>
          </Link>
-         <div className="absolute left-1/4 right-1/4 h-fit flex justify-center ">
+         <div className="absolute left-1/4 right-1/4 h-fit flex justify-center z-50">
             <Rotate delay={100}>
                <figure className="relative w-36 h-36 border content-center bg-white rounded-full">
                   <Image
