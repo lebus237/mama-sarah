@@ -6,7 +6,7 @@ export const AboutUsPage = () => {
    return (
       <div className="container overflow-hidden">
          <center>
-            <h1 className="font-extrabold text-5xl py-8">About Us</h1>
+            <h1 className="font-extrabold text-5xl my-22 font-bebas">About Us</h1>
          </center>
          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <LandinSections
