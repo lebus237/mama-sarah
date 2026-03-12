@@ -1,4 +1,4 @@
-import { TriviaDisplayCard } from '@/widgets/layout/ui/components/TriviaDisplayCard'
+import { TriviaDisplayCard } from '@/widgets/layout/ui/sections/TriviaDisplayCard'
 import Image from 'next/image'
 
 export const OrderHeroSection = () => {

@@ -1,4 +1,7 @@
 {
+  "action": {
+    "orderOnline": "Order online"
+  },
   "checkout": {
     "back": "Go back",
     "cartSubtotal": "Cart subtotal",
@@ -22,10 +25,16 @@
     "payment": "Payment",
     "paymentMethod": "Payment method",
     "phone": "Phone number",
-    "proceed": "Validate my order",
+    "proceed": "Chekout",
     "summary": "My cart",
     "total": "Total",
     "userInfo": "Customer infos"
+  },
+  "menu": {
+    "aboutUs": "About",
+    "home": "Home",
+    "onMenu": "The menu",
+    "ourChef": "Chefs"
   },
   "page": {
     "checkoutOrder": "Checkout/Payment"

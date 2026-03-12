@@ -9,9 +9,5 @@ export default async function Page() {
 
    const products = getProducts()
 
-   return (
-      <div>
-         <HomePage products={products} />
-      </div>
-   )
+   return <HomePage products={products} />
 }

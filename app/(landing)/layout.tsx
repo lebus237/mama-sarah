@@ -1,11 +1,6 @@
-import NavbarSection from '@/views/home/sections/NavbarSection'
+import { LandingLayout } from '@/widgets/layout'
 import { ReactNode } from 'react'
 
-export default function LayoutPage({ children }: { children: ReactNode }) {
-   return (
-      <div>
-         <NavbarSection />
-         <main>{children}</main>
-      </div>
-   )
+export default function Page({ children }: { children: ReactNode }) {
+   return <LandingLayout>{children}</LandingLayout>
 }

@@ -1,11 +1,5 @@
-import AboutUsSection from '@/views/home/sections/AboutUsSection'
+import { AboutUsPage } from '@/views/about-us'
 
-const AboutUsPage = () => {
-   return (
-      <div>
-         <AboutUsSection />
-      </div>
-   )
+export default function Page() {
+   return <AboutUsPage />
 }
-
-export default AboutUsPage

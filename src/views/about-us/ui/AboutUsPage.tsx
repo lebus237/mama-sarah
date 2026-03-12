@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import LandinSections from '@/views/share/LandingSections'
-import { Slide, Fade } from 'react-awesome-reveal'
+import Image from 'next/image'
+import { Fade, Slide } from 'react-awesome-reveal'
 
-const AboutUsSection = () => {
+export const AboutUsPage = () => {
    return (
       <div className="container overflow-hidden">
          <center>
@@ -44,5 +44,3 @@ const AboutUsSection = () => {
       </div>
    )
 }
-
-export default AboutUsSection

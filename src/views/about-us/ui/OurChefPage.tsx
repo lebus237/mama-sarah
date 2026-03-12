@@ -1,8 +1,8 @@
-import Image from 'next/image'
 import LandinSections from '@/views/share/LandingSections'
+import Image from 'next/image'
 import { Slide } from 'react-awesome-reveal'
 
-const OurChefSection = () => {
+export const OurChefPage = () => {
    return (
       <div className="container overflow-hidden">
          <center>
@@ -34,5 +34,3 @@ const OurChefSection = () => {
       </div>
    )
 }
-
-export default OurChefSection

@@ -1,6 +1,6 @@
 import { MobileOrderCounterDisplay } from '@/features/order'
 import { ReactNode } from 'react'
-import { Header } from './components/Header'
+import { Header } from './sections/Header'
 
 export function OrderPanelLayout({ children }: { children: ReactNode }) {
    return (

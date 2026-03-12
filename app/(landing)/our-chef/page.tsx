@@ -1,10 +1,5 @@
-import OurChefSection from '@/views/home/sections/OurChefSection'
+import { OurChefPage } from '@/views/about-us'
 
-const OurChef = () => {
-   return (
-      <div>
-         <OurChefSection />
-      </div>
-   )
+export default function Page() {
+   return <OurChefPage />
 }
-export default OurChef
