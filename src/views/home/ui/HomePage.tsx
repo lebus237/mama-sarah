@@ -3,7 +3,7 @@
 import { Product } from '@/entities/product'
 import { useState } from 'react'
 import { ProductDetailsModal } from './modal/ProductDetailsModal'
-import HeroSection from '../sections/HeroSection'
+import HeroSection from './sections/HeroSection'
 
 export function HomePage({ products }: { products: Array<Product> }) {
    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)

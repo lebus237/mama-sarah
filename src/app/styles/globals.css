@@ -13,6 +13,7 @@
    --font-cabin: var(--font-cabin);
 
    --breakpoint-2xl: 90rem;
+   --breakpoint-3xl: 120rem;
 
    --color-primary: rgba(242, 84, 14, 1);
    --color-secondary: #252525;
