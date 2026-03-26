@@ -5,6 +5,7 @@ import { I18nLabel } from '@/shared/i18n'
 import { cn } from '@/shared/lib/styles'
 import Image from 'next/image'
 import { useCheckout } from '../lib/useCheckout'
+import CheckoutResume from '@/features/order/ui/CheckoutResume'
 
 export function CheckoutPage() {
    const {
@@ -39,7 +40,8 @@ export function CheckoutPage() {
 
    return (
       <div className="container pt-12 pb-20 md:pt-20 space-y-6">
-         <div className="xl:w-4/5 mx-auto">
+         <CheckoutResume/>
+         {/* <div className="xl:w-4/5 mx-auto">
             <h1 className="text-2xl font-bold font-cabin text-secondary">
                <I18nLabel label="text.checkoutOrder" />
             </h1>
@@ -302,7 +304,7 @@ export function CheckoutPage() {
             <aside className="xl:col-span-1 hidden md:block">
                <OrderCartRecordDisplay />
             </aside>
-         </div>
+         </div> */}
       </div>
    )
 }

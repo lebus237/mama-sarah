@@ -93,7 +93,7 @@ export const OrderCartRecordDisplay = ({
                   <span className="hidden md:block">
                      <I18nLabel label="checkout.clearCart" />
                   </span>
-                  <Trash2 size={18} className="md:hidden" />
+                {/* <Trash2 size={18} className="md:hidden" /> */}
                </button>
             )}
          </div>

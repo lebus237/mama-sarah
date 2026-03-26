@@ -125,7 +125,7 @@ export function OrderPage() {
                      />
                   </button>
                </div>
-               <div className="w-full xl:w-1/5">
+               <div className="w-full">
                   <input
                      type="search"
                      placeholder="Rechercher ..."
