@@ -34,13 +34,6 @@ const cabin = Cabin({
    variable: '--font-cabin',
 })
 
-// export const viewport: Viewport = {
-//    themeColor: [
-//       { media: '(prefers-color-scheme: light)', color: 'white' },
-//       { media: '(prefers-color-scheme: dark)', color: 'black' },
-//    ],
-// }
-
 export default function RootLayout({ children }: { children: React.ReactNode }) {
    return (
       <html suppressHydrationWarning lang="en" className="h-full">
