@@ -7,14 +7,14 @@ import { Product } from '@/entities/product'
 import { I18nLabel } from '@/shared/i18n'
 import _ from 'lodash'
 import { useState } from 'react'
-import { ShareProductModal } from '@/features/sharing'
+import { ShareProductModal } from '@/features/order'
 import { Share2 } from 'lucide-react'
 
 const backgroundImages = ['/images/chicken.jpg', '/images/spaghetti.jpg']
 export function MenuPage({ product }: { product: Product }) {
    const [isShareModalOpen, setIsShareModalOpen] = useState(false)
 
-   const productUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/${product.slug ?? product.id}`
+   const productUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/${product?.slug ?? product?.id}`
 
    return (
       <div className="w-full h-full relative overflow-hidden">
@@ -26,21 +26,21 @@ export function MenuPage({ product }: { product: Product }) {
                      <aside className="col-span-1">
                         <div className="space-y-6 content-center h-full xl:w-4/5 mx-auto">
                            <span className="uppercase font-cabin text-tertiary font-semibold">
-                              {product.categoryName}
+                              {product?.categoryName}
                            </span>
                            <h2 className="xl:text-4xl font-bold leading-[130%] text-secondary">
-                              {product.designation}
+                              {product?.designation}
                            </h2>
-                           <p className="font-cabin xl:text-lg leading-[150%] font-light text-foreground">
-                              {product.description}
+                           <p className="font-cabin xl:text-lg leading-[150%] text-foreground/90">
+                              {product?.description}
                            </p>
-                           {product.preferences.length > 0 && (
+                           {product?.preferences.length > 0 && (
                               <div className="space-y-2">
                                  <h4 className="font-medium">
                                     <I18nLabel label="Preferences sur le plat" />
                                  </h4>
                                  <ul className="space-y-1">
-                                    {product.preferences.map(pref => (
+                                    {product?.preferences.map(pref => (
                                        <li key={pref} className="flex items-center gap-3">
                                           <div className="h-2 w-2 bg-foreground rounded-full"></div>
                                           <span className=" text-secondary text-sm font-poppins">
@@ -51,7 +51,7 @@ export function MenuPage({ product }: { product: Product }) {
                                  </ul>
                               </div>
                            )}
-                           <div className="flex pt-12 gap-x-3">
+                           <div className="flex gap-x-3">
                               <button className="bg-tertiary text-white px-5 py-3 rounded-full cursor-pointer">
                                  <I18nLabel label="action.order.now" />
                               </button>
