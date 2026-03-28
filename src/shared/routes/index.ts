@@ -1,7 +1,7 @@
 export const routePaths = {
    HOME: '/',
 
-   DAILY_MENU: '/daily-menu',
+   DAILY_MENU: '/menu',
 
    CHECKOUT: '/checkout',
    ORDER: '/order',

@@ -1,0 +1,1 @@
+export { BackgroundImageCarousel } from './BackgroundImageCarousel'

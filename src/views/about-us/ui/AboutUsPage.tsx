@@ -1,4 +1,4 @@
-import LandinSections from '@/views/share/LandingSections'
+import LandinSections from '@/views/home/ui/sections/LandingSections'
 import Image from 'next/image'
 import { Fade, Slide } from 'react-awesome-reveal'
 

@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { ProductDetailsModal } from './modal/ProductDetailsModal'
 import HeroSection from './sections/HeroSection'
 
-export function HomePage({ products }: { products: Array<Product> }) {
+export function HomePage() {
    const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
    const [isModalOpen, setIsModalOpen] = useState(false)
 

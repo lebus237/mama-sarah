@@ -2,49 +2,21 @@
 
 import { I18nLabel } from '@/shared/i18n'
 import { routePaths } from '@/shared/routes'
+import { BackgroundImageCarousel } from '@/shared/ui'
 import Link from 'next/link'
-import { useEffect, useMemo, useState } from 'react'
-import { AttentionSeeker, Fade, Slide } from 'react-awesome-reveal'
+import { Fade, Slide } from 'react-awesome-reveal'
 
 const HeroSection = () => {
-   const images = useMemo(
-      () => [
-         '/images/chicken.jpg',
-         '/images/spaghetti.jpg',
-         '/images/beer.jpg',
-         '/images/rice.jpg',
-      ],
-      [],
-   )
-   const [activeIndex, setActiveIndex] = useState(0)
-
-   useEffect(() => {
-      if (images.length <= 1) return
-
-      const reduceMotion =
-         typeof window !== 'undefined' &&
-         window.matchMedia?.('(prefers-reduced-motion: reduce)')?.matches
-      if (reduceMotion) return
-
-      const id = window.setInterval(() => {
-         setActiveIndex(i => (i + 1) % images.length)
-      }, 6000)
-
-      return () => window.clearInterval(id)
-   }, [images])
-
    return (
       <div className="w-full h-full relative overflow-hidden">
-         {images.map((src, idx) => (
-            <div
-               key={src}
-               aria-hidden="true"
-               className={`absolute inset-0 bg-cover bg-center bg-no-repeat transition-opacity duration-1000 ease-in-out ${
-                  idx === activeIndex ? 'opacity-100' : 'opacity-0'
-               }`}
-               style={{ backgroundImage: `url(${src})` }}
-            />
-         ))}
+         <BackgroundImageCarousel
+            images={[
+               '/images/chicken.jpg',
+               '/images/spaghetti.jpg',
+               '/images/beer.jpg',
+               '/images/rice.jpg',
+            ]}
+         />
          <div className="absolute z-20 top-0 left-0 right-0 bottom-0 bg-linear-to-b from-black/25 to-black/70 lg:py-24">
             <nav className="container text-white ">
                <ul className="flex justify-center items-center gap-12 xl:gap-24 xl:w-3/4 mx-auto p-2 rounded-lg bg-hite/20">

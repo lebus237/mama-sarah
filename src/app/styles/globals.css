@@ -1,5 +1,5 @@
 @import './container.css';
-@import './utils//_scroll_utils.css';
+@import './utils/_scroll_utils.css';
 @import 'tailwindcss';
 
 @variant has-dialog (&:has([role="dialog"]));
