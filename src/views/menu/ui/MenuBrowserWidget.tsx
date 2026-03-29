@@ -1,6 +1,6 @@
 'use client'
 
-import { getProducts, Product } from '@/entities/product'
+import { Product } from '@/entities/product'
 import { useNavigator } from '@/shared/lib/router'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
