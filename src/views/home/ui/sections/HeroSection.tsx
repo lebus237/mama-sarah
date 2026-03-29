@@ -10,12 +10,8 @@ const HeroSection = () => {
    return (
       <div className="w-full h-full relative overflow-hidden">
          <BackgroundImageCarousel
-            images={[
-               '/images/chicken.jpg',
-               '/images/spaghetti.jpg',
-               '/images/beer.jpg',
-               '/images/rice.jpg',
-            ]}
+            images={['/images/fried-pork.png', '/images/drinking-pals.png']}
+            speed={10000}
          />
          <div className="absolute z-20 top-0 left-0 right-0 bottom-0 bg-linear-to-b from-black/25 to-black/70 lg:py-24">
             <nav className="container text-white ">
@@ -46,7 +42,7 @@ const HeroSection = () => {
                <Fade triggerOnce delay={300} duration={500}>
                   <svg
                      xmlns="http://www.w3.org/2000/svg"
-                     width="1300"
+                     width="1575"
                      height="260"
                      viewBox="230 0 1300 260"
                      role="img"
@@ -217,19 +213,19 @@ const HeroSection = () => {
             </section>
             <Slide direction="up" duration={1000}>
                <div className="flex justify-center lg:gap-x-6 xl:w-1/2 mx-auto">
-                  <div className="h-40 w-2/5 bg-black rounded-xl content-center text-center">
+                  <div className="h-40 xl:w-[30%] 3xl:w-1/3 bg-black rounded-xl content-center text-center">
                      <Link
                         href={routePaths.DAILY_MENU}
-                        className="w-2/3 mx-auto text-white text-5xl uppercase font-bebas tracking-wide leading-[100%] block">
+                        className="w-2/3 mx-auto text-white  text-4xl 3xl:text-5xl uppercase font-bebas tracking-wide leading-[100%] block">
                         <p>Menu du</p>
                         <p>JOUR</p>
                      </Link>
                   </div>
-                  <div className="h-40 w-2/5 bg-black rounded-xl content-center text-center">
+                  <div className="h-40 xl:w-[30%] 3xl:w-1/3 bg-black rounded-xl content-center text-center">
                      <Link
                         href={routePaths.ORDER}
-                        className="mx-auto text-[rgba(255,188,0,1)] hover:text-white/80 transition-colors delay-0 duration-500 tracking-wide text-5xl  uppercase font-bebas leading-[100%] block">
-                        Commander
+                        className="mx-auto text-[rgba(255,188,0,1)] hover:text-white/80 transition-colors delay-0 duration-500 tracking-wide text-4xl 3xl:text-5xl  uppercase font-bebas leading-[100%] block">
+                        Passer Commander
                      </Link>
                   </div>
                </div>
