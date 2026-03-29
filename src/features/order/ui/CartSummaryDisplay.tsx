@@ -46,14 +46,14 @@ export const CartSummaryDisplay = ({
                            <p className="text-lg font-semibold line-clamp-2 font-plus-jakarta leading-[110%] text-secondary">
                               {_.upperFirst(item.product.designation.toLowerCase())}
                            </p>
-                           <p className="text-lg md:text-base">
-                              <span className="text-tertiary">x{item.quantity}</span>
-                              {(item.preferences ?? []).length > 0 && (
-                                 <span className="ml-1 text-gray-400">
-                                    ({item.preferences.join(', ')})
-                                 </span>
-                              )}
-                           </p>
+
+                           <div
+                              className="bg-tertiary w-10
+                            rounded-full flex justify-center items-center py-1 px-3">
+                              <p className="text-xl md:text-base ">
+                                 <span className="text-white">x{item.quantity}</span>
+                              </p>
+                           </div>
                         </div>
                         <div className="space-y-3">
                            <PriceDisplay
