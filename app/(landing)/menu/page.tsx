@@ -1,11 +1,18 @@
 import { MenuPage } from '@/views/menu'
 import { AppRouterProps } from '../../types'
-import { productBySlug } from '@/entities/product'
+import { Product, productBySlug, productCollection } from '@/entities/product'
 
 export default async function Page(routerProps: AppRouterProps) {
    const { element } = await routerProps.searchParams
+   let dish: Product | undefined
 
-   const dish = productBySlug(element as string)
+   if (!element) {
+      const list = productCollection()
 
-   return <MenuPage product={dish!} />
+      dish = productBySlug(list[0]?.slug!)
+   } else {
+      dish = productBySlug(element as string)
+   }
+
+   return <MenuPage product={dish} />
 }

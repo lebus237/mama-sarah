@@ -1,6 +1,6 @@
 'use client'
 
-import { getProducts } from '@/entities/product'
+import { getProducts, Product } from '@/entities/product'
 import { useNavigator } from '@/shared/lib/router'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import Image from 'next/image'
@@ -42,7 +42,7 @@ const SwiperNavigationControls = () => {
    )
 }
 
-export function MenuBrowserWidget() {
+export function MenuBrowserWidget({ items }: { items: Product[] }) {
    const navigatorService = useNavigator()
 
    return (
@@ -54,7 +54,7 @@ export function MenuBrowserWidget() {
             modules={[Mousewheel]}>
             <SwiperNavigationControls />
 
-            {getProducts().map(product => (
+            {items.map(product => (
                <SwiperSlide key={product.id}>
                   <figure
                      className="relative w-full xl:aspect-16/10 3xl:aspect-square cursor-pointer rounded-lg overflow-hidden shadow-lg border border-gray-200"

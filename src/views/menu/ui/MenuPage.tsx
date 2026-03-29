@@ -3,7 +3,7 @@
 import { BackgroundImageCarousel } from '@/shared/ui'
 import { MenuBrowserWidget } from './MenuBrowserWidget'
 import Image from 'next/image'
-import { Product } from '@/entities/product'
+import { Product, productCollection } from '@/entities/product'
 import { I18nLabel } from '@/shared/i18n'
 import _ from 'lodash'
 import { useState } from 'react'
@@ -11,7 +11,7 @@ import { ShareProductModal } from '@/features/order'
 import { Share2 } from 'lucide-react'
 
 const backgroundImages = ['/images/chicken.jpg', '/images/spaghetti.jpg']
-export function MenuPage({ product }: { product: Product }) {
+export function MenuPage({ product }: { product?: Product }) {
    const [isShareModalOpen, setIsShareModalOpen] = useState(false)
 
    const productUrl = `${typeof window !== 'undefined' ? window.location.origin : ''}/${product?.slug ?? product?.id}`
@@ -77,7 +77,7 @@ export function MenuPage({ product }: { product: Product }) {
                   </div>
                </div>
                <div className="xl:w-full mx-auto 3xl:px-6 xl:px-4">
-                  <MenuBrowserWidget />
+                  <MenuBrowserWidget items={productCollection()} />
                </div>
             </div>
          </div>
