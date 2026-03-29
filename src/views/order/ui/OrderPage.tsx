@@ -1,7 +1,7 @@
 'use client'
 
 import {
-   getProductsByCategory,
+   productsByCategoryCollection,
    Product,
    ProductCategory,
    productCategoryList,
@@ -140,7 +140,7 @@ export function OrderPage() {
                   'xl:col-span-2': cart.totalItems > 0,
                })}>
                {productCategoryList.map((category: ProductCategory, index: number) => {
-                  const productItems = getProductsByCategory(category.id)
+                  const productItems = productsByCategoryCollection(category.id)
                   return (
                      <Element key={category.id} name={category.id} className="relative">
                         {index !== 0 && (

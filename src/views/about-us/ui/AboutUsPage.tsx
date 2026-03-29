@@ -1,13 +1,12 @@
 import LandinSections from '@/views/home/ui/sections/LandingSections'
 import Image from 'next/image'
 import { Fade, Slide } from 'react-awesome-reveal'
+import { HeroSection } from './sections/HeroSection'
 
 export const AboutUsPage = () => {
    return (
       <div className="container overflow-hidden">
-         <center>
-            <h1 className="font-extrabold text-5xl my-22 font-bebas">About Us</h1>
-         </center>
+         <HeroSection title="A propos" />
          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <LandinSections
                name=" ⸺Best African food for your family"

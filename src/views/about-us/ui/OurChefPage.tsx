@@ -1,13 +1,12 @@
 import LandinSections from '@/views/home/ui/sections/LandingSections'
 import Image from 'next/image'
 import { Slide } from 'react-awesome-reveal'
+import { HeroSection } from './sections/HeroSection'
 
 export const OurChefPage = () => {
    return (
       <div className="container overflow-hidden">
-         <center>
-            <h1 className="font-extrabold text-5xl my-20 font-bebas">Our Chefs</h1>
-         </center>
+         <HeroSection title="Le Chef" />
          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <aside className="flex-1 bgber-300">
                <figure className="w-full">
