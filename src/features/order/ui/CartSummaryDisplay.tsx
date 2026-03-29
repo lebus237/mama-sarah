@@ -65,14 +65,8 @@ export const CartSummaryDisplay = ({
                               <div className='bg-tertiary w-10 
                             rounded-full flex justify-center items-center py-1 px-3'>
                            <p className="text-xl md:text-base ">
-                              <span className="text-white">x{item.quantity}</span>
-                              {(item.preferences ?? []).length > 0 && (
-                                 <span className="ml-1 text-gray-400">
-                                    ({item.preferences.join(', ')})
-                                 </span>
-                              )}
-                                 </p>
-                               
+                                    <span className="text-white">x{item.quantity}</span>
+                           </p>
                               </div>
                            </div>
                         </div>

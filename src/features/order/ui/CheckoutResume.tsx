@@ -5,7 +5,7 @@ import { routePaths } from "@/shared/routes"
 import { PriceDisplay } from "@/shared/ui/common"
 import Image from "next/image"
 import _ from "lodash"
-const CheckoutResume = ({
+const CheckOutResume = ({
    canCheckout,
    onClose,
 }: {
@@ -18,8 +18,7 @@ const CheckoutResume = ({
     <div>
        <section className="md:border border-gray-200 rounded-2xl bg-white  shadow-xl transition-shadow  h-full md:h-fit flex flex-col justify-start">
         <div className='md:p-4'>
-         <header className="space-y-3 border-b border-gray-200 border-dashed">
-            
+         <header className="space-y-3 border-b border-gray-200 border-dashed">            
             <div className="flex items-center justify-between mb-3">
                <h2 className="text-2xl text-secondary md:text-lg font-semibold">
                   <I18nLabel label="checkout.summary" />
@@ -87,4 +86,4 @@ const CheckoutResume = ({
   )
 }
 
-export default CheckoutResume
+export default CheckOutResume

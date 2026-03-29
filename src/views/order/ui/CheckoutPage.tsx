@@ -4,9 +4,9 @@ import { OrderCartRecordDisplay, useCart } from '@/features/order'
 import { I18nLabel } from '@/shared/i18n'
 import { cn } from '@/shared/lib/styles'
 import Image from 'next/image'
+import { CheckOutCardTotal } from "@/features/order/ui/checkOutCardTotal"
 import { useCheckout } from '../lib/useCheckout'
-import CheckoutResume from '@/features/order/ui/CheckoutResume'
-
+import CheckOutResume from '@/features/order/ui/CheckOutResume'
 export function CheckoutPage() {
    const {
       step,
@@ -40,8 +40,11 @@ export function CheckoutPage() {
 
    return (
       <div className="container pt-12 pb-20 md:pt-20 space-y-6">
-         <CheckoutResume/>
+         <div className='flex flex-col space-y-4   md:flex-row justify-between'>
+            
+            <CheckOutResume/>
          {/* <div className="xl:w-4/5 mx-auto">
+
             <h1 className="text-2xl font-bold font-cabin text-secondary">
                <I18nLabel label="text.checkoutOrder" />
             </h1>
@@ -300,11 +303,11 @@ export function CheckoutPage() {
                   )}
                </div>
             </aside>
-
-            <aside className="xl:col-span-1 hidden md:block">
-               <OrderCartRecordDisplay />
-            </aside>
          </div> */}
+          <aside className=" xl:col-span-1  block w-full md:w-1/3">
+               <CheckOutCardTotal/>
+         </aside>
+      </div>
       </div>
    )
 }

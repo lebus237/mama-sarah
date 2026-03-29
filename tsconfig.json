@@ -40,6 +40,6 @@
     "build/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "build/dev/types/**/*.ts"
-  ],
+, "src/features/order/ui/temp.tsx"  ],
   "exclude": ["node_modules", "build", "dist", "public"]
 }
