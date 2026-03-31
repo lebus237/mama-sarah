@@ -1,6 +1,9 @@
 {
   "action": {
-    "orderOnline": "Order online"
+    "order": {
+      "now": "Order now"
+    },
+    "orderOnline": "Online order"
   },
   "checkout": {
     "back": "Go back",

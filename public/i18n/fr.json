@@ -1,6 +1,9 @@
 {
   "action": {
-    "orderOnline": "Commander en ligne"
+    "order": {
+      "now": "Passer Commander "
+    },
+    "orderOnline": "Commande en ligne"
   },
   "checkout": {
     "back": "Precedent",
